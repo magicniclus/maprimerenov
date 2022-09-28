@@ -5,7 +5,7 @@ const Vignette = () => {
     return (
         <div className={styles.content}>
             <div className={styles.vignetteOneContainer}>
-                <h4 className={styles.vignetteTitle}>+644 000 dossier accordés</h4>
+                <h4 className={styles.vignetteTitle}>+644 000 dossiers accordés</h4>
             </div>
             <div className={styles.vignetteTwoContainer}>
                 <h4 className={styles.vignetteTitle}>70% d’économie</h4>
