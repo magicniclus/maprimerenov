@@ -53,7 +53,7 @@ const Formulaire = () => {
     }
 
     return (
-        <div className={styles.content}>
+        <div className={styles.content} id="form">
             <h2 className={styles.title}>Tester mon éligibilité</h2>
             <Image src='/frenchFlag.png' alt='drapeau francais' width="100px" height="5" objectFit='cover' className={styles.flag} />
             <form className={styles.formulaire} onSubmit={(e)=>handleSubmit(e)}>
