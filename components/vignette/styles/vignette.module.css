@@ -1,0 +1,35 @@
+.content{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+.vignetteOneContainer, .vignetteTwoContainer, .vignetteThreeContainer{
+    object-fit: cover;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.vignetteOneContainer{
+   background-image: url("../../../asset/image/vignetteOne.png"); 
+}
+.vignetteTwoContainer{
+    background-image: url("../../../asset/image/vignetteTwo.png"); 
+}
+.vignetteThreeContainer{
+    background-image: url("../../../asset/image/vignetteThree.png");    
+}
+.vignetteTitle{
+    font-size: 36px;
+    text-align: center;
+    max-width: 250px;
+}
