@@ -1,0 +1,22 @@
+.content{
+    width: 100vw;
+    background-image: url("../../../asset/image/headerbackgroundHeader.png");
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    font-size: 64px;
+    color: white;
+    max-width: 80%;
+    margin-top: 4rem;
+}
+.secondTitle{
+    font-size: 36px;
+    margin-top: 25px;
+}
+.title, .secondTitle{
+    margin-left: 150px;
+    font-weight: 300;
+}
