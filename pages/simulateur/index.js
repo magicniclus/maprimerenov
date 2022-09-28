@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from './styles/Simulateur.module.css'
+import Formulaire from '../../components/formulaire/Formulaire';
+import styles from './styles/Simulateur.module.css';
 
 const index = () => {
     return (
-        <div className='content'>
-            
+        <div className={styles.content}>
+            <Formulaire />
         </div>
     );
 };
