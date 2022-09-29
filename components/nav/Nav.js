@@ -4,7 +4,7 @@ import styles from "./styles/Nav.module.css";
 
 const Nav = () => {
     return (
-        <div className={styles.nav}>
+        <div className={styles.nav} id="nav">
             <div className={styles.content}>
                 <div className={styles.leftContainer}>
                     <h3 className={styles.title}>Eco-info.org</h3>
