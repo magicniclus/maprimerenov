@@ -9,7 +9,7 @@ import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
-    <LayoutClassicPage >
+    <LayoutClassicPage  >
         <main className={styles.main}>
           <HeaderForm />
           <div className={styles.midContent}>
