@@ -5,7 +5,7 @@ import TextContainer from '../../components/textContainer/TextContainer';
 import VideoContainer from '../../components/videoContainer/VideoContainer';
 import Vignette from '../../components/vignette/Vignette';
 import styles from './styles/Simulateur.module.css';
-import LayoutClassicPage from '../../components/classicPage/layoutClassicPage';
+import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
 
 const index = () => {
     return (
