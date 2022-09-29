@@ -1,0 +1,39 @@
+.footer{
+    width: 100vw;
+    background-color: #056CF2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+.liens, .certification{
+    font-size: 24px;
+    font-weight: 300;
+}
+.certification{
+    margin-top: 1rem;
+    font-weight: 200;
+}
+.leftContainer{
+    display: flex;
+    flex-direction: column;
+}
+.rightContainer{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    text-align: end;
+}
+.title{
+    margin-bottom: 1rem;
+}
+.imageContainer{
+    display: flex;
+    justify-content: space-between;
+}
