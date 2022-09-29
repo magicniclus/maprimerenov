@@ -12,12 +12,12 @@ const Footer = () => {
                     <Link href={"/contact"}><a className={styles.liens}>Nous contacter</a></Link>
                     <Link href={"/connection"}><a className={styles.liens}>Vous êtes un professionel ?</a></Link>
                     <Link href={"/connection"}><a className={styles.liens}>Mon espace</a></Link>
-                    <p className={styles.certification}>© Eco-info.org</p>
+                    <p className={styles.certification}>© MaPrimeRenov-info.org 2022</p>
                 </div>
                 <div className={styles.midContainer}>
                 </div>
                 <div className={styles.rightContainer}>
-                    <h3 className={styles.title}>Eco-info.org</h3>
+                    <h3 className={styles.title}>MaPrimeRenov-info.org</h3>
                     <div className={styles.imageContainer}>
                         <Image src="/maprimerenov.jpg" alt="maprimerenov" width="150px" height="50px" objectFit='cover'/>
                         <Image src="/cee.jpg" alt="cee" width="150px" height="50px" objectFit='cover'/>

@@ -7,7 +7,7 @@ const Nav = () => {
         <div className={styles.nav} id="nav">
             <div className={styles.content}>
                 <div style={{cursor:"pointer"}} className={styles.leftContainer}>
-                    <Link href={"/simulateur"}><h3 className={styles.title}>Eco-info.org</h3></Link>
+                    <Link href={"/simulateur"}><h3 className={styles.title}>MaPrimeRenov-info.org</h3></Link>
                 </div>
                 <div className={styles.rightContainer}>
                     <Link href="/connection"><a className={styles.pro}>Vous êtes un professionel ?</a></Link>
