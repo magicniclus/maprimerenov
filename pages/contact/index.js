@@ -8,7 +8,6 @@ const index = () => {
         <LayoutClassicPage meta="contact MaPrimeRenov" title="Contact">
             <main className={styles.main}>
                 <FormContact />
-                ok
             </main>
         </LayoutClassicPage>
     );
