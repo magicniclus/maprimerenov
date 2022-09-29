@@ -7,12 +7,12 @@ const index = () => {
         <LayoutClassicPage>
             <main className={styles.main}>
                 <div className={styles.container}>
-                    <h1>Se connecter</h1>
                     <form className={styles.formulaire}>
-                        <input type="email" placeholder='Email'/>
-                        <input type="passeword" placeholder='Mot de passe'/>
-                        <p>Mot de passe oublié ?</p>
-                        <button type='submit'>Se connecter</button>
+                    <h1 className={styles.title}>Se connecter</h1>
+                        <input className={styles.input} type="email" placeholder='Email'/>
+                        <input className={styles.input} type="passeword" placeholder='Mot de passe'/>
+                        <p className={styles.recuperation}>Mot de passe oublié ?</p>
+                        <button className={styles.button} type='submit'>Se connecter</button>
                     </form>
                 </div>
             </main>
