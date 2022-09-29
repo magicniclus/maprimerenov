@@ -7,6 +7,7 @@
     color: #314662;
     font-size: 64px;
     margin-top: 2rem;
+    font-weight: 300;
 }
 .formContainer{
     width: 50vw;
@@ -14,6 +15,13 @@
     flex-direction: column;
     margin-top: 2rem;
     position: relative;
+    /* background-color: #CEE4F2; */
+    max-width: 50vw;
+    padding: 1rem;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.2); 
+    box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
 }
 .imgContainer{
     position: absolute;
@@ -56,7 +64,8 @@
     height: 50px;
     border-radius: 20px;
     border: none;
-    background: #314662;
+    background: rgb(120,198,21);
+    background: linear-gradient(180deg, rgba(120,198,21,1) 0%, rgba(84,151,0,1) 99%);
     font-size: 26px;
     color: white;
     font-weight: bold;
