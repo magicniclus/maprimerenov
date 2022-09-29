@@ -4,7 +4,7 @@ import styles from "./styles/politique.module.css";
 
 const Politique = () => {
     return (
-        <LayoutClassicPage title="Politique de confidentialité">
+        <LayoutClassicPage title="Politique de confidentialité" meta="Politique de confidentialité">
             <main className={styles.main}>
             <h1 className={styles.h1}>Politique de confidentialité</h1>
                 <section className={styles.section}>
