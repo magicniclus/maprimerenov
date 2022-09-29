@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from "./styles/connection.module.css";
 import LayoutClassicPage from "../../layout/classicPage/LayoutClassicPage"
 
-const index = () => {
+const Index = () => {
+    const [valid, setValid] = useState(true)
+
+    const handleColorInput = (e)=>{
+        e.preventDefault()
+        setValid(false)
+    }
+
     return (
         <LayoutClassicPage>
             <main className={styles.main}>
                 <div className={styles.container}>
                     <form className={styles.formulaire}>
                     <h1 className={styles.title}>Se connecter</h1>
-                        <input className={styles.input} type="email" placeholder='Email'/>
-                        <input className={styles.input} type="passeword" placeholder='Mot de passe'/>
+                        <input style={!valid ? {border:"1px solid red"}: {border:"none"}} className={styles.input} type="email" placeholder='Email'/>
+                        <input style={!valid ? {border:"1px solid red"}: {border:"none"}} className={styles.input} type="passeword" placeholder='Mot de passe'/>
+                        <p style={!valid ? {display:"flex", color:"red"}: {display:"none"}}  className={styles.errorMessage}>Mot de passe ou Email pas valide</p>
                         <p className={styles.recuperation}>Mot de passe oublié ?</p>
-                        <button className={styles.button} type='submit'>Se connecter</button>
+                        <button onClick={(e)=>handleColorInput(e)} className={styles.button} type='submit'>Se connecter</button>
                     </form>
                 </div>
             </main>
@@ -20,4 +28,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Index;
