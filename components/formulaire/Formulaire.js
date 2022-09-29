@@ -43,9 +43,9 @@ const Formulaire = () => {
     const getData = async ()=>{
         await getDocs(databaseRef)
         .then((res) => {
-            console.log(res.docs.map(data =>{
-                return data.data()
-            }));
+            // console.log(res.docs.map(data =>{
+            //     return data.data()
+            // }));
         })
         .catch(err=>{
             console.error(err)
