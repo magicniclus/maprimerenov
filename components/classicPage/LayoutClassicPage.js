@@ -1,8 +1,8 @@
 import styles from "./styles/layoutClassicPage.module.css";
 import React from 'react';
-import Nav from "../../components/nav/Nav"
+import Nav from "../nav/Nav"
 import Head from 'next/head';
-import Footer from "../../components/footer/Footer";
+import Footer from "../footer/Footer";
 
 const LayoutClassicPage = (props) => {
     return (

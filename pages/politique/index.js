@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutClassicPage from '../../layout/classicPage/LayoutClassicPage';
+import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
 import styles from "./styles/politique.module.css";
 
 const Politique = () => {

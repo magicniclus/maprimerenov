@@ -4,7 +4,7 @@ import HeaderForm from '../components/headerForm/HeaderForm';
 import TextContainer from '../components/textContainer/TextContainer';
 import VideoContainer from '../components/videoContainer/VideoContainer';
 import Vignette from '../components/vignette/Vignette';
-import LayoutClassicPage from '../layout/classicPage/layoutClassicPage';
+import LayoutClassicPage from '../components/classicPage/layoutClassicPage';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {

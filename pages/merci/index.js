@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./styles/merci.module.css";
-import LayoutClassicPage from '../../layout/classicPage/layoutClassicPage';
+import LayoutClassicPage from '../../components/classicPage/layoutClassicPage';
 const merci = () => {
     return (
         <LayoutClassicPage title="Remerciement" meta="Remerciement poour la validation du formulaire de MaPrimeRenov.">

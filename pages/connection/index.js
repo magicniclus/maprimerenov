@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from "./styles/connection.module.css";
-import LayoutClassicPage from "../../layout/classicPage/LayoutClassicPage"
+import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage"
 
 const Index = () => {
     const [valid, setValid] = useState(true)

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./styles/contact.module.css";
-import LayoutClassicPage from '../../layout/classicPage/LayoutClassicPage';
+import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
 import FormContact from '../../components/formContact/FormContact';
 
 const index = () => {
