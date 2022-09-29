@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 .title{
     font-size: 64px;
@@ -23,4 +24,14 @@
     /* margin-left: 150px; */
     font-weight: 300;
     width: 90%;
+}
+.imgContainer{
+    transform: rotate(3deg);
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    right: 9vw;
+    top: 30%;
+    background-image: url("../../../asset/image/Test.png");
+    background-size: cover;
 }
