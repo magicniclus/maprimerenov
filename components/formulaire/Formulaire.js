@@ -28,7 +28,7 @@ const Formulaire = () => {
         .then(()=>{
             alert("data is ok")
             setTimeout(()=>{
-                Router.push('/thankYou')
+                Router.push('/merci')
             }, 500)
         })
         .catch((err)=>{
