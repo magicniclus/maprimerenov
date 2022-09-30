@@ -1,3 +1,4 @@
+
 .content{
     width: 100vw;
     background-image: url("../../../asset/image/headerbackgroundHeader.png");
@@ -11,13 +12,15 @@
     position: relative;
 }
 .title{
-    font-size: 64px;
+    --titleHeight: 64px;
+    font-size: var(--titleHeight);
     color: white;
     margin-top: 4rem;
     text-align: start;
 }
 .secondTitle{
-    font-size: 36px;
+    --secondTitleHeight: 36px;
+    font-size: var(--secondTitleHeight);
     margin-top: 25px;
 }
 .title, .secondTitle{
@@ -30,11 +33,47 @@
 .imgContainer{
     transform: rotate(3deg);
     position: absolute;
-    width: 250px;
-    height: 250px;
-    right: 9vw;
+    width: 15vw;
+    height: 15vw;
+    right: 9%;
     top: 30%;
     background-image: url("../../../asset/image/Test.png");
     background-size: cover;
-
+}
+@media screen and (max-width: 1440px) {
+    .imgContainer{
+        height: 10vw;
+        width: 10vw;
+    }   
+}
+@media screen and (max-width: 1320px) {
+    .imgContainer{
+        display: none;
+    }   
+}
+@media screen and (max-width: 1090px){
+    .title{
+        font-size: calc(var(--titleHeight) - 40%);
+    }
+    .secondTitle{
+        font-size: calc(var(--secondTitleHeight) - 40%);
+    }
+}
+@media screen and (max-width: 768px) {
+    .content{
+        background: none;
+        background-color: #056CF2;
+        height: 100%;
+    }
+    .secondTitle{
+        margin-bottom: 4rem;
+    }
+}
+@media screen and (max-width: 425px) {
+    .title{
+        font-size: 36px;
+    }
+    .secondTitle{
+        font-size: 24px;
+    }
 }
