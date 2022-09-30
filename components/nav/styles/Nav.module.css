@@ -19,13 +19,14 @@
     font-weight: 300;
 }
 .rightContainer{
-    width: 30%;
+    min-width: 30%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .pro{
     color: #056CF2;
+    margin-right: 1rem;
 }
 .espace{
     color: #056CF2;
