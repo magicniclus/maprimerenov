@@ -2,22 +2,25 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    height: 400px;
+    /* padding: 5rem 0; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 2rem;
+    min-height: 350px;
 }
 .vignetteOneContainer, .vignetteTwoContainer, .vignetteThreeContainer{
     object-fit: cover;
     background-position: center;
-    width: 350px;
-    height: 350px;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     background-size: 100%;
     background-repeat: no-repeat;
+    padding: 5rem;
+    height: 350px;
+
 }
 .vignetteOneContainer{
    background-image: url("../../../asset/image/vignetteOne.png"); 
@@ -29,7 +32,16 @@
     background-image: url("../../../asset/image/vignetteThree.png");    
 }
 .vignetteTitle{
-    font-size: 36px;
+    --vignetteTitleSize: 36px;
+    font-size: var(--vignetteTitleSize);
     text-align: center;
-    max-width: 250px;
+    max-width: 200px;
+}
+@media screen and (max-width: 1024px) {
+    .content{
+        display: none;
+    }
+    .vignetteTitle{
+        font-size: calc(var(--vignetteTitleSize) - 60%);
+    }
 }
