@@ -10,11 +10,9 @@ const Footer = () => {
                 <div className={styles.leftContainer}>
                     <Link href={"/politique"}><a className={styles.liens}>Politique de confidentialité</a></Link>
                     <Link href={"/contact"}><a className={styles.liens}>Nous contacter</a></Link>
-                    <Link href={"/connection"}><a className={styles.liens}>Vous êtes un professionel ?</a></Link>
+                    <Link href={"/connection-entreprise"}><a className={styles.liens}>Vous êtes un professionel ?</a></Link>
                     <Link href={"/connection"}><a className={styles.liens}>Mon espace</a></Link>
                     <p className={styles.certification}>© MaPrimeRenov-info.org 2022</p>
-                </div>
-                <div className={styles.midContainer}>
                 </div>
                 <div className={styles.rightContainer}>
                     <h3 className={styles.title}>MaPrimeRenov-info.org</h3>
