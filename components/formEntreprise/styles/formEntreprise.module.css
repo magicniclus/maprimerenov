@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .title{
     color: #314662;
@@ -74,4 +75,25 @@
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
+}
+@media screen and (max-width: 1150px) {
+    .imgContainer{
+        display: none;
+    }
+    .input{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .formContainer{
+        width: 90vw;
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .button{
+        width: 150px;
+        font-size: 18px;
+        height: 50px;
+    }
 }
