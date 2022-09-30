@@ -40,7 +40,6 @@
     display: flex;
     justify-content: space-between;
 }
-
 .leftContainer{
     width: 35%;
     height: 100%;
@@ -53,4 +52,48 @@
     justify-content: center;
     align-items: center;
     width: 70%;
+}
+@media screen and (max-width: 1320px) {
+    .content{
+        flex-direction: column;
+    }
+    .container{
+        height: 100%;
+        padding: 3rem 0;
+    }
+    .leftContainer{
+        width: 100%;
+    }
+    .rightContainer{
+        padding: 3rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    .list{
+        padding: 2rem 0;
+    }
+    .button{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .container{
+        margin-top: 5rem;
+    }
+}
+@media screen and (max-width: 630px) {
+    .videoContainer{
+        width: 100%;
+    }
+    .videoYoutube{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .button{
+        width: 150px;
+        font-size: 18px;
+        height: 50px;
+    }
 }
