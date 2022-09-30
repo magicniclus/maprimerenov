@@ -10,7 +10,7 @@ const LayoutClassicPage = (props) => {
             <Head>
                 <title>{props.title}</title>
                 <meta name="description" content={props.meta} />
-                <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+                <link rel="shortcut icon" href="Test.png" type="image/x-icon" />
             </Head>
             <header>
                 <Nav />
