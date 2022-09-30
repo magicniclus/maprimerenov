@@ -14,8 +14,9 @@
     align-items: center;
 }
 .title{
+    --titleSize: 36px;
     color: #056CF2;
-    font-size: 36px;
+    font-size: var(--titleSize);
     font-weight: 300;
 }
 .rightContainer{
@@ -36,8 +37,33 @@
     transition: transform;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
+    text-align: center;
 }
 
 .espace:hover{
     transform: scale(1.05);
+}
+@media screen and (max-width: 890px) {
+    .title{
+        font-size: calc(var(--titleSize) - 30%) ;
+    }
+}
+@media screen and (max-width: 768px) {
+    .nav{
+        height: 100%;
+    }
+    .content{
+        flex-direction: column;
+    }
+    .title{
+        font-size: var(--titleSize);
+        width: 100%;
+        text-align: start;
+        margin-top: 2rem;
+    }
+    .rightContainer{
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
 }
