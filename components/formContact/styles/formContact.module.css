@@ -74,7 +74,20 @@
     margin-right: auto;
     font-weight: 300;
 }
-
+@media screen and (max-width: 1150px) {
+    .imgContainer{
+        display: none;
+    }
+    .input{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .formContainer{
+        width: 90vw;
+        max-width: 100%;
+    }
+}
 @media screen and (max-width: 425px) {
     .button{
         width: 150px;
