@@ -10,7 +10,7 @@ const Nav = () => {
                     <Link href={"/simulateur"}><h3 className={styles.title}>MaPrimeRenov-info.org</h3></Link>
                 </div>
                 <div className={styles.rightContainer}>
-                    <Link href="/connection"><a className={styles.pro}>Vous êtes un professionel ?</a></Link>
+                    <Link href="/connection-entreprise"><a className={styles.pro}>Vous êtes un professionel ?</a></Link>
                     <Link href={"/connection"}><a className={styles.espace}>Mon espace</a></Link>
                 </div>
             </div>
