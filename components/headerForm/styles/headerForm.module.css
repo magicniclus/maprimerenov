@@ -2,6 +2,8 @@
     width: 100vw;
     background-image: url("../../../asset/image/headerbackgroundHeader.png");
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 500px;
     display: flex;
     flex-direction: column;
