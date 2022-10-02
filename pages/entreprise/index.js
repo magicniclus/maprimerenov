@@ -5,7 +5,7 @@ import FormEntreprise from '../../components/formEntreprise/FormEntreprise';
 
 const index = () => {
     return (
-        <LayoutClassicPage meta="Inscription pour les entreprises afin d'obtenir des lead avec MaPrimeRenov" >
+        <LayoutClassicPage title="Inscription Entreprise" meta="Inscription pour les entreprises afin d'obtenir des lead avec MaPrimeRenov" >
             <main className={styles.main}>
                 <FormEntreprise />
             </main>

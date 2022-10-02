@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./styles/merci.module.css";
 import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
 const merci = () => {
+    
     return (
         <LayoutClassicPage title="Remerciement" meta="Remerciement poour la validation du formulaire de MaPrimeRenov.">
             <main className={styles.main}>

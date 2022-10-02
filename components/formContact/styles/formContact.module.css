@@ -8,6 +8,7 @@
     font-size: 64px;
     margin-top: 2rem;
     font-weight: 300;
+    text-align: center;
 }
 .formContainer{
     width: 50vw;
@@ -28,7 +29,7 @@
     width: 250px;
     height: 250px;
     right: 5%;
-    top: 10%;
+    top: 25%;
     background-image: url("../../../asset/image/contact.png");
     background-size: cover;
 }

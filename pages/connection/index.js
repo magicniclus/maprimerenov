@@ -11,7 +11,7 @@ const Index = () => {
     }
 
     return (
-        <LayoutClassicPage>
+        <LayoutClassicPage title="Connection">
             <main className={styles.main}>
                 <div className={styles.container}>
                     <form className={styles.formulaire}>

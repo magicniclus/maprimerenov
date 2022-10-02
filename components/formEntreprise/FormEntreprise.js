@@ -33,8 +33,8 @@ const FormEntreprise = () => {
     
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Contact Entreprise</h1>
             <form onSubmit={(e)=>handleSubmit(e)} className={styles.formContainer}>
+                <h1 className={styles.title}>Contact Entreprise</h1>
                 <div className={styles.imgContainer}></div>
                 <label className={styles.nameContainer}>
                     Nom de votre entreprise

@@ -8,10 +8,10 @@ const Footer = () => {
         <div className={styles.footer}>
             <div className={styles.content}>
                 <div className={styles.leftContainer}>
-                    <Link href={"/politique"}><a className={styles.liens}>Politique de confidentialité</a></Link>
-                    <Link href={"/contact"}><a className={styles.liens}>Nous contacter</a></Link>
-                    <Link href={"/entreprise"}><a className={styles.liens}>Vous êtes un professionel ?</a></Link>
                     <Link href={"/connection"}><a className={styles.liens}>Mon espace</a></Link>
+                    <Link href={"/entreprise"}><a className={styles.liens}>Espace pro</a></Link>
+                    <Link href={"/contact"}><a className={styles.liens}>Nous contacter</a></Link>
+                    <Link href={"/politique"}><a className={styles.liens}>Politique de confidentialité</a></Link>
                     <p className={styles.certification}>© MaPrimeRenov-info.org 2022</p>
                 </div>
                 <div className={styles.rightContainer}>

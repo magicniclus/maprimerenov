@@ -32,8 +32,8 @@ const FormContact = () => {
     }
     return (
         <div className={styles.content}>
-            <h1 className={styles.title}>Contact</h1>
             <form onSubmit={(e)=>handleSubmit(e)} className={styles.formContainer}>
+                <h1 className={styles.title}>Contact</h1>
                 <div className={styles.imgContainer}></div>
                 <label className={styles.nameContainer}>
                     NOM, Prenom
