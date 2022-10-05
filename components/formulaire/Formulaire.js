@@ -23,7 +23,8 @@ const Formulaire = () => {
             name,
             phone,
             zipCode,
-            when
+            when, 
+            date: new Date()
         })
         .then(()=>{
             setTimeout(()=>{
