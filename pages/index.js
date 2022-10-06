@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Formulaire from '../components/formulaire/Formulaire';
 import HeaderForm from '../components/headerForm/HeaderForm';
 import TextContainer from '../components/textContainer/TextContainer';
