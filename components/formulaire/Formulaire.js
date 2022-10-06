@@ -35,10 +35,6 @@ const Formulaire = () => {
             console.error(err)
         })
     }
-    
-    // useEffect(()=>{
-    //     getData()
-    // }, [])
 
     return (
         <div className={styles.content} id="form">
