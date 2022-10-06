@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage";
 import styles from "./styles/admin.module.css";
 import Router from 'next/router';
@@ -12,13 +12,23 @@ const Admin = () => {
 
     const auth = getAuth();
 
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-          getData()
-        } else {
-            Router.push('/')
-        }
-      });
+    // onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //       getData()
+    //     } else {
+    //         Router.push('/')
+    //     }
+    //   });
+
+    useEffect(()=>{
+        if(auth.currentUser === null) Router.push("/simulateur")
+        else getData()
+    }, [])  
+
+    useEffect(()=>{
+        if(auth.currentUser === null) Router.push("/simulateur")
+        else getData()
+    }, [auth.currentUser])  
 
     const getData = async ()=>{
         await getDocs(q)
