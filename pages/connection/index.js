@@ -3,7 +3,7 @@ import styles from "./styles/connection.module.css";
 import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Router from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { switchConnect } from '../../redux/action';
 
 
