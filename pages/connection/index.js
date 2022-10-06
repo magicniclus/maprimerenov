@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import styles from "./styles/connection.module.css";
 import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { dataBase } from '../../utils/firebase.config';
 import Router from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { switchConnect } from '../../redux/action';
 
 
 const Index = () => {
+    const dispatch = useDispatch()
+
     const [valid, setValid] = useState(true)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -22,11 +25,10 @@ const Index = () => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed in 
             const user = userCredential.user;
             setValid(true)
+            dispatch(switchConnect(true))
             Router.push('/admin')
-
         })
         .catch((error) => {
             const errorCode = error.code;
