@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from "./styles/Formulaire.module.css";
 import Image from 'next/image';
 import { dataBase } from '../../utils/firebase.config';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 import Router from 'next/router';
 
 const Formulaire = () => {
@@ -36,21 +36,9 @@ const Formulaire = () => {
         })
     }
     
-    useEffect(()=>{
-        getData()
-    }, [])
-
-    const getData = async ()=>{
-        await getDocs(databaseRef)
-        .then((res) => {
-            // console.log(res.docs.map(data =>{
-            //     return data.data()
-            // }));
-        })
-        .catch(err=>{
-            console.error(err)
-        })
-    }
+    // useEffect(()=>{
+    //     getData()
+    // }, [])
 
     return (
         <div className={styles.content} id="form">
