@@ -32,7 +32,7 @@
     background-image: url("../../../asset/image/vignetteThree.png");    
 }
 .vignetteTitle{
-    --vignetteTitleSize: 36px;
+    --vignetteTitleSize: 28px;
     font-size: var(--vignetteTitleSize);
     text-align: center;
     max-width: 200px;
