@@ -1,10 +1,9 @@
 .midContent{
-    max-width: 90%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
 }
 @media screen and (max-width: 768px) {
     .midContent{
