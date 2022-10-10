@@ -83,3 +83,11 @@
         height: 50px;
     }
 }
+@media screen and (min-width: 1570px) {
+  .formulaire{
+    width: 45%;
+  }
+  .select, .input{
+    width: 800px;
+  }
+}
