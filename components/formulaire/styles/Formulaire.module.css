@@ -9,7 +9,7 @@
     box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.2);
 }
 .title{
-    font-size: 36px;
+    font-size: 28px;
     color: #314662;
     font-weight: bold;
     margin-left: auto;
@@ -48,13 +48,13 @@
 .button{
     margin-top: 2rem;
     margin-bottom: 2rem;
-    width: 250px;
+    width: 198px;
     height: 100px;
     border-radius: 20px;
     border: none;
     background: rgb(120,198,21);
     background: linear-gradient(180deg, rgba(120,198,21,1) 0%, rgba(84,151,0,1) 99%);
-    font-size: 26px;
+    font-size: 24px;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -78,9 +78,7 @@
 
 @media screen and (max-width: 425px) {
     .button{
-        width: 150px;
         font-size: 18px;
-        height: 50px;
     }
 }
 @media screen and (min-width: 1570px) {
