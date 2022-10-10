@@ -67,3 +67,8 @@
         margin-bottom: 2rem;
     }
 }
+@media screen and (min-width: 1570px) {
+    .content{
+      width: 1440px;
+    }
+  }
