@@ -3,12 +3,13 @@ import styles from "./styles/connection.module.css";
 import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Router from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { switchConnect } from '../../redux/action';
 
 
 const Index = () => {
     const dispatch = useDispatch()
+    const state = useSelector(state=>state)
 
     const [valid, setValid] = useState(true)
     const [email, setEmail] = useState("")
@@ -19,6 +20,14 @@ const Index = () => {
             setValid(true)
         }
     }, [email || password])
+
+    useEffect(()=>{
+        console.log(state);
+        if(state.areConnect){
+           Router.push("/admin") 
+           console.log("ok");
+        }
+    }, [])
 
     const handleColorInput = (e)=>{
         e.preventDefault()

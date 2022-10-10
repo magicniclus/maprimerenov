@@ -10,7 +10,7 @@ import { getAuth} from "firebase/auth";
 
 const index = () => {
 
-    console.log(getAuth().currentUser);
+    // console.log(getAuth().currentUser);
 
     return (
         <LayoutClassicPage title="Simulateur MaPrimeRenov" meta="Simulateur gratuit pour connaitre votre éligibilité aux aides de l'état MaPrimeRenov 2022.">
