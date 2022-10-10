@@ -29,3 +29,8 @@
         margin-top: 2rem;
     }
 }
+@media screen and (min-width: 1570px) {
+  .content{
+    width: 45%;
+  }
+}
