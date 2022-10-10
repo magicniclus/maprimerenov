@@ -12,14 +12,15 @@
     position: relative;
 }
 .title{
-    --titleHeight: 64px;
+    --titleHeight: 48px;
     font-size: var(--titleHeight);
     color: white;
     margin-top: 4rem;
     text-align: start;
+    max-width: 1000px;
 }
 .secondTitle{
-    --secondTitleHeight: 36px;
+    --secondTitleHeight: 28px;
     font-size: var(--secondTitleHeight);
     margin-top: 25px;
 }
