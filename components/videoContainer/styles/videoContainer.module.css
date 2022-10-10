@@ -97,3 +97,8 @@
         height: 50px;
     }
 }
+@media screen and (min-width: 1570px) {
+    .content{
+      width: 1440px;
+    }
+  }
