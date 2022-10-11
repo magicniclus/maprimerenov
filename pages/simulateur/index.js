@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Formulaire from '../../components/formulaire/Formulaire';
+import MultiForm from "../../components/multiForm/MultiForm";
 import HeaderForm from '../../components/headerForm/HeaderForm';
 import TextContainer from '../../components/textContainer/TextContainer';
 import VideoContainer from '../../components/videoContainer/VideoContainer';
@@ -14,7 +15,7 @@ const index = () => {
                 <HeaderForm />
                 <div className={styles.midContent}>
                     <TextContainer />
-                    <Formulaire />  
+                    <MultiForm />
                 </div>
                 <Vignette />
                 <VideoContainer />
