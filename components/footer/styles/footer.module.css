@@ -14,7 +14,9 @@
     padding: 2rem 0;
 }
 .liens, .certification{
-    font-size: 24px;
+    /* font-size: 24px; */
+    display: flex;
+    justify-content: start;
     font-weight: 200;
 }
 .certification{
@@ -34,7 +36,7 @@
 .title{
     margin-bottom: 1rem;
     font-weight: 300;
-    font-size: 32px;
+    font-size: 28px;
 }
 .imageContainer{
     display: flex;
