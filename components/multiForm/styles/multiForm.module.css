@@ -171,6 +171,7 @@
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    border-radius: 3px;
     margin-top: 1rem;
     width: 32%;
     min-width: 182px;
@@ -213,6 +214,7 @@
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    border-radius: 3px;
     margin-top: 1rem;
     width: 32%;
     min-width: 140px;
