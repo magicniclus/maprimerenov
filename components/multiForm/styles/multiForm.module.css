@@ -24,7 +24,8 @@
 }
 .progression{
     opacity: 0;
-    animation-name: aparition;
+    transform: translateY(-40px);
+    animation-name: apparition, topApparion;
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -139,7 +140,7 @@
 }
 .input, .select{
     opacity: 0;
-    animation-name: aparition;
+    animation-name: apparition;
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -167,7 +168,7 @@
 /* BigCard */
 .bigCard{
     opacity: 0;
-    animation-name: aparition;
+    animation-name: apparition;
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -210,7 +211,7 @@
 /* SmallCard */
 .smallCard{
     opacity: 0;
-    animation-name: aparition;
+    animation-name: apparition;
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -259,8 +260,16 @@
 }
 @media screen and (max-width: 653px) {
     .multiFormContainer{
+        margin-top: 3rem;
         height: 100%;
         max-height: none;
+        min-height: 100%;
+    }
+    .formulaire{
+        margin-top: 2rem;
+    }
+    .buttonContainer{
+        margin-top: 2rem;
     }
 }
 @media screen and (max-width: 768px) {
@@ -269,8 +278,14 @@
     }
 }
 
-@keyframes aparition {
+@keyframes apparition {
     100%{
         opacity: 1;
+    }
+}
+
+@keyframes topApparion {
+    100%{
+        transform: translateY(0px);
     }
 }
