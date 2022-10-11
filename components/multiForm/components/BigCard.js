@@ -15,7 +15,7 @@ const BigCard = (props) => {
                 <FontAwesomeIcon icon={faCheck} />
             </div>
             {
-                image !== undefined ? <Image src={`/${image}`} alt={altImage} /> : <Skeleton variant="rectangular" width={132} height={113} />
+                image !== undefined ? <Image src={`/${image}`} alt={altImage} /> : <Skeleton variant="rectangular" style={{width: "132px", minHeight: "113px"}}  />
             }
             <div className={styles.bigCardTitle}>{title}</div>
         </div>
