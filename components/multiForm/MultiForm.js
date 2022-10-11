@@ -3,16 +3,19 @@ import styles from "./styles/multiForm.module.css";
 import Image from 'next/image';
 import ContainerOne from './components/ContainerOne';
 import ContainerTwo from './components/ContainerTwo';
-import { Button } from '@mui/material';
+import { Button} from '@mui/material';
 import ContainerThree from './components/ContainerThree';
 import ContainerFour from './components/ContainerFour';
 import ContainerFive from './components/ContainerFive';
 import ContainerSixe from './components/ContainerSixe';
 import ContainerSeven from './components/ContainerSeven';
+import { style } from '@mui/system';
 
 
 const MultiForm = () => {
     const [value, setValue] = useState(1)
+
+    const progressValue = (value * 100)/7
 
     const handleContainer = ()=>{
         switch (value) {
@@ -62,10 +65,14 @@ const MultiForm = () => {
 
     return (
         <div className={styles.multiFormContainer} id="form">
-            <div className={styles.topContainer}>
-                <div className={styles.progression}>
-
-                </div>  
+            <div className={styles.topContainer}>   
+                <div className={styles.progression} style={value <= 1 ? {display: "none"} : {display: "block"} }>
+                    <div className={styles.avancement} style={value === 7 ? {borderRadius: "20px 20px 0 0", width: `${progressValue}%`}:{width: `${progressValue}%`}}>
+                        {
+                            value === 7 ? "Dernière étape !" : null
+                        }
+                    </div>
+                </div>
                 <h2 className={styles.title}>Tester mon éligibilité</h2>
                 <Image src='/frenchFlag.png' alt='drapeau francais' width="100px" height="5" objectFit='cover' className={styles.flag} />
             </div>
@@ -74,10 +81,13 @@ const MultiForm = () => {
                     handleContainer()
                 }
                 <div className={styles.buttonContainer}>
-                    <Button variant="contained"  color="success" onClick={(e)=>nextValue(e)}>
-                        Suivant
+                    <Button variant="contained" style={{backgroundColor: "#74c011"}} onClick={(e)=>nextValue(e)}>
+                        {
+                            value < 7 ? "Suivant" : "Envoyer"
+                        }
+                        
                     </Button>
-                    <Button variant="outlined"  onClick={(e)=>prevValue(e)}>
+                    <Button variant="outlined" disabled={value <= 1 ? true : false} onClick={(e)=>prevValue(e)}>
                         Retour
                     </Button>
                 </div>
