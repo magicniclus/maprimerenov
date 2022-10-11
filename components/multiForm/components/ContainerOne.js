@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styles from "../styles/multiForm.module.css";
 import BigCard from './BigCard';
-import SmallCard from './SmallCard';
 
 const ContainerOne = () => {
     const [cardSelected, setCardSelected] = useState(0)
