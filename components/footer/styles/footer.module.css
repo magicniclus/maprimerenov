@@ -18,6 +18,7 @@
     display: flex;
     justify-content: start;
     font-weight: 200;
+    text-align: start;
 }
 .certification{
     margin-top: 1rem;
