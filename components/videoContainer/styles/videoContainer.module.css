@@ -20,13 +20,9 @@
     list-style: none;
 }
 .button{
-    width: 250px;
-    height: 70px;
-    border-radius: 20px;
+    width: 210px;
     border: none;
     background: rgb(120,198,21);
-    background: linear-gradient(180deg, rgba(120,198,21,1) 0%, rgba(84,151,0,1) 99%);
-    font-size: 24px;
     color: white;
     font-weight: bold;
     cursor: pointer;
