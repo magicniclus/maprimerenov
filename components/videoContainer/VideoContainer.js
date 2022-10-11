@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./styles/videoContainer.module.css";
+import { Button} from '@mui/material';
 
 const VideoContainer = () => {
 
@@ -18,14 +19,19 @@ const VideoContainer = () => {
                         <li className={styles.listElement}>Livraison</li>
                         <li className={styles.listElement}>Encaissement de la prime par l’état</li>
                     </ul>
-                    <button onClick={e =>{
+                    <Button 
+                        variant="contained" 
+                        style={{backgroundColor: "#74c011"}} 
+                        onClick={e =>{
                         let form = document.getElementById('form')
                         e.preventDefault()
                         form && form.scrollIntoView({ behavior: "smooth", block: "start"})
                     }
                     } className={styles.button}
-                    >Tester mon éligibilité
-                    </button>
+                    >
+                        Tester mon éligibilité
+                    </Button>
+
                 </div>
                 <div className={styles.rightContainer}>
                     <div className={styles.videoContainer}>
