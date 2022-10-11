@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from "../styles/multiForm.module.css";
-import BigCard from './BigCard';
-import SmallCard from './SmallCard';
 
 const ContainerThree = () => {
     return (
@@ -11,7 +9,7 @@ const ContainerThree = () => {
                 <span className={styles.span}>En m2</span>
             </label>
             <div className={`${styles.cardContainerThree} ${styles.cardContainer}`}>
-                <input className={styles.input} type="number" required />
+                <input className={styles.input} type="number" required placeholder="100" />
             </div>
         </div>
     );
