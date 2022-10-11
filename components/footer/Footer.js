@@ -2,16 +2,17 @@ import React from 'react';
 import styles from "./styles/footer.module.css"
 import Link from 'next/link';
 import Image from 'next/image';
+import { Button} from '@mui/material';
 
 const Footer = () => {
     return (
         <div className={styles.footer}>
             <div className={styles.content}>
                 <div className={styles.leftContainer}>
-                    <Link href={"/connection"}><a className={styles.liens}>Mon espace</a></Link>
-                    <Link href={"/entreprise"}><a className={styles.liens}>Espace pro</a></Link>
-                    <Link href={"/contact"}><a className={styles.liens}>Nous contacter</a></Link>
-                    <Link href={"/politique"}><a className={styles.liens}>Politique de confidentialité</a></Link>
+                    <Link href={"/connection"}><Button style={{color: "white"}} className={styles.liens}>Mon espace</Button></Link>
+                    <Link href={"/entreprise"}><Button style={{color: "white"}} className={styles.liens}>Espace pro</Button></Link>
+                    <Link href={"/contact"}><Button style={{color: "white"}} className={styles.liens}>Nous contacter</Button></Link>
+                    <Link href={"/politique"}><Button style={{color: "white"}} className={styles.liens}>Politique de confidentialité</Button></Link>
                     <p className={styles.certification}>© MaPrimeRenov-info.org 2022</p>
                 </div>
                 <div className={styles.rightContainer}>
