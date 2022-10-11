@@ -3,7 +3,7 @@ import styles from "./styles/multiForm.module.css";
 import Image from 'next/image';
 import ContainerOne from './components/ContainerOne';
 import ContainerTwo from './components/ContainerTwo';
-import { Button, LinearProgress } from '@mui/material';
+import { Button } from '@mui/material';
 import ContainerThree from './components/ContainerThree';
 import ContainerFour from './components/ContainerFour';
 import ContainerFive from './components/ContainerFive';
@@ -26,23 +26,23 @@ const MultiForm = () => {
 
             case 3: 
                 return <ContainerThree />
-            break;
+                break;
 
             case 4: 
                 return <ContainerFour />
-            break;
+                break;
 
             case 5: 
                 return <ContainerFive />
-            break;
+                break;
 
             case 6: 
                 return <ContainerSixe />
-            break;
+                break;
 
             case 7: 
                 return <ContainerSeven />
-            break;
+                break;
 
             default:
                 return null
@@ -74,10 +74,10 @@ const MultiForm = () => {
                     handleContainer()
                 }
                 <div className={styles.buttonContainer}>
-                    <Button variant="contained" disabled color="success" onClick={(e)=>nextValue(e)}>
+                    <Button variant="contained"  color="success" onClick={(e)=>nextValue(e)}>
                         Suivant
                     </Button>
-                    <Button variant="outlined" disabled onClick={(e)=>prevValue(e)}>
+                    <Button variant="outlined"  onClick={(e)=>prevValue(e)}>
                         Retour
                     </Button>
                 </div>
