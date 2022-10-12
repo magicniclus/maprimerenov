@@ -14,13 +14,27 @@ import { style } from '@mui/system';
 
 const MultiForm = () => {
     const [value, setValue] = useState(1)
+    const [stepOne, setStepOne]= useState(false)
+    const [propsect, setProspect] = useState({
+        type: "",
+        years: "",
+        size: "",
+        heater: "",
+        works: "",
+        status: "",
+        name: "",
+        phone: "",
+        zipCode: "",
+        email: "",
+        typeOfIndivudual: ""
+    })
 
     const progressValue = (value * 100)/7
 
     const handleContainer = ()=>{
         switch (value) {
             case 1:
-                return <ContainerOne />
+                return <ContainerOne valid={(e)=>setStepOne(e)} value={e=>setProspect({...propsect, type:e})} />
                 break;
         
             case 2: 
