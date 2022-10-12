@@ -9,10 +9,21 @@ const BigCard = (props) => {
     const image = props.image;
     const altImage = props.altImage;
     const title = props.title;
+    const setLastClick = props.setLastClick;
+    const valid = props.valid
+
+    const handleChange = async (e)=>{
+        e.preventDefault()
+        if(setLastClick !== undefined)setLastClick(e)
+        
+    }
+
     return (
-        <div className={styles.bigCard}>
+        <div style={valid ? {border: "2px solid #314662"} : null} className={styles.bigCard} onClick={e=>handleChange(e)}>
             <div className={styles.bigCardCheck}>
-                <FontAwesomeIcon icon={faCheck} />
+                {
+                    valid ? <FontAwesomeIcon icon={faCheck} /> : null
+                } 
             </div>
             {
                 image !== undefined ? <Image src={`/${image}`} alt={altImage} /> : <Skeleton variant="rectangular" style={{width: "132px", minHeight: "113px"}}  />
@@ -22,4 +33,4 @@ const BigCard = (props) => {
     );
 };
 
-export default BigCard ;
+export default BigCard;
