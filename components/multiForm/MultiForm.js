@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./styles/multiForm.module.css";
 import Image from 'next/image';
 import ContainerOne from './components/ContainerOne';
@@ -9,12 +9,12 @@ import ContainerFour from './components/ContainerFour';
 import ContainerFive from './components/ContainerFive';
 import ContainerSixe from './components/ContainerSixe';
 import ContainerSeven from './components/ContainerSeven';
-import { style } from '@mui/system';
 
 
 const MultiForm = () => {
     const [value, setValue] = useState(1)
     const [stepOne, setStepOne]= useState(false)
+    const [disable, setDisable] = useState(true)
     const [propsect, setProspect] = useState({
         type: "",
         years: "",
@@ -26,7 +26,7 @@ const MultiForm = () => {
         phone: "",
         zipCode: "",
         email: "",
-        typeOfIndivudual: ""
+        contract: ""
     })
 
     const progressValue = (value * 100)/7
@@ -77,6 +77,18 @@ const MultiForm = () => {
         if(value <= 7 && value > 1) setValue(value-1)
     }
 
+    useEffect(()=>{
+        switch (value) {
+            case 1:
+                return propsect.type !== "" ? setDisable(false) : setDisable(true)
+                break;
+        
+            default:
+                break;
+        }
+    }, [propsect])
+
+
     return (
         <div className={styles.multiFormContainer} id="form">
             <div className={styles.topContainer}>   
@@ -95,7 +107,7 @@ const MultiForm = () => {
                     handleContainer()
                 }
                 <div className={styles.buttonContainer}>
-                    <Button variant="contained" style={{backgroundColor: "#74c011"}} onClick={(e)=>nextValue(e)}>
+                    <Button variant="contained" disabled={disable} style={{backgroundColor: "#74c011"}} onClick={(e)=>nextValue(e)}>
                         {
                             value < 7 ? "Suivant" : "Envoyer"
                         }
