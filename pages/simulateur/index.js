@@ -7,6 +7,7 @@ import VideoContainer from '../../components/videoContainer/VideoContainer';
 import Vignette from '../../components/vignette/Vignette';
 import styles from './styles/Simulateur.module.css';
 import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
+import CardsContainer from '../../components/cards/CardsContainer';
 
 const index = () => {
     return (
@@ -17,7 +18,8 @@ const index = () => {
                     <TextContainer />
                     <MultiForm />
                 </div>
-                <Vignette />
+                {/* <Vignette /> */}
+                <CardsContainer />
                 <VideoContainer />
             </main>
         </LayoutClassicPage>
