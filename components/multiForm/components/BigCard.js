@@ -20,7 +20,7 @@ const BigCard = (props) => {
 
     return (
         <div style={valid ? {border: "2px solid #314662"} : null} className={styles.bigCard} onClick={e=>handleChange(e)}>
-            <div className={styles.bigCardCheck}>
+            <div className={styles.bigCardCheck} style={valid ? {backgroundColor:"#74c011"}: null}>
                 {
                     valid ? <FontAwesomeIcon icon={faCheck} /> : null
                 } 
