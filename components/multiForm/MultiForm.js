@@ -67,7 +67,7 @@ const MultiForm = () => {
         <div className={styles.multiFormContainer} id="form">
             <div className={styles.topContainer}>   
                 <div className={styles.progression} style={value <= 1 ? {display: "none"} : {display: "block"} }>
-                    <div className={styles.avancement} style={value === 7 ? {borderRadius: "20px 20px 0 0", width: `${progressValue}%`}:{width: `${progressValue}%`}}>
+                    <div className={styles.avancement} style={value === 7 ? {borderRadius: "20px 0px 0 0", width: `${progressValue}%`}:{width: `${progressValue}%`}}>
                         {
                             value === 7 ? "Dernière étape !" : null
                         }
