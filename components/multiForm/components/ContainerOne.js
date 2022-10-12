@@ -1,17 +1,28 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "../styles/multiForm.module.css";
 import BigCard from './BigCard';
 
-const ContainerOne = () => {
-    const [cardSelected, setCardSelected] = useState(0)
+const ContainerOne = (props) => {
+    const valid = props.valid
+    const value = props.value
 
-    console.log(cardSelected);
+    const [lastClick, setLastClick] = useState("")
 
-    const handleCard = (e, value)=>{
-        e.preventDefault()
-        if(cardSelected !== value && cardSelected!==0) setCardSelected(0)
-        else setCardSelected(value)
-        console.log(cardSelected);
+    useEffect(()=>{
+        lastClick !== "" ? valid(true) : valid(false)
+        if(lastClick !== ""){
+            valid(true)
+        }
+        value(lastClick)
+    }, [lastClick])
+
+    const handleClick = (name) =>{
+        setLastClick(lastClick !== name ? name : "")
+    }
+
+    const handleValid = (name)=>{
+        if(name === lastClick) return true
+        return false
     }
 
     return (
@@ -20,8 +31,8 @@ const ContainerOne = () => {
                 Votre projet concerne :*
             </label>
             <div className={`${styles.cardContainerOne} ${styles.cardContainer}`}>
-                <BigCard title="Une Maison" onClick={(e)=>handleCard(e, 1)} />
-                <BigCard title="Un appartement" onClick={(e)=>handleCard(e, 2)} /> 
+                <BigCard setLastClick={(e)=>handleClick("house")} valid={handleValid("house")} title="Une Maison" />
+                <BigCard  setLastClick={(e)=>handleClick("appartment")} valid={handleValid("appartment")} title="Un appartement" /> 
             </div>
         </div>
     );
