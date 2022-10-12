@@ -28,7 +28,7 @@
     opacity: 0;
     transform: translateY(-40px);
     animation-name: apparition, topApparion;
-    animation-duration: 0.2s;
+    animation-duration: 0.4s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     width: 100%;
@@ -171,6 +171,7 @@
 
 /* BigCard */
 .bigCard{
+    cursor: pointer;
     opacity: 0;
     animation-name: apparition;
     animation-duration: 0.2s;
@@ -214,6 +215,7 @@
 
 /* SmallCard */
 .smallCard{
+    cursor: pointer;
     opacity: 0;
     animation-name: apparition;
     animation-duration: 0.2s;
