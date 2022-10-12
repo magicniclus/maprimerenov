@@ -32,7 +32,7 @@ const ContainerOne = (props) => {
             </label>
             <div className={`${styles.cardContainerOne} ${styles.cardContainer}`}>
                 <BigCard setLastClick={(e)=>handleClick("house")} valid={handleValid("house")} title="Une Maison" />
-                <BigCard  setLastClick={(e)=>handleClick("appartment")} valid={handleValid("appartment")} title="Un appartement" /> 
+                <BigCard setLastClick={(e)=>handleClick("appartment")} valid={handleValid("appartment")} title="Un appartement" /> 
             </div>
         </div>
     );
