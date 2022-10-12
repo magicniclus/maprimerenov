@@ -80,13 +80,17 @@ const MultiForm = () => {
     useEffect(()=>{
         switch (value) {
             case 1:
-                return propsect.type !== "" ? setDisable(false) : setDisable(true)
+                propsect.type !== "" ? setDisable(false) : setDisable(true)
                 break;
+
+            case 2:
+                setDisable(true)
+                break;    
         
-            default:
+            default: setDisable(true)
                 break;
         }
-    }, [propsect])
+    }, [propsect, value])
 
 
     return (
