@@ -7,14 +7,23 @@ import { Button} from '@mui/material';
 import ContainerThree from './components/ContainerThree';
 import ContainerFour from './components/ContainerFour';
 import ContainerFive from './components/ContainerFive';
-import ContainerSixe from './components/ContainerSixe';
+import ContainerSix from './components/ContainerSix';
 import ContainerSeven from './components/ContainerSeven';
 
 
 const MultiForm = () => {
     const [value, setValue] = useState(1)
+
     const [stepOne, setStepOne]= useState(false)
+    const [stepTwo, setStepTwo]= useState(false)
+    const [stepThree, setStepThree]= useState(false)
+    const [stepFour, setStepFour]= useState(false)
+    const [stepFive, setStepFive]= useState(false)
+    const [stepSix, setStepSix]= useState(false)
+    const [stepSeven, setStepSeven]= useState(false)
+
     const [disable, setDisable] = useState(true)
+
     const [propsect, setProspect] = useState({
         type: "",
         years: "",
@@ -38,27 +47,34 @@ const MultiForm = () => {
                 break;
         
             case 2: 
-                return <ContainerTwo />
+                return <ContainerTwo valid={(e)=>setStepTwo(e)} value={e=>setProspect({...propsect, years:e})} />
                 break;
 
             case 3: 
-                return <ContainerThree />
+                return <ContainerThree valid={(e)=>setStepThree(e)} value={e=>setProspect({...propsect, size:e})} />
                 break;
 
             case 4: 
-                return <ContainerFour />
+                return <ContainerFour valid={(e)=>setStepFour(e)} value={e=>setProspect({...propsect, heater:e})} />
                 break;
 
             case 5: 
-                return <ContainerFive />
+                return <ContainerFive valid={(e)=>setStepFive(e)} value={e=>setProspect({...propsect, works:e})} />
                 break;
 
             case 6: 
-                return <ContainerSixe />
+                return <ContainerSix valid={(e)=>setStepSix(e)} value={e=>setProspect({...propsect, status:e})}  />
                 break;
 
             case 7: 
-                return <ContainerSeven />
+                return <ContainerSeven
+                    valid={(e)=>setStepSeven(e)}
+                    valueName={e=>setProspect({...propsect, name:e})}
+                    valuePhone={e=>setProspect({...propsect, phone:e})}
+                    valueZipCode={e=>setProspect({...propsect, zipCode:e})}
+                    valueEmail={e=>setProspect({...propsect, email:e})}
+                    valueContract={e=>setProspect({...propsect, contract:e})}
+                />
                 break;
 
             default:
@@ -84,9 +100,31 @@ const MultiForm = () => {
                 break;
 
             case 2:
-                setDisable(true)
+                propsect.years !== "" ? setDisable(false) : setDisable(true)
                 break;    
-        
+
+            case 3:
+                propsect.size !== "" ? setDisable(false) : setDisable(true)
+                break; 
+
+            case 4:
+                propsect.heater !== "" ? setDisable(false) : setDisable(true)
+                break; 
+
+            case 5:
+                propsect.works !== "" ? setDisable(false) : setDisable(true)
+                break; 
+            
+
+            case 6:
+                propsect.status !== "" ? setDisable(false) : setDisable(true)
+                break; 
+                            
+
+            case 7:
+                propsect.name !== "" && propsect.phone !== "" && propsect.zipCode !== ""  && propsect.email !== "" && propsect.contract !== "" ? setDisable(false) : setDisable(true)
+                break; 
+                
             default: setDisable(true)
                 break;
         }
