@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "../styles/multiForm.module.css";
 
 const ContainerSeven = (props) => {
 
     const valid = props.valid
+
+    const reset = props.reset
 
     const valueName = props.valueName
     const valuePhone = props.valuePhone
@@ -14,20 +16,16 @@ const ContainerSeven = (props) => {
     const name = props.name
     const phone = props.phone
 
-    useEffect(()=>{
-        valueName("")
-        valuePhone("")
-        valueZipCode("")
-        valueEmail("")
-        valueContract("")
+    useEffect(() => {
+        reset()
     }, [])
 
-    useEffect(()=>{
-        if(valueName === "" || valuePhone === "" || valueZipCode === "" || valueEmail === "" || valueContract === "") valid(false)
+    useEffect(() => {
+        if (valueName === "" || valuePhone === "" || valueZipCode === "" || valueEmail === "" || valueContract === "") valid(false)
         valid(true)
     }, [valueName, valuePhone, valueZipCode, valueEmail, valueContract, valid])
 
-    const handleText = ((e, tar) =>{
+    const handleText = ((e, tar) => {
         e.preventDefault()
         tar(e.target.value)
     })
@@ -41,23 +39,23 @@ const ContainerSeven = (props) => {
             <div className={styles.inputContainer}>
                 <label className={styles.labelFinal}>
                     NOM, Prénom *
-                    <input onChange={e=>handleText(e, valueName)} className={styles.input} type="string" required/>
+                    <input onChange={e => handleText(e, valueName)} className={styles.input} type="string" required />
                 </label>
                 <label className={styles.labelFinal}>
                     Téléphone *
-                    <input onChange={e=>handleText(e, valuePhone)} className={styles.input} type="phone" required/>
+                    <input onChange={e => handleText(e, valuePhone)} className={styles.input} type="phone" required />
                 </label>
                 <label className={styles.labelFinal}>
                     Code postal *
-                    <input onChange={e=>handleText(e, valueZipCode)} className={styles.input} type="zip" required/>
+                    <input onChange={e => handleText(e, valueZipCode)} className={styles.input} type="zip" required />
                 </label>
                 <label className={styles.labelFinal}>
                     Email *
-                    <input onChange={e=>handleText(e, valueEmail)} className={styles.input} type="email" required/>
+                    <input onChange={e => handleText(e, valueEmail)} className={styles.input} type="email" required />
                 </label>
                 <label className={styles.labelFinal}>
                     Vous etes ?*
-                    <select onChange={e=>handleText(e, valueContract)} className={styles.select} name="type" id="type">
+                    <select onChange={e => handleText(e, valueContract)} className={styles.select} name="type" id="type">
                         <option disabled selected>Selectionnez une option</option>
                         <option value="proprietaire">Propriétaire occupant</option>
                         <option value="bailleur">Proprietaire bailleur</option>
