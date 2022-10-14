@@ -5,6 +5,7 @@ import SmallCard from './SmallCard';
 const ContainerFive = (props) => {
     const valid = props.valid
     const value = props.value
+    const reset = props.reset
     const setIsolation = props.setIsolation
     const setFenetre = props.setFenetre
     const setVmc = props.setVmc
@@ -13,7 +14,7 @@ const ContainerFive = (props) => {
     const setSolaireChauffeEau = props.setSolaireChauffeEau
 
     useEffect(() => {
-        valid(false)
+        reset()
     }, [])
 
     const handleClick = (name) => {
@@ -38,6 +39,12 @@ const ContainerFive = (props) => {
                 break;
 
             default:
+                setIsolation(false)
+                setFenetre(false)
+                setVmc(false)
+                setPompeAChaleurClim(false)
+                setChauffage(false)
+                setSolaireChauffeEau(false)
                 break;
         }
     }
