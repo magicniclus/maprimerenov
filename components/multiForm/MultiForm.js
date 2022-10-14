@@ -14,6 +14,8 @@ import ContainerSeven from './components/ContainerSeven';
 const MultiForm = () => {
     const [value, setValue] = useState(1)
 
+    const progressValue = (value * 100) / 7
+
     const [stepOne, setStepOne] = useState(false)
     const [stepTwo, setStepTwo] = useState(false)
     const [stepThree, setStepThree] = useState(false)
@@ -43,7 +45,15 @@ const MultiForm = () => {
         contract: ""
     })
 
-    const progressValue = (value * 100) / 7
+    const reset = (section) => {
+        if (section === "works") {
+            setProspect({ ...propsect, isolation: false, fenetre: false, vmc: false, pompeAChaleurClim: false, chauffage: false, solaireChauffeEau: false })
+        }
+        if (section === "personnalInformation") {
+            setProspect({ ...propsect, name: "", phone: "", zipCode: "", email: "", contract: "" })
+        }
+
+    }
 
     const handleContainer = () => {
         switch (value) {
@@ -68,6 +78,7 @@ const MultiForm = () => {
                 return <ContainerFive
                     valid={(e) => setStepFive(e)}
                     value={propsect}
+                    reset={() => reset("works")}
                     setIsolation={(e) => setProspect({ ...propsect, isolation: e })}
                     setFenetre={e => setProspect({ ...propsect, fenetre: e })}
                     setVmc={e => setProspect({ ...propsect, vmc: e })}
@@ -84,6 +95,7 @@ const MultiForm = () => {
             case 7:
                 return <ContainerSeven
                     valid={(e) => setStepSeven(e)}
+                    reset={() => reset("personnalInformation")}
                     valueName={e => setProspect({ ...propsect, name: e })}
                     valuePhone={e => setProspect({ ...propsect, phone: e })}
                     valueZipCode={e => setProspect({ ...propsect, zipCode: e })}
