@@ -11,6 +11,9 @@ const ContainerSeven = (props) => {
     const valueEmail = props.valueEmail
     const valueContract = props.valueContract
 
+    const name = props.name
+    const phone = props.phone
+
     useEffect(()=>{
         valueName("")
         valuePhone("")
