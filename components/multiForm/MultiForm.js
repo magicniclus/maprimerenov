@@ -27,7 +27,13 @@ const MultiForm = () => {
     const [disable, setDisable] = useState(true)
 
     const [propsect, setProspect] = useState({
+        name: "",
+        phone: "",
+        zipCode: "",
+        email: "",
+        contract: "",
         type: "",
+        status: "",
         years: "",
         size: "",
         heater: "",
@@ -37,12 +43,6 @@ const MultiForm = () => {
         pompeAChaleurClim: false,
         chauffage: false,
         solaireChauffeEau: false,
-        status: "",
-        name: "",
-        phone: "",
-        zipCode: "",
-        email: "",
-        contract: ""
     })
 
     const reset = (section) => {
@@ -74,7 +74,6 @@ const MultiForm = () => {
                 break;
 
             case 5:
-                // return <ContainerFive valid={(e)=>setStepFive(e)} value={e=>setProspect({...propsect, works:e})} />
                 return <ContainerFive
                     valid={(e) => setStepFive(e)}
                     value={propsect}
