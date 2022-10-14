@@ -12,17 +12,16 @@ const SmallCard = (props) => {
     const setLastClick = props.setLastClick;
     const valid = props.valid
 
-    const handleChange = async (e)=>{
+    const handleChange = async (e) => {
         e.preventDefault()
-        if(setLastClick !== undefined)setLastClick(e)
-        
+        if (setLastClick !== undefined) setLastClick(e)
     }
     return (
-        <div style={valid ? {border: "2px solid #314662"} : null} className={styles.smallCard} onClick={e=>handleChange(e)}>
+        <div style={valid ? { border: "2px solid #314662" } : null} className={styles.smallCard} onClick={e => handleChange(e)}>
             <div className={styles.smallCardCheck}>
                 {
                     valid ? <FontAwesomeIcon icon={faCheck} /> : null
-                } 
+                }
             </div>
             {
                 image !== undefined ? <Image src={`/${image}`} alt={altImage} /> : <Skeleton variant="rectangular" width={132} height={113} />
