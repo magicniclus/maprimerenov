@@ -34,7 +34,7 @@ const ContainerSeven = (props) => {
         }
     }, [name, phone, zipCode, email, contract])
 
-    const handleText = ((e, target, inner) => {
+    const handleText = ((e, target) => {
         e.preventDefault()
         target(e.target.value)
     })

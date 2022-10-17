@@ -19,11 +19,8 @@ const ContainerFive = (props) => {
     }, [])
 
     useEffect(() => {
-        if (value.isolation || value.fenetre || value.vmc || value.pompeAChaleurClim || value.chauffage || value.solaireChauffeEau) {
-            valid(true)
-        } else {
-            valid(false)
-        }
+        if (value.isolation || value.fenetre || value.vmc || value.pompeAChaleurClim || value.chauffage || value.solaireChauffeEau) valid(true)
+        else valid(false)
     }, [value.isolation, value.fenetre, value.vmc, value.pompeAChaleurClim, value.chauffage, value.solaireChauffeEau])
 
     const handleClick = (name) => {

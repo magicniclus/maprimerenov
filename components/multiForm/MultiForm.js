@@ -9,9 +9,14 @@ import ContainerFour from './components/ContainerFour';
 import ContainerFive from './components/ContainerFive';
 import ContainerSix from './components/ContainerSix';
 import ContainerSeven from './components/ContainerSeven';
+import { dataBase } from '../../utils/firebase.config';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
+import Router from 'next/router';
 
 
 const MultiForm = () => {
+    const databaseRef = collection(dataBase, 'primeRenovProspect');
+
     const [value, setValue] = useState(1)
 
     const progressValue = (value * 100) / 7
@@ -23,6 +28,7 @@ const MultiForm = () => {
     const [stepFive, setStepFive] = useState(false)
     const [stepSix, setStepSix] = useState(false)
     const [stepSeven, setStepSeven] = useState(false)
+
 
     const [allStepValid, setAllStepValid] = useState(false)
 
@@ -45,6 +51,7 @@ const MultiForm = () => {
         pompeAChaleurClim: false,
         chauffage: false,
         solaireChauffeEau: false,
+        date: new Date()
     })
 
     const reset = (section) => {
@@ -95,10 +102,7 @@ const MultiForm = () => {
 
             case 7:
                 return <ContainerSeven
-                    valid={(e) => {
-                        setStepSeven(e)
-                        console.log(stepSeven);
-                    }}
+                    valid={(e) => setStepSeven(e)}
                     getValid={stepSeven}
                     reset={() => reset("personnalInformation")}
                     value={propsect}
@@ -118,9 +122,20 @@ const MultiForm = () => {
 
     const nextValue = (e) => {
         e.preventDefault()
-        console.log(stepFive);
         if (value === 1 || value < 7) setValue(value + 1)
-        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven) console.log("ok");
+        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven) {
+            addDoc(databaseRef, {
+                propsect
+            })
+                .then(() => {
+                    setTimeout(() => {
+                        Router.push('/merci')
+                    }, 500)
+                })
+                .catch((err) => {
+                    console.error(err)
+                })
+        }
     }
 
     const prevValue = (e) => {
