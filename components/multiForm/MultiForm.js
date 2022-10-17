@@ -10,12 +10,14 @@ import ContainerFive from './components/ContainerFive';
 import ContainerSix from './components/ContainerSix';
 import ContainerSeven from './components/ContainerSeven';
 import { dataBase } from '../../utils/firebase.config';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 import Router from 'next/router';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const MultiForm = () => {
     const databaseRef = collection(dataBase, 'primeRenovProspect');
+    const [loader, setLoader] = useState(false);
 
     const [value, setValue] = useState(1)
 
@@ -124,16 +126,17 @@ const MultiForm = () => {
         e.preventDefault()
         if (value === 1 || value < 7) setValue(value + 1)
         if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven) {
+            setLoader(true)
             addDoc(databaseRef, {
                 propsect
             })
-                .then(() => {
-                    setTimeout(() => {
-                        Router.push('/merci')
-                    }, 500)
+                .then(async () => {
+                    await Router.push('/merci')
+                    await setLoader(false)
                 })
                 .catch((err) => {
                     console.error(err)
+                    setLoader(false)
                 })
         }
     }
@@ -187,6 +190,13 @@ const MultiForm = () => {
 
     return (
         <div className={styles.multiFormContainer} id="form">
+            {
+                loader ?
+                    <div className={styles.loader}>
+                        <CircularProgress />
+                    </div> : null
+            }
+
             <div className={styles.topContainer}>
                 <div className={styles.progression} style={value <= 1 ? { display: "none" } : { display: "block" }}>
                     <div className={styles.avancement} style={value === 7 ? { borderRadius: "20px 0px 0 0", width: `${progressValue}%` } : { width: `${progressValue}%` }}>
