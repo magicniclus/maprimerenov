@@ -12,21 +12,21 @@ const BigCard = (props) => {
     const setLastClick = props.setLastClick;
     const valid = props.valid
 
-    const handleChange = async (e)=>{
+    const handleChange = async (e) => {
         e.preventDefault()
-        if(setLastClick !== undefined)setLastClick(e)
-        
+        if (setLastClick !== undefined) setLastClick(e)
+
     }
 
     return (
-        <div style={valid ? {border: "2px solid #314662"} : null} className={styles.bigCard} onClick={e=>handleChange(e)}>
-            <div className={styles.bigCardCheck} style={valid ? {backgroundColor:"#74c011"}: null}>
+        <div style={valid ? { border: "2px solid #314662" } : null} className={styles.bigCard} onClick={e => handleChange(e)}>
+            <div className={styles.bigCardCheck} style={valid ? { backgroundColor: "#74c011" } : null}>
                 {
                     valid ? <FontAwesomeIcon icon={faCheck} /> : null
-                } 
+                }
             </div>
             {
-                image !== undefined ? <Image src={`/${image}`} alt={altImage} /> : <Skeleton variant="rectangular" style={{width: "132px", minHeight: "113px"}}  />
+                image !== undefined ? <Image src={`/${image}`} width="100px" height="100px" alt={altImage} /> : <Skeleton variant="rectangular" style={{ width: "132px", minHeight: "113px" }} />
             }
             <div className={styles.bigCardTitle}>{title}</div>
         </div>
