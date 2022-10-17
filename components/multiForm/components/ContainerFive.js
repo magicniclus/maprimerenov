@@ -62,12 +62,12 @@ const ContainerFive = (props) => {
                 <span className={styles.span}>Plusieurs choix possible</span>
             </label>
             <div className={`${styles.cardContainerFive} ${styles.cardContainer}`}>
-                <SmallCard setLastClick={() => handleClick("isolation")} valid={value.isolation} title="Isolation" />
-                <SmallCard setLastClick={() => handleClick("fenetre")} valid={value.fenetre} title="Fenetre/Porte-fenetre" />
-                <SmallCard setLastClick={() => handleClick("vmc")} valid={value.vmc} title="VMC double flux" />
-                <SmallCard setLastClick={() => handleClick("pompeAChaleurClim")} valid={value.pompeAChaleurClim} title="Pompe à chaleur/climatisation" />
-                <SmallCard setLastClick={() => handleClick("chauffage")} valid={value.chauffage} title="Chauffage" />
-                <SmallCard setLastClick={() => handleClick("solaireChauffeEau")} valid={value.solaireChauffeEau} title="Solaire/chauffe eau" />
+                <SmallCard setLastClick={() => handleClick("isolation")} valid={value.isolation} title="Isolation" image="isolation.png" />
+                <SmallCard setLastClick={() => handleClick("fenetre")} valid={value.fenetre} title="Fenetre/Porte-fenetre" image="menuiserie.png" />
+                <SmallCard setLastClick={() => handleClick("vmc")} valid={value.vmc} title="VMC double flux" image="vmc.png" />
+                <SmallCard setLastClick={() => handleClick("pompeAChaleurClim")} valid={value.pompeAChaleurClim} title="Pompe à chaleur/climatisation" image="pompe.png" />
+                <SmallCard setLastClick={() => handleClick("chauffage")} valid={value.chauffage} title="Chauffage" image="chauffage.png" />
+                <SmallCard setLastClick={() => handleClick("solaireChauffeEau")} valid={value.solaireChauffeEau} title="Solaire/chauffe eau" image="solaire.png" />
             </div>
         </div>
     );
