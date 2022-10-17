@@ -171,6 +171,11 @@
     margin-top: 1rem; 
     padding-right: 1rem;
 }
+@media screen and (max-width: 450px) {
+    .input, .select {
+            min-width: 100%;
+        }
+}
 .select{
     padding: 0;
     color: #314662;
