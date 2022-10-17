@@ -18,7 +18,7 @@ const SmallCard = (props) => {
     }
     return (
         <div style={valid ? { border: "2px solid #314662" } : null} className={styles.smallCard} onClick={e => handleChange(e)}>
-            <div className={styles.smallCardCheck}>
+            <div className={styles.smallCardCheck} style={valid ? { backgroundColor: "#74c011" } : null}>
                 {
                     valid ? <FontAwesomeIcon icon={faCheck} /> : null
                 }
