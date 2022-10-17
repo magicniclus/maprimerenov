@@ -32,9 +32,9 @@ const ContainerTwo = (props) => {
                 <span className={styles.span}>Cela nous permet de determiner votre éligibilité aux différentes aides</span>
             </label>
             <div className={`${styles.cardContainerTwo} ${styles.cardContainer}`}>
-                <BigCard setLastClick={(e) => handleClick("- de 2 ans")} valid={handleValid("- de 2 ans")} title="Moins de deux ans" />
-                <BigCard setLastClick={(e) => handleClick("entre 2 et 10 ans")} valid={handleValid("entre 2 et 10 ans")} title="Entre 2 et 10 ans" />
-                <BigCard setLastClick={(e) => handleClick("+ de 10 ans")} valid={handleValid("+ de 10 ans")} title="Plus de 10 ans" />
+                <BigCard setLastClick={(e) => handleClick("- de 2 ans")} valid={handleValid("- de 2 ans")} title="Moins de deux ans" image="calendrier.png" />
+                <BigCard setLastClick={(e) => handleClick("entre 2 et 10 ans")} valid={handleValid("entre 2 et 10 ans")} title="Entre 2 et 10 ans" image="calendrier.png" />
+                <BigCard setLastClick={(e) => handleClick("+ de 10 ans")} valid={handleValid("+ de 10 ans")} title="Plus de 10 ans" image="calendrier.png" />
             </div>
         </div>
     );
