@@ -24,6 +24,8 @@ const MultiForm = () => {
     const [stepSix, setStepSix] = useState(false)
     const [stepSeven, setStepSeven] = useState(false)
 
+    const [allStepValid, setAllStepValid] = useState(false)
+
     const [disable, setDisable] = useState(true)
 
     const [propsect, setProspect] = useState({
@@ -93,8 +95,13 @@ const MultiForm = () => {
 
             case 7:
                 return <ContainerSeven
-                    valid={(e) => setStepSeven(e)}
+                    valid={(e) => {
+                        setStepSeven(e)
+                        console.log(stepSeven);
+                    }}
+                    getValid={stepSeven}
                     reset={() => reset("personnalInformation")}
+                    value={propsect}
                     valueName={e => setProspect({ ...propsect, name: e })}
                     valuePhone={e => setProspect({ ...propsect, phone: e })}
                     valueZipCode={e => setProspect({ ...propsect, zipCode: e })}
@@ -111,7 +118,9 @@ const MultiForm = () => {
 
     const nextValue = (e) => {
         e.preventDefault()
+        console.log(stepFive);
         if (value === 1 || value < 7) setValue(value + 1)
+        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven) console.log("ok");
     }
 
     const prevValue = (e) => {

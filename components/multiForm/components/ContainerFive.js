@@ -1,3 +1,4 @@
+import { validateConfig } from 'next/dist/server/config-shared';
 import React, { useEffect, useState } from 'react';
 import styles from "../styles/multiForm.module.css";
 import SmallCard from './SmallCard';
@@ -16,6 +17,14 @@ const ContainerFive = (props) => {
     useEffect(() => {
         reset()
     }, [])
+
+    useEffect(() => {
+        if (value.isolation || value.fenetre || value.vmc || value.pompeAChaleurClim || value.chauffage || value.solaireChauffeEau) {
+            valid(true)
+        } else {
+            valid(false)
+        }
+    }, [value.isolation, value.fenetre, value.vmc, value.pompeAChaleurClim, value.chauffage, value.solaireChauffeEau])
 
     const handleClick = (name) => {
         switch (name) {
