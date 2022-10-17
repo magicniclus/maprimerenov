@@ -24,7 +24,7 @@ const SmallCard = (props) => {
                 }
             </div>
             {
-                image !== undefined ? <Image src={`/${image}`} alt={altImage} /> : <Skeleton variant="rectangular" width={132} height={113} />
+                image !== undefined ? <Image src={`/${image}`} width="50px" height="50px" alt={altImage} objectFit="cover" /> : <Skeleton variant="rectangular" width={132} height={113} />
             }
             <div className={styles.smallCardTitle}>{title}</div>
         </div>
