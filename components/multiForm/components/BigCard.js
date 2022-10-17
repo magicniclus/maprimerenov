@@ -26,7 +26,7 @@ const BigCard = (props) => {
                 }
             </div>
             {
-                image !== undefined ? <Image src={`/${image}`} width="100px" height="100px" alt={altImage} /> : <Skeleton variant="rectangular" style={{ width: "132px", minHeight: "113px" }} />
+                image !== undefined ? <Image priority src={`/${image}`} width="100px" height="100px" alt={altImage} /> : <Skeleton variant="rectangular" style={{ width: "132px", minHeight: "113px" }} />
             }
             <div className={styles.bigCardTitle}>{title}</div>
         </div>
