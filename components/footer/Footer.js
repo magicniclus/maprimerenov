@@ -9,7 +9,7 @@ const Footer = () => {
         <div className={styles.footer}>
             <div className={styles.content}>
                 <div className={styles.leftContainer}>
-                    <Link href={"/connection"}><Button style={{ color: "white" }} className={styles.liens}>Mon espace</Button></Link>
+                    <Link href={"/connection"} className={styles.liens}><Button style={{ color: "white" }} className={styles.liens}>Mon espace</Button></Link>
                     <Link href={"/entreprise"}><Button style={{ color: "white" }} className={styles.liens}>Espace pro</Button></Link>
                     <Link href={"/contact"}><Button style={{ color: "white" }} className={styles.liens}>Nous contacter</Button></Link>
                     <Link href={"/politique"}><Button style={{ color: "white" }} className={styles.liens}>Politique de confidentialité</Button></Link>
