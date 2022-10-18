@@ -128,7 +128,24 @@ const MultiForm = () => {
         if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven) {
             setLoader(true)
             addDoc(databaseRef, {
-                propsect
+                name: propsect.name,
+                phone: propsect.phone,
+                zipCode: propsect.zipCode,
+                email: propsect.email,
+                contract: propsect.contract,
+                type: propsect.type,
+                status: propsect.status,
+                years: propsect.years,
+                size: propsect.size,
+                heater: propsect.heater,
+                isolation: propsect.isolation,
+                fenetre: propsect.fenetre,
+                vmc: propsect.vmc,
+                pompeAChaleurClim: propsect.pompeAChaleurClim,
+                chauffage: propsect.chauffage,
+                solaireChauffeEau: propsect.solaireChauffeEau,
+                date: propsect.date
+
             })
                 .then(async () => {
                     await Router.push('/merci')
