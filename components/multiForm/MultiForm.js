@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ContainerOne from './components/ContainerOne';
 import ContainerTwo from './components/ContainerTwo';
 import { Button } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import ContainerThree from './components/ContainerThree';
 import ContainerFour from './components/ContainerFour';
 import ContainerFive from './components/ContainerFive';
@@ -12,7 +13,6 @@ import ContainerSeven from './components/ContainerSeven';
 import { dataBase } from '../../utils/firebase.config';
 import { collection, addDoc } from 'firebase/firestore';
 import Router from 'next/router';
-import CircularProgress from '@mui/material/CircularProgress';
 
 
 const MultiForm = () => {
@@ -53,7 +53,12 @@ const MultiForm = () => {
         pompeAChaleurClim: false,
         chauffage: false,
         solaireChauffeEau: false,
-        date: new Date()
+        date: new Date(),
+        attribution: "",
+        call: false,
+        callNumer: 0,
+        click: false,
+        send: false
     })
 
     const reset = (section) => {
