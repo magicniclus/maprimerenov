@@ -59,7 +59,9 @@ const MultiForm = () => {
         callNumer: 0,
         click: false,
         send: false,
-        comment: ""
+        comment: "",
+        sign: false,
+        signPrestation: ""
     })
 
     const reset = (section) => {
