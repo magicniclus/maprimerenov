@@ -11,7 +11,7 @@ import ContainerFive from './components/ContainerFive';
 import ContainerSix from './components/ContainerSix';
 import ContainerSeven from './components/ContainerSeven';
 import { dataBase } from '../../utils/firebase.config';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Router from 'next/router';
 
 
@@ -54,6 +54,7 @@ const MultiForm = () => {
         chauffage: false,
         solaireChauffeEau: false,
         date: new Date(),
+        createAt: serverTimestamp(),
         attribution: "",
         call: false,
         callNumer: 0,
@@ -152,8 +153,16 @@ const MultiForm = () => {
                 pompeAChaleurClim: propsect.pompeAChaleurClim,
                 chauffage: propsect.chauffage,
                 solaireChauffeEau: propsect.solaireChauffeEau,
-                date: propsect.date
-
+                date: propsect.date,
+                createAt: propsect.createAt,
+                attribution: propsect.attribution,
+                call: propsect.call,
+                callNumer: propsect.callNumer,
+                click: propsect.click,
+                send: propsect.send,
+                comment: propsect.comment,
+                sign: propsect.sign,
+                signPrestation: propsect.signPrestation
             })
                 .then(async () => {
                     await Router.push('/merci')
