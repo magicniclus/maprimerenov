@@ -11,6 +11,8 @@ import Router from 'next/router';
 import Tape from '../components/tape/Tape';
 import TransitionBaniere from '../components/transitionBanière/TransitionBaniere';
 import TextBaniere from '../components/textBaniere/TextBaniere';
+import Image from 'next/image';
+import { style } from '@mui/system';
 
 export default function Home() {
 
@@ -28,6 +30,8 @@ export default function Home() {
           <Button variant="contained" onClick={(e) => handleChangePage(e)} style={{ backgroundColor: "#74c011", minWidth: "250px", maxWidth: "250px", marginTop: "5rem" }}>
             Tester  mon éligibilité
           </Button>
+          <div className={styles.imageContainer}>
+          </div>
         </div>
         <div className={styles.benefice}>
           <div className={styles.benefice_globalContainer}>
