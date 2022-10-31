@@ -30,8 +30,6 @@ export default function Home() {
           <Button variant="contained" onClick={(e) => handleChangePage(e)} style={{ backgroundColor: "#74c011", minWidth: "250px", maxWidth: "250px", marginTop: "5rem" }}>
             Tester  mon éligibilité
           </Button>
-          <div className={styles.imageContainer}>
-          </div>
         </div>
         <div className={styles.benefice}>
           <div className={styles.benefice_globalContainer}>

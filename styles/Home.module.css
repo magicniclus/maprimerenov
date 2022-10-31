@@ -5,9 +5,11 @@
   margin-right: auto;
   /* background: rgb(5, 108, 242);
   background: linear-gradient(180deg, rgba(5, 108, 242, 1) 0%, rgba(8, 81, 242, 1) 100%); */
-  background-image: url(../asset/image/top-background.png);
+  /* background-image: url(../asset/image/top-background.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  background: rgb(49, 70, 98);
+    background: linear-gradient(180deg, rgba(49, 70, 98, 1) 0%, rgba(8, 81, 242, 1) 47%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
