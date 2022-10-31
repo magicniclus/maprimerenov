@@ -15,9 +15,16 @@
 }
 .title{
     --titleSize: 28px;
-    color: #056CF2;
+    /* color: #056CF2; */
+    font-weight: bold;
     font-size: var(--titleSize);
     font-weight: 300;
+    background-image: linear-gradient( #314662, #0769AF);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 .rightContainer{
     min-width: 30%;
@@ -63,3 +70,9 @@
       width: 1440px;
     }
   }
+  @media screen and (min-width: 768px) {
+    .content {
+        width: 100%;
+        padding: 1rem 1rem 1rem 1rem;
+    }
+}
