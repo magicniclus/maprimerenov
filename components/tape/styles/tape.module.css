@@ -1,0 +1,68 @@
+.container{
+    width: 100%;
+    padding: 1rem;
+    color: #314662;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+}
+.topContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title{
+    padding-bottom: 0.5rem;
+    font-size: 32px;
+}
+.midContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vignetteContainer{
+    display: flex;
+    height: 200px;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+}
+.vignette{
+    background-image: url("../../../asset/image/vignetteBackground.png");
+    width: 18%;
+    background-repeat: no-repeat;
+    background-size:contain;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+}
+.argument{
+    color: white;
+    text-align: center;
+    max-width: 50%;
+}
+
+.midContainer .p{
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 20rem;
+    margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 1036px) {
+    .vignetteContainer{
+        flex-direction: column;
+        height: 1650px;
+        width: 300px;
+    }
+    .vignette{
+        min-width: 300px;
+        min-height: 300px;
+    }
+}
