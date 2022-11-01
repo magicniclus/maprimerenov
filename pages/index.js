@@ -22,7 +22,7 @@ export default function Home() {
   }
 
   return (
-    <LayoutClassicPage  >
+    <LayoutClassicPage title="MaPrimeRenov-info | Accueil" meta="Maprimerenov rénovation globale, partielle, chaudière bois, chaudière biomasse, chaudière granulé, isolation des combles, ite, iti, pompe à chaleur. " >
       <main className={styles.main}>
         <div className={styles.topContent}>
           <h1 className={styles.title}>Nous vous accompagnons dans toutes les étapes de votre rénovation énergétique</h1>
