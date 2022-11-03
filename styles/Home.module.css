@@ -70,7 +70,7 @@
   font-weight: bold;
   z-index: 3;
 }
-.p{
+.p, .ul{
   width: 40vw;
   z-index: 3;
 }
@@ -125,6 +125,15 @@
 .benefice_title{
   max-width: 80%;
   font-size: 32px;
+}
+.transistionBaniere_title{
+      position: absolute;
+      bottom: 30%;
+      width: 55%;
+      font-weight: 300;
+      color: white;
+      font-size: 36px;
+      width: 35%;
 }
 
 @media screen and (max-width: 768px) {
