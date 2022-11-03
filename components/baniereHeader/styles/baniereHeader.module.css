@@ -9,6 +9,7 @@
     justify-content: space-around;
     padding: 5rem;
     position: relative;
+    width: 100vw;
 }
 
 .imgContainer {
@@ -20,7 +21,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    background-image: url("");
+    background-image: url("../../../asset/image/imageHeader.png");
     z-index: 1;
 }
 
@@ -35,6 +36,7 @@
     transform: rotate(45deg);
     bottom: -20%;
     right: 7%;
+    z-index: 3;
 }
 
 .topContent::after {
@@ -62,6 +64,23 @@
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
+.title {
+    width: 70vw;
+    font-size: 48px;
+    margin-bottom: 4rem;
+    z-index: 3;
+}
+
+.span {
+    font-weight: bold;
+    z-index: 3;
+}
+
+.p,
+.ul {
+    width: 40vw;
+    z-index: 3;
+}
 
 @media screen and (max-width: 1025px) {
     .topContent::before {
@@ -72,4 +91,9 @@
     .imgContainer {
         display: none;
     }
-}    
+}   
+@media screen and (max-width: 768px) {
+    .topContent {
+        padding: 3rem 1rem 3rem 1rem;
+    }
+}
