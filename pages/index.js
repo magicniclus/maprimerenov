@@ -58,7 +58,12 @@ export default function Home() {
           </div>
         </div>
         <Tape />
-        <TransitionBaniere />
+        <TransitionBaniere img="ecologie">
+          <h3 className={styles.transistionBaniere_title}>
+            Avec <span className={styles.span}>MaPrimeRénov’</span>, vous favorisez
+            la <span className={styles.span}>transition écologique</span>.
+          </h3>
+        </TransitionBaniere>
         <TextBaniere />
       </main>
     </LayoutClassicPage>
