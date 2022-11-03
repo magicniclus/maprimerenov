@@ -37,8 +37,8 @@ const index = () => {
                 </BanierePartenaire>
                 <FamilleBaniere>
                     <h3 className={styles.familleBaniere_title}>
-                        Avec <span className={styles.span}>MaPrimeRénov’</span>, vous favorisez
-                        la <span className={styles.span}>transition écologique</span>.
+                        <span className={styles.span}>Ensemble</span>, accompagnons nos clients
+                        dans la <span className={styles.span}>transition écologique</span>.
                     </h3>
                 </FamilleBaniere>
             </main>
