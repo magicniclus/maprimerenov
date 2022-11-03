@@ -1,0 +1,75 @@
+.topContent {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(49, 70, 98);
+    background: linear-gradient(180deg, rgba(49, 70, 98, 1) 0%, RGBA(7, 105, 175, 1) 47%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5rem;
+    position: relative;
+}
+
+.imgContainer {
+    position: absolute;
+    top: 2Opx;
+    right: 12%;
+    width: 390px;
+    height: 480px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url("");
+    z-index: 1;
+}
+
+.topContent::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    background-color: white;
+    padding: 1rem;
+    transform: rotate(45deg);
+    bottom: -20%;
+    right: 7%;
+}
+
+.topContent::after {
+    content: "J'agis avec MaPrimeRenov'";
+    z-index: 3;
+    color: #314662;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    background-color: white;
+    padding: 1rem;
+    transform: rotate(35deg);
+    bottom: -20%;
+    right: 7%;
+    background-image: linear-gradient(25deg, #314662, #0769AF);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 1025px) {
+    .topContent::before {
+        display: none;
+    }
+
+    .topContent::after,
+    .imgContainer {
+        display: none;
+    }
+}    
