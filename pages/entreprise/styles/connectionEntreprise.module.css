@@ -78,5 +78,9 @@
     .secondTitle {
         font-size: 24px;
     }
-
+}
+@media screen and (max-width: 425px) {
+    .baniere_secondTitle, .baniere_p{
+        margin-bottom: 2rem;
+    }
 }
