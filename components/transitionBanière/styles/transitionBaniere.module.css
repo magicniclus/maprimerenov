@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    padding: 1rem;
+    padding: 4rem;
     background-position: center;
 }
 .title{
@@ -19,4 +19,9 @@
 }
 .span {
     font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 3rem 1rem 3rem 1rem;
+    }
 }
