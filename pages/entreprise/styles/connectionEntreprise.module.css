@@ -5,3 +5,78 @@
     justify-content: center;
     align-items: center;
 }
+.title {
+    width: 70vw;
+    font-size: 48px;
+    margin-bottom: 4rem;
+    z-index: 3;
+}
+
+.secondTitle{
+    width: 70vw;
+    font-size: 32px;
+    margin-bottom: 4rem;
+    z-index: 3;
+    max-width: 45rem;
+}
+
+.span {
+    font-weight: bold;
+    z-index: 3;
+}
+
+.p,
+.ul {
+    width: 40vw;
+    z-index: 3;
+}
+
+.li{
+    margin-bottom: 1rem;
+    max-width: 20rem;
+}
+.baniere_secondTitle{
+    color: #314662;
+}
+.baniere_p{
+    width: 40vw;
+    z-index: 3;
+    color: #314662;
+}
+.baniere_h4{
+    width: 40vw;
+    z-index: 3;
+    color: #314662;
+    font-size: 32px;
+    font-weight: 300;
+}
+.familleBaniere_title{
+    position: absolute;
+    bottom: 30%;
+    width: 55%;
+    font-weight: 300;
+    color: white;
+    font-size: 36px;
+    width: 35%;
+}
+@media screen and (max-width: 768px) {
+    .topContent {
+        padding: 3rem 1rem 3rem 1rem;
+    }
+
+    .title {
+        width: 100%;
+        font-size: 32px;
+        text-align: start;
+    }
+
+    .p {
+        width: 100%;
+        text-align: start;
+    }
+
+    .secondTitle {
+        font-size: 24px;
+    }
+
+}
