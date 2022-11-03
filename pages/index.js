@@ -13,6 +13,7 @@ import TransitionBaniere from '../components/transitionBanière/TransitionBanier
 import TextBaniere from '../components/textBaniere/TextBaniere';
 import Image from 'next/image';
 import { style } from '@mui/system';
+import BaniereHeader from '../components/baniereHeader/BaniereHeader';
 
 export default function Home() {
 
@@ -24,14 +25,14 @@ export default function Home() {
   return (
     <LayoutClassicPage title="MaPrimeRenov-info | Accueil" meta="Maprimerenov rénovation globale, partielle, chaudière bois, chaudière biomasse, chaudière granulé, isolation des combles, ite, iti, pompe à chaleur. " >
       <main className={styles.main}>
-        <div className={styles.topContent}>
+        <BaniereHeader>
           <h1 className={styles.title}>Nous vous accompagnons dans toutes les étapes de votre rénovation énergétique</h1>
           <p className={styles.p}><span className={styles.span}>MaPrimeRénov&lsquo;</span> permet de <span className={styles.span}>financer</span> les travaux d&lsquo;<span className={styles.span}>isolation</span>, de <span className={styles.span}>chauffage</span>, de <span className={styles.span}>ventilation</span> ou d&lsquo;<span className={styles.span}>audit énergétique</span> d&lsquo;une <span className={styles.span}>maison individuelle</span> ou d&lsquo;un <span className={styles.span}>appartement</span> en habitat collectif. <br /><br />De l&lsquo;analyse de vos besoins, estimation des <span className={styles.span}>aides</span>, gestions du dossier, soursing des entreprises et gestion des <span className={styles.span}>travaux</span> jusqu’à la réception de votre <span className={styles.span}>prime</span>, chez <span className={styles.span}>MaPrimeRenov-info.org</span>, nous vous accompagnons pour tout.</p>
           <Button variant="contained" onClick={(e) => handleChangePage(e)} style={{ backgroundColor: "#74c011", minWidth: "250px", maxWidth: "250px", marginTop: "5rem" }}>
             Tester  mon éligibilité
           </Button>
           <div className={styles.imgContainer}></div>
-        </div>
+        </BaniereHeader>
         <div className={styles.benefice}>
           <div className={styles.benefice_globalContainer}>
             <div className={styles.benefice_leftContainer}>
