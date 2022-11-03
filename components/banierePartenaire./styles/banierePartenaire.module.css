@@ -1,0 +1,57 @@
+.content {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(49, 70, 98);
+    background: #CEE4F2;
+    display: flex;
+    /* padding: 5rem; */
+    position: relative;
+    width: 100vw;
+    z-index: 1;
+    min-height: 680px;
+    overflow: hidden;
+}
+.leftContainer{
+    width: 50%;
+    min-height: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5rem;
+}
+.rightContainer{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+.rightContainer::after{
+    content: "";
+    background-image: url("../../../asset/image/Rectangle\ 99backgroundCercle.png");
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    right: 0%;
+    top: 0;
+}
+.rightContainer::before {
+    content: "";
+    background-image: url("../../../asset/image/menuisier.jpg");
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    right: 0%;
+    top: 0;
+}
+@media screen and (max-width: 768px) {
+    .leftContainer{
+        width: 100%;
+        padding: 3rem 1rem 3rem 1rem;
+    }
+    .rightContainer{
+        display: none;
+    }
+}
