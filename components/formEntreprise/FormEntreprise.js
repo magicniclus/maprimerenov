@@ -3,6 +3,7 @@ import styles from "./styles/formEntreprise.module.css";
 import { dataBase } from '../../utils/firebase.config';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 import Router from 'next/router';
+import { Button } from '@mui/material';
 
 const FormEntreprise = (props) => {
     const databaseRef = collection(dataBase, 'entreprise');
@@ -10,6 +11,10 @@ const FormEntreprise = (props) => {
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [mail, setMail] = useState("")
+    const [zipCode, setZipCode] = useState("")
+    const [prestation, setPrestation] = useState("")
+    const [siren, setSiren] = useState("")
+    const [RGE, setRGE] = useState(false)
     const [domaine, setDomaine] = useState("")
     const [contenu, setContenu] = useState("")
 
@@ -20,8 +25,12 @@ const FormEntreprise = (props) => {
             nameEntreprise,
             mail,
             phone,
+            prestation,
+            zipCode,
+            siren,
+            RGE,
             domaine,
-            contenu
+            contenu,
         })
             .then(() => {
                 setTimeout(() => {
@@ -36,7 +45,6 @@ const FormEntreprise = (props) => {
     return (
         <div className={styles.container}>
             <div className={styles.leftContainer}>
-                <h1>ok</h1>
                 {props.children}
             </div>
             <div className={styles.rightContainer}>
@@ -59,15 +67,18 @@ const FormEntreprise = (props) => {
                         Téléphone*
                         <input onChange={(e) => setPhone(e.target.value)} className={styles.input} type="number" minLength={10} required />
                     </label>
+                    <label className={styles.nameContainer}>
+                        Code Postal*
+                        <input onChange={(e) => setZipCode(e.target.value)} className={styles.input} type="number" minLength={5} required />
+                    </label>
                     <div className={styles.entrepriseType}>
                         <label className={styles.sirenContainer}>
                             Siren de votre entreprise*
-                            <input onChange={(e) => setPhone(e.target.value)} className={styles.input} type="number" required />
+                            <input onChange={(e) => setSiren(e.target.value)} className={styles.input} type="number" required />
                         </label>
                         <label className={styles.selectContainer}>
                             Type d&apos; activité*
-                            {/* <input onChange={(e) => setDomaine(e.target.value)} className={styles.input} type="text" required /> */}
-                            <select name="selected" id="selected" className={styles.select}>
+                            <select name="selected" id="selected" onChange={(e) => { setPrestation(e.target.value) }} className={styles.select}>
                                 <option disabled selected>Selectionnez une option</option>
                                 <option value="isolation">Isolation</option>
                                 <option value="ite">ITE (Isolation thermique par l&apos; exterieur)</option>
@@ -98,13 +109,15 @@ const FormEntreprise = (props) => {
                     </div>
                     <label className={styles.checkboxContainer}>
                         Artisan certifié RGE*
-                        {/* <input onChange={(e) => setDomaine(e.target.value)} className={styles.input} type="text" required /> */}
-                        <input type="checkbox" id="RGE" name="RGE" className={styles.checkbox} />
+                        <input onChange={() => setRGE(!RGE)} type="checkbox" id="RGE" name="RGE" className={styles.checkbox} />
                     </label>
-                    <button className={styles.button} type='submit'>Envoyer</button>
+                    {/* <button className={styles.button} type='submit'>Envoyer</button> */}
+                    <Button type="submit" variant="contained" color="success" style={{ backgroundColor: "#74c011", minWidth: "250px", maxWidth: "250px", marginLeft: "auto", marginRight: "auto", marginTop: "2rem", marginBottom: "2rem" }}>
+                        Envoyer
+                    </Button>
                 </form>
             </div>
-        </div>
+        </div >
     );
 };
 
