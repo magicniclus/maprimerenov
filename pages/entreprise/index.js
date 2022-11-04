@@ -35,6 +35,7 @@ const index = () => {
                         Nous ne recherchons pas d’ <span className={styles.span}>entreprises</span>, mais des <span className={styles.span}>partaires</span>.
                     </h4>
                 </BanierePartenaire>
+                <FormEntreprise></FormEntreprise>
                 <FamilleBaniere>
                     <h3 className={styles.familleBaniere_title}>
                         <span className={styles.span}>Ensemble</span>, accompagnons nos clients
