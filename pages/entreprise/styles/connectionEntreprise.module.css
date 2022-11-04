@@ -40,6 +40,7 @@
 }
 .baniere_p{
     width: 40vw;
+    max-width: 750px;
     z-index: 3;
     color: #314662;
 }
@@ -49,6 +50,7 @@
     color: #314662;
     font-size: 32px;
     font-weight: 300;
+    max-width: 750px;
 }
 .familleBaniere_title{
     position: absolute;
