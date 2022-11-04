@@ -5,9 +5,8 @@
     background: rgb(49, 70, 98);
     background: #CEE4F2;
     display: flex;
-    /* padding: 5rem; */
     position: relative;
-    width: 100vw;
+    width: 100%;
     z-index: 1;
     min-height: 680px;
     overflow: hidden;
@@ -15,7 +14,6 @@
 .leftContainer{
     width: 50%;
     min-height: 100%;
-    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -26,11 +24,13 @@
     right: 0;
     top: 0;
     width: 50%;
+    max-width: 742px;
     height: 100%;
 }
 .rightContainer::after{
     content: "";
     background-image: url("../../../asset/image/Rectangle\ 99backgroundCercle.png");
+    background-repeat: no-repeat;
     height: 100%;
     position: absolute;
     width: 100%;
@@ -40,6 +40,7 @@
 .rightContainer::before {
     content: "";
     background-image: url("../../../asset/image/menuisier.jpg");
+    background-repeat: no-repeat;
     height: 100%;
     position: absolute;
     width: 100%;
