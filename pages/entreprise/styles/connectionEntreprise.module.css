@@ -11,6 +11,16 @@
     margin-bottom: 4rem;
     z-index: 3;
 }
+.baniere_ul {
+    color: #314662;
+    width: 50%;
+    margin-bottom: 4rem;
+}
+
+.baniere_li {
+    color: #314662;
+    margin-bottom: 0.5rem;
+}
 
 .secondTitle{
     width: 70vw;
@@ -37,6 +47,7 @@
 }
 .baniere_secondTitle{
     color: #314662;
+    font-size: 32px;
 }
 .baniere_p{
     width: 40vw;
@@ -48,7 +59,7 @@
     width: 40vw;
     z-index: 3;
     color: #314662;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 300;
     max-width: 750px;
 }
@@ -70,19 +81,71 @@
         width: 100%;
         font-size: 32px;
         text-align: start;
+        width: 80vw;
     }
 
     .p {
         width: 100%;
         text-align: start;
+        width: 80vw;
     }
 
     .secondTitle {
         font-size: 24px;
+        width: 80vw;
+    }
+    .baniere_h4, .baniere_p{
+        width: 80vw;
     }
 }
 @media screen and (max-width: 425px) {
     .baniere_secondTitle, .baniere_p{
         margin-bottom: 2rem;
+    }
+}
+
+/* FormEntreprise */
+.formEntreprise_content{
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 880px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 2rem;
+}
+.formEntreprise_h2{
+    font-size: 32px;
+    margin-bottom: 2rem;
+    z-index: 3;
+    max-width: 45rem;
+    color: #314662;
+}
+.formEntreprise_p{
+    width: 50%;
+    z-index: 3;
+    color: #314662;
+    margin-bottom: 4rem;
+}
+.formEntreprise_ul{
+    color: #314662;
+    width: 50%;
+    margin-bottom: 4rem;
+}
+.formEntreprise_li{
+    color: #314662;
+    margin-bottom: 0.5rem;
+}
+.formEntreprise_buttonContainer{
+    color: #314662;
+}
+.formEntreprise_buttonContainer_h3{
+    color: #314662;
+    margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+    .formEntreprise_content{
+        height: 100%;
     }
 }
