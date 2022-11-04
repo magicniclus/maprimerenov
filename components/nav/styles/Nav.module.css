@@ -27,10 +27,11 @@
     -moz-text-fill-color: transparent;
 }
 .rightContainer{
-    min-width: 30%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 450px;
 }
 .pro{
     color: #056CF2;
