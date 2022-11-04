@@ -78,7 +78,7 @@
 /* BENEFICE */
 .benefice{
   color: #314662;
-  width: 100vw;
+  width: 100%;
   background-color: #CEE4F2;
   height: 685px;
 }
@@ -112,6 +112,7 @@
   background-image: url("../asset/image/familly.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   padding: 4rem;
