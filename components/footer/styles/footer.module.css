@@ -31,6 +31,7 @@
 .leftContainer{
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 .rightContainer{
     display: flex;
@@ -69,8 +70,3 @@
         width: 100%;
     }
 }
-@media screen and (min-width: 1570px) {
-    .content{
-      /* width: 1440px; */
-    }
-  }
