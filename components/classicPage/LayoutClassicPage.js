@@ -10,12 +10,12 @@ const LayoutClassicPage = (props) => {
             <Head>
                 <title>{props.title}</title>
                 <meta name="description" content={props.meta} />
-                <link rel="shortcut icon" href="Test.png" type="image/x-icon" />
+                <link rel="shortcut icon" href="imageHeader.png" type="image/x-icon" />
             </Head>
             <header>
                 <Nav />
             </header>
-                {props.children}
+            {props.children}
             <footer>
                 <Footer />
             </footer>
