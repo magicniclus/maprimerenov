@@ -1,26 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "./styles/connection.module.css";
 import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage";
+import { Button } from '@mui/material';
+import { signUp } from '../../api/Auth';
+import { getValue } from '@mui/system';
 
 const Index = () => {
     const [valid, setValid] = useState(true)
+    const [formValue, setFormValue] = useState({
+        email: "",
+        password: ""
+    })
+
+    const [feedback, setFeedBack]= useState()
 
     const handleColorInput = (e) => {
         e.preventDefault()
-        setValid(false)
+        signUp(formValue).then(success=>{
+            if(success){
+                console.log("email sccessfully created");
+                setFeedBack("")
+            }
+        })
+        .catch(err=>{
+            console.log(err);
+            setFeedBack(err.message)
+        })
     }
 
     return (
         <LayoutClassicPage title="MaPrimeRenov-info | Se connecter" meta="Connectez-vous à votre espace dédié. Vous pouvez suivre l'avancement de votre projet MaPrimeRenov, vos artisans RGE et nous contacter directement !">
             <main className={styles.main}>
                 <div className={styles.container}>
-                    <form className={styles.formulaire}>
+                    <form className={styles.formulaire} onSubmit={handleColorInput}>
                         <h1 className={styles.title}>Se connecter</h1>
-                        <input style={!valid ? { border: "1px solid red" } : { border: "none" }} className={styles.input} type="email" placeholder='Email' />
-                        <input style={!valid ? { border: "1px solid red" } : { border: "none" }} className={styles.input} type="passeword" placeholder='Mot de passe' />
-                        <p style={!valid ? { display: "flex", color: "red" } : { display: "none" }} className={styles.errorMessage}>Mot de passe ou Email pas valide</p>
-                        <p className={styles.recuperation}>Mot de passe oublié ?</p>
-                        <button onClick={(e) => handleColorInput(e)} className={styles.button} type='submit'>Se connecter</button>
+                        <input  className={styles.input} type="email" placeholder='Email' onChange={(e)=> setFormValue({...formValue, email: e.target.value})} />
+                        <input  className={styles.input} placeholder='Mot de passe' onChange={(e)=> setFormValue({...formValue, password: e.target.value})} />
+                        <p style={{ display: "flex", color: "red", marginTop:"1rem" }} className={styles.errorMessage}>{feedback}</p>
+                        <Button variant="contained" style={{minWidth: "200px", marginTop: "2rem"}} type="submit" color="success">Se Connecter</Button>
+                        <Button variant="text" >Mot de passe oublié</Button>
                     </form>
                 </div>
             </main>
