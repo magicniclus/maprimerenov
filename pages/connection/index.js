@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import styles from "./styles/connection.module.css";
 import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage";
 import { Button } from '@mui/material';
-import { signUp } from '../../api/Auth';
-import { getValue } from '@mui/system';
+import { signUp, sendEmailValidation, signIn } from '../../api/Auth';
+import { useDispatch } from 'react-redux';
+import { switchConnect } from '../../redux/action';
 
 const Index = () => {
     const [valid, setValid] = useState(true)
+
+    const dispatch = useDispatch()
+
     const [formValue, setFormValue] = useState({
         email: "",
         password: ""
@@ -16,14 +20,26 @@ const Index = () => {
 
     const handleColorInput = (e) => {
         e.preventDefault()
-        signUp(formValue).then(success=>{
+        // signUp(formValue).then(success=>{
+        //     if(success){
+        //         console.log("email sccessfully created");
+        //         setFeedBack("")
+        //         sendEmailValidation()
+        //     }
+        // })
+        // .catch(err=>{
+        //     console.log(err);
+        //     setFeedBack(err.message)
+        // })
+        signIn(formValue).then(success =>{
             if(success){
-                console.log("email sccessfully created");
                 setFeedBack("")
+                alert("c'est un succes")
+                dispatch(switchConnect(true))
             }
         })
         .catch(err=>{
-            console.log(err);
+            console.log(err)
             setFeedBack(err.message)
         })
     }
