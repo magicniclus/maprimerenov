@@ -1,4 +1,4 @@
-export const switchConnect = (bool, user) => {
+export const switchConnect = (bool) => {
     return {
         type: "switchConntect",
         payload: bool
