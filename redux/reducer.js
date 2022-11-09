@@ -1,5 +1,6 @@
 const initState = {
-    areConnect: false
+    areConnect: false,
+    curentUser: {}
 }
 
 const reducer = ((state= initState, action)=>{
@@ -7,9 +8,15 @@ const reducer = ((state= initState, action)=>{
         case "switchConntect": 
             return {
                 ...state,
-                areConnect: action.payload
+                areConnect: action.payload,
             }
 
+        case "currentUser":
+            return{
+                ...state,
+                curentUser:  action.payload
+            }
+            
         default: return state    
     }
 })
