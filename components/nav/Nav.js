@@ -17,7 +17,7 @@ const Nav = () => {
         if(state.areConnect){
             setConnected(true)
             authenticateUser().then(user=>{
-                console.log(user);
+                // console.log(user);
             }).catch(err=>console.log(err))
         }
         else{
