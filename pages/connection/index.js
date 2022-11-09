@@ -3,8 +3,9 @@ import styles from "./styles/connection.module.css";
 import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage";
 import { Button } from '@mui/material';
 import { signUp, sendEmailValidation, signIn } from '../../api/Auth';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { switchConnect } from '../../redux/action';
+import Router from 'next/router';
 
 const Index = () => {
     const [valid, setValid] = useState(true)
@@ -17,6 +18,18 @@ const Index = () => {
     })
 
     const [feedback, setFeedBack]= useState()
+
+    const state = useSelector(state=>state)
+
+    useEffect(()=>{
+        if(state.areConnect)
+        Router.push("/mon-espace")
+    }, [state.areConnect])
+
+    useEffect(()=>{
+        if(state.areConnect)
+        Router.push("/mon-espace")
+    }, [])
 
     const handleColorInput = (e) => {
         e.preventDefault()
@@ -36,6 +49,7 @@ const Index = () => {
                 setFeedBack("")
                 alert("c'est un succes")
                 dispatch(switchConnect(true))
+                Router.push("/mon-espace")
             }
         })
         .catch(err=>{
