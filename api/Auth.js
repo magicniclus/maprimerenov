@@ -1,5 +1,5 @@
 // import { dataBase } from '../../utils/firebase.config';
-import {  createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth";
+import {  createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { currentUser, switchConnect } from "../redux/action";
 import store from "../redux/store";
 import { auth  } from "../utils/firebase.config";
@@ -60,4 +60,45 @@ export const signOut = () => {
     }).catch(function(error) {
       console.log(` An error happened ${error}`)
     });
+}
+
+export const getUser = ()=>{
+    const user = auth.currentUser;
+    return new Promise((resolve, reject)=>{
+        if (user !== null) {
+            // The user object has basic properties such as display name, email, etc.
+            const displayName = user.displayName;
+            const email = user.email;
+            const photoURL = user.photoURL;
+            const emailVerified = user.emailVerified;
+    
+            // The user's ID, unique to the Firebase project. Do NOT use
+            // this value to authenticate with your backend server, if
+            // you have one. Use User.getToken() instead.
+            const uid = user.uid;
+            resolve({
+                displayName,
+                email,
+            })
+        }else {
+            reject("Aucun utilisateur n'est connecté")
+        }
+    })
+}
+
+export const updateUser = (name)=>{
+    const user = auth.currentUser;
+    return new Promise((resolve, reject)=>{
+        updateProfile(auth.currentUser, {
+            displayName: name
+          }).then(() => {
+            resolve({
+                displayName: user.displayName,
+                email: user.email
+            })
+          }).catch((error) => {
+            reject(error)
+          });
+    })
+      
 }
