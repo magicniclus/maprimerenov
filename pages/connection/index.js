@@ -9,7 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Router from 'next/router';
 
 const Index = () => {
-    const [valid, setValid] = useState(true)
+    const [valid, setValid] = useState(false)
 
     const dispatch = useDispatch()
 
