@@ -79,6 +79,7 @@ export const getUser = ()=>{
             resolve({
                 displayName,
                 email,
+                uid
             })
         }else {
             reject("Aucun utilisateur n'est connecté")
