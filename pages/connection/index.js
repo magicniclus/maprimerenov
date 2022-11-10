@@ -5,6 +5,7 @@ import { Button } from '@mui/material';
 import { signUp, sendEmailValidation, signIn } from '../../api/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { switchConnect } from '../../redux/action';
+import CircularProgress from '@mui/material/CircularProgress';
 import Router from 'next/router';
 
 const Index = () => {
@@ -17,22 +18,44 @@ const Index = () => {
         password: ""
     })
 
+    const [loader, setLoader] = useState(true)
+
     const [feedback, setFeedBack]= useState()
 
     const state = useSelector(state=>state)
 
     useEffect(()=>{
-        if(state.areConnect)
-        Router.push("/mon-espace")
+        if(state.areConnect){
+            Router.push("/mon-espace")
+        }else{
+            setLoader(false)
+        }
     }, [state.areConnect])
 
     useEffect(()=>{
-        if(state.areConnect)
-        Router.push("/mon-espace")
+        if(state.areConnect){
+            Router.push("/mon-espace")
+        }else{
+            setLoader(false)
+        }
     }, [])
 
     const handleColorInput = (e) => {
         e.preventDefault()
+        setLoader(true)
+        signIn(formValue).then(success =>{
+            if(success){
+                setFeedBack("")
+                // alert("c'est un succes")
+                dispatch(switchConnect(true))
+                Router.push("/mon-espace")
+            }
+        })
+        .catch(err=>{
+            console.log(err)
+            setFeedBack(err.message)
+            setLoader(false)
+        })
         // signUp(formValue).then(success=>{
         //     if(success){
         //         console.log("email sccessfully created");
@@ -44,23 +67,17 @@ const Index = () => {
         //     console.log(err);
         //     setFeedBack(err.message)
         // })
-        signIn(formValue).then(success =>{
-            if(success){
-                setFeedBack("")
-                alert("c'est un succes")
-                dispatch(switchConnect(true))
-                Router.push("/mon-espace")
-            }
-        })
-        .catch(err=>{
-            console.log(err)
-            setFeedBack(err.message)
-        })
     }
 
     return (
         <LayoutClassicPage title="MaPrimeRenov-info | Se connecter" meta="Connectez-vous à votre espace dédié. Vous pouvez suivre l'avancement de votre projet MaPrimeRenov, vos artisans RGE et nous contacter directement !">
             <main className={styles.main}>
+                {
+                    loader ?
+                    <div className={styles.loader}>
+                        <CircularProgress />
+                    </div> : null
+                }
                 <div className={styles.container}>
                     <form className={styles.formulaire} onSubmit={handleColorInput}>
                         <h1 className={styles.title}>Se connecter</h1>
