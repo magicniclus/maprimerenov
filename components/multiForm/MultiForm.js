@@ -31,9 +31,6 @@ const MultiForm = () => {
     const [stepSix, setStepSix] = useState(false)
     const [stepSeven, setStepSeven] = useState(false)
 
-
-    const [allStepValid, setAllStepValid] = useState(false)
-
     const [disable, setDisable] = useState(true)
 
     const [propsect, setProspect] = useState({
