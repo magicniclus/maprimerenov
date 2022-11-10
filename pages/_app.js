@@ -13,17 +13,7 @@ function MyApp({ Component, pageProps }) {
         const tagManagerArgs = {
             gtmId:"GTM-PHVP55Z"
         }
-        
         TagManager.initialize(tagManagerArgs)
-    }, [])
-
-    useEffect(()=>{
-        authenticateUser().then(user=>{
-            store.dispatch(switchConnect(true))
-            store.dispatch(currentUser(user))
-        }).catch(err=>{
-            switchConnect(false)
-        })
     }, [])
 
     return (
