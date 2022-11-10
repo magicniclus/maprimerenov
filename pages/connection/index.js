@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styles from "./styles/connection.module.css";
 import LayoutClassicPage from "../../components/classicPage/LayoutClassicPage";
 import { Button } from '@mui/material';
-import { signUp, sendEmailValidation, signIn } from '../../api/Auth';
+import { signIn } from '../../api/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { switchConnect } from '../../redux/action';
 import CircularProgress from '@mui/material/CircularProgress';
 import Router from 'next/router';
+import Link from 'next/link';
 
 const Index = () => {
     const [valid, setValid] = useState(false)
@@ -85,8 +86,14 @@ const Index = () => {
                         <input  className={styles.input} placeholder='Mot de passe' onChange={(e)=> setFormValue({...formValue, password: e.target.value})} />
                         <p style={{ display: "flex", color: "red", marginTop:"1rem" }} className={styles.errorMessage}>{feedback}</p>
                         <Button variant="contained" style={{minWidth: "200px", marginTop: "2rem"}} type="submit" color="success">Se Connecter</Button>
-                        <Button variant="text" >Mot de passe oublié</Button>
+                        <Button variant="text" style={{color:"#c2c2c2"}} >Mot de passe oublié</Button>
                     </form>
+                    <section className={styles.entreprise}>
+                        <h2 className={styles.entreprise_p}>Vous n'avez pas encore de projet avec nous ? </h2>
+                        <Link href={"/simulateur"}><Button variant="contained" style={{maxWidth: "200px"}} >
+                            Creer mon compte
+                        </Button></Link>
+                    </section>
                 </div>
             </main>
         </LayoutClassicPage>
