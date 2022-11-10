@@ -4,6 +4,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+.loader{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
 }
 .title{
     --titleSize: 32px;
