@@ -9,6 +9,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 const index = () => {
 
     const [userName, setUserName] = useState("")
+    const [userMail, setUserMail] = useState("")
+    const [userId, setUserId] = useState("")
 
     const state = useSelector(state=>state)
 
@@ -24,9 +26,11 @@ const index = () => {
     }, [state.areConnect])
 
     useEffect(()=>{
-        getUser().then(currentUsers=>{
-            console.log(currentUsers);
-            setUserName(currentUsers.displayName)
+        getUser().then(currentUser=>{
+            console.log(currentUser);
+            setUserName(currentUser.displayName)
+            setUserMail(currentUser.email)
+            setUserId(currentUser.uid)
         }).catch(err=>err)
     }, [])
 
