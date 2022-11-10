@@ -15,18 +15,23 @@ const index = () => {
     useEffect(()=>{
         if(!state.areConnect)
         Router.push("/connection")
+        console.log("test1");
     }, [state.areConnect])
 
     useEffect(()=>{
         getUser().then(currentUsers=>{
             console.log(currentUsers);
             setUserName(currentUsers.displayName)
+            console.log("test2");
         }).catch(err=>err)
     }, [])
 
     const handleUser = ()=>{
         updateUser("Nicolas").then(user=>console.log(user))
-        .catch(err=>alert(err.message))
+        .catch(err=>{
+            alert(err.message)
+            console.log("test3");
+        })
     }
 
     return (
