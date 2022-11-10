@@ -41,10 +41,10 @@ const Nav = () => {
                 <div className={styles.rightContainer}>
                     {
                         connected ? 
-                        <Button variant="text" className={styles.deconnection} onClick={handleClick}>Se Deconnecter</Button>:
-                        <Link href="/entreprise"><Button variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
+                        <Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.deconnection} onClick={handleClick}>Se Deconnecter</Button>:
+                        <Link href="/entreprise"><Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
                     }
-                    <Link href={"/connection"}><Button variant="outlined" className={styles.espace}>Mon espace</Button></Link>
+                    <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
                 </div>
             </div>
         </div>
