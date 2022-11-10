@@ -20,6 +20,7 @@ const index = () => {
     useEffect(()=>{
         getUser().then(currentUsers=>{
             console.log(currentUsers);
+            setUserName(currentUsers.displayName)
         }).catch(err=>err)
     }, [])
 
@@ -32,9 +33,12 @@ const index = () => {
         <LayoutClassicPage title="MaPrimeRenov-info | Simulateur MaPrimeRenov" meta="Simulateur gratuit pour connaitre votre éligibilité aux aides de l'état MaPrimeRenov 2022.">
             <main className={styles.main}>
                 <h1 className={styles.title} style={{color: "black"}}>
-                    Hello
+                    Hello {
+                        userName !== "" ? 
+                        userName : null
+                    }
                 </h1>
-                <button onClick={handleUser}>Click Here</button>
+                {/* <button onClick={handleUser}>Click Here</button> */}
             </main>
         </LayoutClassicPage>
     );
