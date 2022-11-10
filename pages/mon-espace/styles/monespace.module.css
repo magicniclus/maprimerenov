@@ -1,3 +1,15 @@
 .main{
     min-height: calc(100vh - 70px);
 }
+.loader{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 5;
+}
