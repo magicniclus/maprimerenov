@@ -86,7 +86,7 @@ const Index = () => {
                         <input  className={styles.input} placeholder='Mot de passe' onChange={(e)=> setFormValue({...formValue, password: e.target.value})} />
                         <p style={{ display: "flex", color: "red", marginTop:"1rem" }} className={styles.errorMessage}>{feedback}</p>
                         <Button variant="contained" style={{minWidth: "200px", marginTop: "2rem"}} type="submit" color="success">Se Connecter</Button>
-                        <Button variant="text" style={{color:"#c2c2c2"}} >Mot de passe oublié</Button>
+                        <Button variant="text" style={{color:"#c2c2c2"}} sx={{ fontSize: 10 }}>Mot de passe oublié</Button>
                     </form>
                     <section className={styles.entreprise}>
                         <h2 className={styles.entreprise_p}>Vous n'avez pas encore de projet avec nous ? </h2>
