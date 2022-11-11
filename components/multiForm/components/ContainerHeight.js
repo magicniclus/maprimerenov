@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from "../styles/multiForm.module.css";
-import SmallCard from './BigCard';
+import SmallCard from './SmallCard';
 
 const ContainerHeight = (props) => {
     const valid = props.valid
