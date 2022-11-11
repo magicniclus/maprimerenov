@@ -13,6 +13,8 @@ import ContainerSeven from './components/ContainerSeven';
 import { dataBase } from '../../utils/firebase.config';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Router from 'next/router';
+import ContainerHeight from './components/ContainerHeight';
+import ContainerNine from './components/ContainerNine';
 
 
 const MultiForm = () => {
@@ -21,7 +23,7 @@ const MultiForm = () => {
 
     const [value, setValue] = useState(1)
 
-    const progressValue = (value * 100) / 7
+    const progressValue = (value * 100) / 9
 
     const [stepOne, setStepOne] = useState(false)
     const [stepTwo, setStepTwo] = useState(false)
@@ -30,6 +32,8 @@ const MultiForm = () => {
     const [stepFive, setStepFive] = useState(false)
     const [stepSix, setStepSix] = useState(false)
     const [stepSeven, setStepSeven] = useState(false)
+    const [stepHeight, setStepHeight] = useState(false)
+    const [stepNine, setStepNine] = useState(false)
 
     const [disable, setDisable] = useState(true)
 
@@ -44,6 +48,7 @@ const MultiForm = () => {
         years: "",
         size: "",
         heater: "",
+        revenus: "",
         isolation: false,
         fenetre: false,
         vmc: false,
@@ -59,7 +64,8 @@ const MultiForm = () => {
         send: false,
         comment: "",
         sign: false,
-        signPrestation: ""
+        signPrestation: "",
+        entreprise: ""
     })
 
     const reset = (section) => {
@@ -109,18 +115,24 @@ const MultiForm = () => {
                 break;
 
             case 7:
+                return <ContainerHeight valid={(e) => setStepSeven(e)} value={e => setProspect({ ...propsect, revenus: e })}   />
+
+            case 8:
                 return <ContainerSeven
-                    valid={(e) => setStepSeven(e)}
-                    getValid={stepSeven}
+                    valid={(e) => setStepHeight(e)}
+                    getValid={stepHeight}
                     reset={() => reset("personnalInformation")}
                     value={propsect}
                     valueName={e => setProspect({ ...propsect, name: e })}
                     valuePhone={e => setProspect({ ...propsect, phone: e })}
                     valueZipCode={e => setProspect({ ...propsect, zipCode: e })}
-                    valueEmail={e => setProspect({ ...propsect, email: e })}
+                    // valueEmail={e => setProspect({ ...propsect, email: e })}
                     valueContract={e => setProspect({ ...propsect, contract: e })}
                 />
                 break;
+
+            case 9:
+                return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} />     
 
             default:
                 return null
@@ -130,8 +142,8 @@ const MultiForm = () => {
 
     const nextValue = (e) => {
         e.preventDefault()
-        if (value === 1 || value < 7) setValue(value + 1)
-        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven) {
+        if (value === 1 || value < 9) setValue(value + 1)
+        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepNine) {
             setLoader(true)
             addDoc(databaseRef, {
                 name: propsect.name,
@@ -172,57 +184,9 @@ const MultiForm = () => {
         }
     }
 
-    const addPropspectProcess = ()=>{
-        setLoader(true)
-        addDocs()
-    }
-
-    const addDocs = ()=>{
-        addDoc(databaseRef, {
-            name: propsect.name,
-            phone: propsect.phone,
-            zipCode: propsect.zipCode,
-            email: propsect.email,
-            contract: propsect.contract,
-            type: propsect.type,
-            status: propsect.status,
-            years: propsect.years,
-            size: propsect.size,
-            heater: propsect.heater,
-            isolation: propsect.isolation,
-            fenetre: propsect.fenetre,
-            vmc: propsect.vmc,
-            pompeAChaleurClim: propsect.pompeAChaleurClim,
-            chauffage: propsect.chauffage,
-            solaireChauffeEau: propsect.solaireChauffeEau,
-            date: propsect.date,
-            createAt: propsect.createAt,
-            attribution: propsect.attribution,
-            call: propsect.call,
-            callNumer: propsect.callNumer,
-            click: propsect.click,
-            send: propsect.send,
-            comment: propsect.comment,
-            sign: propsect.sign,
-            signPrestation: propsect.signPrestation
-        })
-        .then(async () => {
-            await Router.push('/merci')
-            await setLoader(false)
-        })
-        .catch((err) => {
-            console.error(err)
-            setLoader(false)
-        })
-    }
-
-    const creatUser = ()=>{
-
-    }
-
     const prevValue = (e) => {
         e.preventDefault()
-        if (value <= 7 && value > 1) setValue(value - 1)
+        if (value <= 9 && value > 1) setValue(value - 1)
     }
 
     useEffect(() => {
@@ -256,9 +220,12 @@ const MultiForm = () => {
                 propsect.status !== "" ? setDisable(false) : setDisable(true)
                 break;
 
-
             case 7:
-                propsect.name !== "" && propsect.phone !== "" && propsect.zipCode !== "" && propsect.email !== "" && propsect.contract !== "" ? setDisable(false) : setDisable(true)
+                propsect.revenus !== "" ? setDisable(false) : setDisable(true)
+                break;
+    
+            case 8:
+                propsect.name !== "" && propsect.phone !== "" && propsect.zipCode !== "" && propsect.contract !== "" ? setDisable(false) : setDisable(true)
                 break;
 
             default: setDisable(true)
@@ -280,7 +247,7 @@ const MultiForm = () => {
                 <div className={styles.progression} style={value <= 1 ? { display: "none" } : { display: "block" }}>
                     <div className={styles.avancement} style={value === 7 ? { borderRadius: "20px 0px 0 0", width: `${progressValue}%` } : { width: `${progressValue}%` }}>
                         {
-                            value === 7 ? "Dernière étape !" : null
+                            value === 9 ? "Dernière étape !" : null
                         }
                     </div>
                 </div>
@@ -294,7 +261,7 @@ const MultiForm = () => {
                 <div className={styles.buttonContainer}>
                     <Button variant="contained" disabled={disable} style={{ backgroundColor: "#74c011" }} onClick={(e) => nextValue(e)}>
                         {
-                            value < 7 ? "Suivant" : "Envoyer"
+                            value < 9 ? "Suivant" : "Envoyer"
                         }
 
                     </Button>
