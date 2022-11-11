@@ -3,7 +3,8 @@
     width: 50%;
     height: 90vh;
     max-width: 1000px;
-    max-height: 850px;    
+    max-height: 850px;   
+    min-height: 700px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -79,7 +80,6 @@
 
 /* Formulaire */
 .formulaire{
-    /* background-color: aqua; */
     min-height: 75%;
     display: flex;
     flex-direction: column;
@@ -125,6 +125,7 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 1rem;
+    width: 70%;
 }
 .nameH3{
     text-align: center;
@@ -160,13 +161,21 @@
 }
 .span{
     margin-top: 0.4rem;
+    font-size: 12px;
+    font-weight: 300;
+    max-width: 63%;
+    text-align: center;
+}
+.lastSpan{
+    margin-top: 0.4rem;
+    font-size: 12px;
+    font-weight: 300;
+    max-width: 70%;
+    text-align: start; 
+    margin-top: 1rem; 
 }
 .name{
     font-weight: bold;
-}
-.label .span, .labelSeven .span {
-    font-size: 12px;
-    font-weight: medium;
 }
 .cardContainer {
     display: flex;
@@ -174,9 +183,12 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 900px;
-    justify-content: space-around;
+    justify-content: center;
     width: 95%; 
     padding: 1rem;
+}
+.cardContainerOne, .cardContainerTwo, .cardContainerFour, .cardContainerFive, .cardContainerSice{
+    justify-content: space-around;
 }
 .buttonContainer{
     height: 5rem;
@@ -188,7 +200,7 @@
 
 /* input */
 .inputContainer{
-    /* background-color: aqua; */
+    width: 64%;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
@@ -198,7 +210,6 @@
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-    min-width: 350px;
     height: 32px;
     font-size: 16px;
     border-radius: 3px;
@@ -206,6 +217,7 @@
     padding-left: 2rem;
     margin-top: 1rem; 
     padding-right: 1rem;
+    width: 100%;
 }
 @media screen and (max-width: 450px) {
     .input, .select {
@@ -219,9 +231,11 @@
 }
 .inputContainer .labelFinal{
     margin-top: 1rem;
+    width: 100%;
 }
 .inputContainer .input{
     margin-top: 0.5rem;
+    width: 100%;
 }
 
 /* BigCard */
@@ -318,13 +332,15 @@
     .label{
         margin-top: 2rem;
     }
+    .inputContainer{
+        width: 90%;
+    }
 }
 @media screen and (max-width: 653px) {
     .multiFormContainer{
-        margin-top: 3rem;
-        height: 100%;
+        height: 1100px;
         max-height: none;
-        min-height: 100%;
+        margin-top: 0;
     }
     .formulaire{
         margin-top: 2rem;
