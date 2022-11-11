@@ -10,7 +10,8 @@
 .container{
     display: flex;
     align-items: center;    
-    min-width: 80vw;
+    width: 80vw;
+    max-width: 1200px;
     justify-content: space-around;
 }
 .loader{
