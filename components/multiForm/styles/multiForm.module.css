@@ -3,7 +3,6 @@
     width: 50%;
     height: 90vh;
     max-width: 1000px;
-    min-height: 750px;
     max-height: 850px;    
     display: flex;
     flex-direction: column;
@@ -75,6 +74,7 @@
     margin-right: auto;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
+    text-align: center;
 }
 
 /* Formulaire */
@@ -105,6 +105,38 @@
     flex-direction: column;
     align-items: center;
 }
+.labelCreatAcount{
+    font-size: 20px;
+    color: #314662;
+    font-weight: bold;  
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.labelAccount{
+    font-size: 20px;
+    color: #314662;
+    font-weight: bold;  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.nameH3{
+    text-align: center;
+    max-width: 600px;
+    font-size: 20px;
+}
+.nameSpan{
+    font-size: 12px;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 .labelFinal{
     font-size: 20px;
     color: #314662;
@@ -129,6 +161,9 @@
 .span{
     margin-top: 0.4rem;
 }
+.name{
+    font-weight: bold;
+}
 .label .span, .labelSeven .span {
     font-size: 12px;
     font-weight: medium;
@@ -141,6 +176,7 @@
     max-width: 900px;
     justify-content: space-around;
     width: 95%; 
+    padding: 1rem;
 }
 .buttonContainer{
     height: 5rem;
@@ -198,17 +234,16 @@
     animation-fill-mode: forwards;
     border-radius: 3px;
     margin-top: 1rem;
-    width: 32%;
+    width: 30%;
     min-width: 182px;
     background-color: white;
-    padding: 2.5rem 2rem 2rem 2rem;
+    padding: 1.5rem 1rem 1rem 1rem;
     color: #314662;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     position: relative;
-    width: 32%;
 
 }
 .bigCardCheck{
