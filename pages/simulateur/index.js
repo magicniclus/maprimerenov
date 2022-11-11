@@ -11,7 +11,7 @@ const index = () => {
     return (
         <LayoutClassicPage title="MaPrimeRenov-info | Simulateur MaPrimeRenov" meta="Simulateur gratuit pour connaitre votre éligibilité aux aides de l'état MaPrimeRenov 2022.">
             <main className={styles.main}>
-                <HeaderForm />
+                {/* <HeaderForm /> */}
                 <div className={styles.midContent}>
                     <TextContainer />
                     <MultiForm />
