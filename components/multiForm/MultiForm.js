@@ -16,7 +16,7 @@ import Router from 'next/router';
 import ContainerHeight from './components/ContainerHeight';
 import ContainerNine from './components/ContainerNine';
 import { authenticateUser, getUser, signUp, updateUser } from '../../api/Auth';
-import { addDocs } from '../../api/Doc';
+import { addDocs, setDoc } from '../../api/Doc';
 
 
 const MultiForm = () => {
@@ -176,6 +176,7 @@ const MultiForm = () => {
                 Router.push('/merci')
             }).catch(err=>{
                 console.log(err);
+                setLoader(false)
             })
             updateUser(propsect.name)
         }
