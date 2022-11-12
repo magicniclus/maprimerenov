@@ -3,7 +3,7 @@ import styles from "./styles/connectionEntreprise.module.css";
 import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
 import FormEntreprise from '../../components/formEntreprise/FormEntreprise';
 import BaniereHeader from "../../components/baniereHeader/BaniereHeader";
-import BanierePartenaire from '../../components/banierePartenaire./BanierePartenaire';
+import BanierePartenaire from '../../components/banierePartenaire/BanierePartenaire';
 import FamilleBaniere from '../../components/familleBaniere/FamilleBaniere';
 import { Button } from '@mui/material';
 import Router from 'next/router';
