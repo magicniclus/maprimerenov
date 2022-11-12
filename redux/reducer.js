@@ -1,6 +1,6 @@
 const initState = {
     areConnect: false,
-    curentUser: {}
+    curentUser: {},
 }
 
 const reducer = ((state= initState, action)=>{
