@@ -15,7 +15,8 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Router from 'next/router';
 import ContainerHeight from './components/ContainerHeight';
 import ContainerNine from './components/ContainerNine';
-import { signUp } from '../../api/Auth';
+import { authenticateUser, getUser, signUp, updateUser } from '../../api/Auth';
+import { addDocs } from '../../api/Doc';
 
 
 const MultiForm = () => {
@@ -70,7 +71,8 @@ const MultiForm = () => {
         comment: "",
         sign: false,
         signPrestation: "",
-        entreprise: ""
+        entreprise: "",
+        uid: ""
     })
 
     const reset = (section) => {
@@ -149,54 +151,35 @@ const MultiForm = () => {
         if (value === 1 || value < 9) setValue(value + 1)
         if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepNine) {
             await setLoader(true)
-            await addDoc(databaseRef, {
-                name: propsect.name,
-                phone: propsect.phone,
-                zipCode: propsect.zipCode,
-                email: propsect.email,
-                contract: propsect.contract,
-                type: propsect.type,
-                status: propsect.status,
-                years: propsect.years,
-                size: propsect.size,
-                heater: propsect.heater,
-                isolation: propsect.isolation,
-                fenetre: propsect.fenetre,
-                vmc: propsect.vmc,
-                pompeAChaleurClim: propsect.pompeAChaleurClim,
-                chauffage: propsect.chauffage,
-                solaireChauffeEau: propsect.solaireChauffeEau,
-                date: propsect.date,
-                createAt: propsect.createAt,
-                attribution: propsect.attribution,
-                call: propsect.call,
-                callNumer: propsect.callNumer,
-                click: propsect.click,
-                send: propsect.send,
-                comment: propsect.comment,
-                sign: propsect.sign,
-                signPrestation: propsect.signPrestation, 
-                entreprise: propsect.entreprise
-            })
-            .then(async () => {
-                await setLoader(false)
-            })
-            .catch((err) => {
-                console.error(err)
-                setLoader(false)
-            })
             await signUp({email: propsect.email, password: password}).then(success=>{
                 if(success){
                     console.log("email sccessfully created");
                     sendEmailValidation()
-                    Router.push('/merci')
                 }
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+            await getUser().then(user=>{
+                console.log(user)
+                setProspect({ ...propsect, uid: user.uid })
             })
             .catch(err=>{
                 console.log(err);
             })
         }
     }
+        
+    useEffect(()=>{
+        if(propsect.uid !== ""){
+            addDocs(propsect).then(()=>{
+                Router.push('/merci')
+            }).catch(err=>{
+                console.log(err);
+            })
+            updateUser(propsect.name)
+        }
+    }, [propsect.uid])
 
     const prevValue = (e) => {
         e.preventDefault()
