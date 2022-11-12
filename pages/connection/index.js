@@ -47,7 +47,6 @@ const Index = () => {
         signIn(formValue).then(success =>{
             if(success){
                 setFeedBack("")
-                // alert("c'est un succes")
                 dispatch(switchConnect(true))
                 Router.push("/mon-espace")
             }
@@ -57,17 +56,6 @@ const Index = () => {
             setFeedBack(err.message)
             setLoader(false)
         })
-        // signUp(formValue).then(success=>{
-        //     if(success){
-        //         console.log("email sccessfully created");
-        //         setFeedBack("")
-        //         sendEmailValidation()
-        //     }
-        // })
-        // .catch(err=>{
-        //     console.log(err);
-        //     setFeedBack(err.message)
-        // })
     }
 
     return (
