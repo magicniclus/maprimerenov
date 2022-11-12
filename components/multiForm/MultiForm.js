@@ -35,6 +35,10 @@ const MultiForm = () => {
     const [stepHeight, setStepHeight] = useState(false)
     const [stepNine, setStepNine] = useState(false)
 
+    const [password, setPasseword] = useState("")
+    const [passwordIsTheSame, setPasswordIsSame] = useState(false)
+    const [signInError, setSignInError] = useState("")
+
     const [disable, setDisable] = useState(true)
 
     const [propsect, setProspect] = useState({
@@ -126,13 +130,12 @@ const MultiForm = () => {
                     valueName={e => setProspect({ ...propsect, name: e })}
                     valuePhone={e => setProspect({ ...propsect, phone: e })}
                     valueZipCode={e => setProspect({ ...propsect, zipCode: e })}
-                    // valueEmail={e => setProspect({ ...propsect, email: e })}
                     valueContract={e => setProspect({ ...propsect, contract: e })}
                 />
                 break;
 
             case 9:
-                return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} />     
+                return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} value={e => setProspect({ ...propsect, email: e })} error={e=>setSignInError(e)} password={e=>setPasseword(e)} passwordValid={e=>setPasswordIsSame(e)} />     
 
             default:
                 return null
@@ -215,7 +218,6 @@ const MultiForm = () => {
                 }
                 break;
 
-
             case 6:
                 propsect.status !== "" ? setDisable(false) : setDisable(true)
                 break;
@@ -228,10 +230,15 @@ const MultiForm = () => {
                 propsect.name !== "" && propsect.phone !== "" && propsect.zipCode !== "" && propsect.contract !== "" ? setDisable(false) : setDisable(true)
                 break;
 
+    
+            case 9:
+                stepNine ? setDisable(false) : setDisable(true)
+                break;
+    
             default: setDisable(true)
                 break;
         }
-    }, [propsect, value])
+    }, [propsect, value, stepNine])
 
 
     return (
