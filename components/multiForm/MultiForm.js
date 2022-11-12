@@ -15,6 +15,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Router from 'next/router';
 import ContainerHeight from './components/ContainerHeight';
 import ContainerNine from './components/ContainerNine';
+import { signUp } from '../../api/Auth';
 
 
 const MultiForm = () => {
@@ -135,7 +136,7 @@ const MultiForm = () => {
                 break;
 
             case 9:
-                return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} value={e => setProspect({ ...propsect, email: e })} error={e=>setSignInError(e)} password={e=>setPasseword(e)} passwordValid={e=>setPasswordIsSame(e)} />     
+                return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} value={e => setProspect({ ...propsect, email: e })} password={e=>setPasseword(e)} passwordValid={e=>setPasswordIsSame(e)} />     
 
             default:
                 return null
@@ -143,12 +144,12 @@ const MultiForm = () => {
         }
     }
 
-    const nextValue = (e) => {
+    const nextValue = async (e) => {
         e.preventDefault()
         if (value === 1 || value < 9) setValue(value + 1)
         if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepNine) {
-            setLoader(true)
-            addDoc(databaseRef, {
+            await setLoader(true)
+            await addDoc(databaseRef, {
                 name: propsect.name,
                 phone: propsect.phone,
                 zipCode: propsect.zipCode,
@@ -174,15 +175,25 @@ const MultiForm = () => {
                 send: propsect.send,
                 comment: propsect.comment,
                 sign: propsect.sign,
-                signPrestation: propsect.signPrestation
+                signPrestation: propsect.signPrestation, 
+                entreprise: propsect.entreprise
             })
             .then(async () => {
-                await Router.push('/merci')
                 await setLoader(false)
             })
             .catch((err) => {
                 console.error(err)
                 setLoader(false)
+            })
+            await signUp({email: propsect.email, password: password}).then(success=>{
+                if(success){
+                    console.log("email sccessfully created");
+                    sendEmailValidation()
+                    Router.push('/merci')
+                }
+            })
+            .catch(err=>{
+                console.log(err);
             })
         }
     }
