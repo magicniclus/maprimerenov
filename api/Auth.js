@@ -87,11 +87,11 @@ export const getUser = ()=>{
     })
 }
 
-export const updateUser = (name)=>{
+export const updateUser = (object)=>{
     const user = auth.currentUser;
     return new Promise((resolve, reject)=>{
         updateProfile(auth.currentUser, {
-            displayName: name
+            displayName: object
           }).then(() => {
             resolve({
                 displayName: user.displayName,
