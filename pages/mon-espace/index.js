@@ -5,6 +5,9 @@ import { getUser, updateUser } from '../../api/Auth';
 import { useSelector } from 'react-redux';
 import Router from 'next/router';
 import CircularProgress from '@mui/material/CircularProgress';
+import { showUserInformation } from '../../api/Doc';
+import { collection, doc, setDoc } from "firebase/firestore"; 
+import { dataBase } from '../../utils/firebase.config';
 
 const index = () => {
 
@@ -27,12 +30,15 @@ const index = () => {
 
     useEffect(()=>{
         getUser().then(currentUser=>{
-            console.log(currentUser);
             setUserName(currentUser.displayName)
             setUserMail(currentUser.email)
             setUserId(currentUser.uid)
         }).catch(err=>err)
     }, [])
+
+    useEffect(()=>{
+        showUserInformation(userId)
+    }, [userId])
 
     return (
         <LayoutClassicPage title="MaPrimeRenov-info | Simulateur MaPrimeRenov" meta="Simulateur gratuit pour connaitre votre éligibilité aux aides de l'état MaPrimeRenov 2022.">
