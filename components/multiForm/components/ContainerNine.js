@@ -6,18 +6,13 @@ import styles from "../styles/multiForm.module.css";
 const ContainerNine = (props) => {
 
     const name = props.name
-    const error = props.error
     const password = props.password
     const valid = props.valid
     const value = props.value
     const updatePassword =props.passwordValid
 
     const [passwordIsTheSame, setPasswordIsSame] = useState(false)
-    const [wordTapping, setWordTapping]=useState(false)
     const [emailIsTheSame, setEmailIsSame] = useState(false)
-
-    const [emailTapping, setEmailTapping] = useState(false)
-    const [email, setEmail] = useState("")
 
     const [passwordOne, setPassWordOne] = useState("")
     const [passwordTwo, setPassWordTwo] = useState("") 
