@@ -1,28 +1,50 @@
 import { setLazyProp } from 'next/dist/server/api-utils';
 import React, { useEffect, useState } from 'react';
+import { emailRegex, passwordRegex } from '../../../utils/regex';
 import styles from "../styles/multiForm.module.css";
 
 const ContainerNine = (props) => {
 
     const name = props.name
+    const error = props.error
+    const password = props.password
     const valid = props.valid
+    const value = props.value
+    const updatePassword =props.passwordValid
 
     const [passwordIsTheSame, setPasswordIsSame] = useState(false)
     const [wordTapping, setWordTapping]=useState(false)
+    const [emailIsTheSame, setEmailIsSame] = useState(false)
+
+    const [emailTapping, setEmailTapping] = useState(false)
+    const [email, setEmail] = useState("")
 
     const [passwordOne, setPassWordOne] = useState("")
     const [passwordTwo, setPassWordTwo] = useState("") 
-    
-    // const handleText = (e)=>{
-    //     e.preventDefault()
-    //     value(e.target.value)
-    //     if(e.target.value.lenght <= 0) valid(false)
-    //     valid(true)
-    // }
+
+    const handleEmail = (e)=>{
+        e.preventDefault()
+        if(emailRegex.test(e.target.value)){
+            setEmailIsSame(true)
+            value(e.target.value)
+        } 
+        else{
+            value("")
+            setEmailIsSame(false);
+        } 
+    }
 
     useEffect(()=>{
-        if(passwordTwo===passwordOne && passwordTwo !== "" && passwordOne !== "") setPasswordIsSame(true)
-        else setPasswordIsSame(false)
+        if(passwordTwo===passwordOne && passwordTwo !== "" && passwordOne !== "" && passwordRegex.test(passwordOne)) {
+            setPasswordIsSame(true)
+            password(passwordOne)
+            updatePassword(true)
+        }
+        else {
+            setPasswordIsSame(false)
+            password("")
+            updatePassword(false)
+        }
     }, [passwordTwo, passwordOne])
 
     const handlePasseWordOne = (e)=>{
@@ -32,6 +54,15 @@ const ContainerNine = (props) => {
     const handlePasseWordTwo = (e)=>{
         setPassWordTwo(e.target.value)
     }
+
+    useEffect(()=>{
+        if(passwordIsTheSame && emailIsTheSame){
+            valid(true)
+        }else{
+            valid(false)
+        }
+    }, [passwordIsTheSame, emailIsTheSame])
+
     return (
         <div className={`${styles.containerThree} ${styles.container}`}>
             <label className={styles.labelCreatAcount}>
@@ -44,8 +75,10 @@ const ContainerNine = (props) => {
                 <label className={styles.labelAccount}>
                     Email *
                     <input
+                        style={emailIsTheSame ? {border: "1px solid green"} : null}
                         className={styles.input} 
                         type="email" 
+                        onChange={handleEmail}
                         required
                         placeholder='johndoe@exemple.com'
                     />
@@ -55,7 +88,7 @@ const ContainerNine = (props) => {
                     <input onChange={e=>handlePasseWordOne(e)} className={styles.input} type="password" style={passwordIsTheSame ? {border: "1px solid green"} : null} required placeholder='Mot de passe' />
                     <input onChange={e=>handlePasseWordTwo(e)} className={styles.input} type="password" style={passwordIsTheSame ? {border: "1px solid green"} : null} required placeholder='Confirmation du mot de passe' />
                 </label>
-                <span className={styles.lastSpan} style={{color: "#314662"}}>Le resultat de cette simulation n'est pas une proposition commerciale et l'ensemble des resultats obtenus devront être validés par un expert.</span>
+                <span className={styles.lastSpan} style={{color: "#314662"}}>Le resultat de cette simulation ne constitut pas une proposition commerciale et l'ensemble des resultats obtenus devront être validés par un expert.</span>
             </div>
         </div>
     );
