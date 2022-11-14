@@ -1,6 +1,5 @@
 import { dataBase } from '../utils/firebase.config';
 import { collection, addDoc, doc, getDocFromCache, query, where, getDoc, getDocs, setDoc } from 'firebase/firestore';
-import { resolve } from 'styled-jsx/css';
 
 const dataBaseMaPrimeRenov = collection(dataBase, 'primeRenovProspect');
 
@@ -13,10 +12,17 @@ export const setUserDoc = async (object)=>{
 }
 
 export const showUserInformation =async (uid)=>{
-    const q = query(collection(dataBase, "primeRenovProspect"));
-
+    const q = query(collection(dataBase, "users"), where("uid", "==", uid));
+    // const q = query(collection(db, "cities"), where("capital", "==", true));
     const querySnapshot = await getDocs(q);
-
-    console.log(querySnapshot);
+    let user;
+    return new Promise(async (resolve, reject)=>{
+        querySnapshot.forEach( (doc) => {
+        // doc.data() is never undefined for query doc snapshots
+            user = doc.data()
+        })
+        if(user === undefined) await user
+        else resolve(user)
+    })
 }
 
