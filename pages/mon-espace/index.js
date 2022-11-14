@@ -8,6 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { showUserInformation } from '../../api/Doc';
 import { showUserProjectInformation } from '../../redux/action';
 import { Skeleton } from '@mui/material';
+import Simulateur from '../../components/simulateur/Simulateur';
 
 const index = () => {
 
@@ -121,8 +122,9 @@ const index = () => {
                     </article>
                     <div className={styles.projectContainer}>
                         <h3 className={styles.projectContainer_h3}>
-                        Nous vous confirmons votre rendez-vous téléphonique avec notre conseiller au <span className={styles.projectContainer_span}>064563234</span>.
+                        Nous vous confirmons votre rendez-vous téléphonique avec notre conseiller au <span className={styles.projectContainer_span}>064563234</span>
                         </h3>
+                        <Simulateur />
                     </div>
                 </section>
             </main>
