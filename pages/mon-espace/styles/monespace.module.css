@@ -1,5 +1,6 @@
 .main{
     min-height: calc(100vh - 70px);
+    color: black;
 }
 .loader{
     position: absolute;
