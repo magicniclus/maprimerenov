@@ -120,9 +120,9 @@ const index = () => {
                         </div>
                     </article>
                     <div className={styles.projectContainer}>
-                        <h2 className={styles.projectContainer_h2}>
+                        <h3 className={styles.projectContainer_h3}>
                         Nous vous confirmons votre rendez-vous téléphonique avec notre conseiller au <span className={styles.projectContainer_span}>064563234</span>.
-                        </h2>
+                        </h3>
                     </div>
                 </section>
             </main>
