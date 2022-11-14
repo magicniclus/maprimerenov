@@ -4,7 +4,7 @@ import styles from "./styles/Nav.module.css";
 import { Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { authenticateUser, signOut } from '../../api/Auth';
-import { currentUser, switchConnect } from '../../redux/action';
+import { currentUser, showUserProjectInformation, switchConnect } from '../../redux/action';
 
 const Nav = () => {
     const state = useSelector(state => state)
@@ -17,7 +17,6 @@ const Nav = () => {
         if(state.areConnect){
             setConnected(true)
             authenticateUser().then(user=>{
-                // console.log(user);
             }).catch(err=>console.log(err))
         }
         else{
@@ -30,6 +29,7 @@ const Nav = () => {
         setConnected(false)
         dispatch(switchConnect(false))
         dispatch(currentUser(false))
+        dispatch(showUserProjectInformation({}))
     }
 
     return (
