@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import styles from "./styles/monEspace.module.css"
 import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
-import { getUser, updateUser } from '../../api/Auth';
-import { useSelector } from 'react-redux';
+import { getUser } from '../../api/Auth';
+import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
 import CircularProgress from '@mui/material/CircularProgress';
 import { showUserInformation } from '../../api/Doc';
-import { collection, doc, setDoc } from "firebase/firestore"; 
-import { dataBase } from '../../utils/firebase.config';
+import { showUserProjectInformation } from '../../redux/action';
 
 const index = () => {
+
+    const dispatch = useDispatch()
+    const state = useSelector(state=>state)
 
     const [userName, setUserName] = useState("")
     const [userMail, setUserMail] = useState("")
     const [userId, setUserId] = useState("")
 
-    const state = useSelector(state=>state)
 
     const [loader, setLoader] = useState(true)
 
@@ -37,7 +38,9 @@ const index = () => {
     }, [])
 
     useEffect(()=>{
-        showUserInformation(userId)
+        showUserInformation(userId).then(user=>{
+            dispatch(showUserProjectInformation(user))
+        }).catch(err=>console.log("Aucun utilisateur n'est connecté"))
     }, [userId])
 
     return (
