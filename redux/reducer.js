@@ -1,6 +1,7 @@
 const initState = {
     areConnect: false,
     curentUser: {},
+    userProjectInformation: {} 
 }
 
 const reducer = ((state= initState, action)=>{
@@ -15,6 +16,12 @@ const reducer = ((state= initState, action)=>{
             return{
                 ...state,
                 curentUser:  action.payload
+            }
+
+        case "showUserProjectInformation":
+            return{
+                ...state, 
+                userProjectInformation: action.payload
             }
             
         default: return state    
