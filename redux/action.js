@@ -11,3 +11,10 @@ export const currentUser = (user)=>{
         payload: user
     }
 }
+
+export const showUserProjectInformation = user =>{
+    return{
+        type: "showUserProjectInformation",
+        payload: user
+    }
+}
