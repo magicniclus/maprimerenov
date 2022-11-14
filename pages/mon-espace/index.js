@@ -93,7 +93,7 @@ const index = () => {
                                 Surface habitable: <br/>
                                 {
                                     !loader? 
-                                    <span>{state.userProjectInformation.size}m2</span> : 
+                                    <span>{state.userProjectInformation.size}m²</span> : 
                                     <Skeleton varaint="rectangular" width={100} height={30} />
                                 }
                             </h3>
@@ -122,7 +122,11 @@ const index = () => {
                     </article>
                     <div className={styles.projectContainer}>
                         <h3 className={styles.projectContainer_h3}>
-                        Nous vous confirmons votre rendez-vous téléphonique avec notre conseiller au <span className={styles.projectContainer_span}>064563234</span>
+                        Nous vous confirmons votre rendez-vous téléphonique avec notre conseiller au {
+                            !loader ? 
+                            <span className={styles.projectContainer_span}>{state.userProjectInformation.phone}</span>:
+                            <Skeleton varaint="rectangular" width={100} height={30} />
+                        }
                         </h3>
                         <Simulateur />
                     </div>
