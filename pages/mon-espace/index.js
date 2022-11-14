@@ -70,55 +70,61 @@ const index = () => {
     return (
         <LayoutClassicPage title="MaPrimeRenov-info | Aides MaPrimeRenov" meta="Mon espece personnel.">
             <main className={styles.main}>
-                <section className={styles.rightContainer}>
-                    {
-                    !loader?
-                    <h1 className={styles.rightContainer_title}>
-                        {"Bienvenue dans votre espace personnel "+userName+"."}
-                    </h1>:
-                    <Skeleton varaint="rectangular" width={500} height={50} />
-                    }
-                    <div className={styles.rightContainer_informationUserProject}>
-                        <h3 className={styles.rightContainer_h3}>
-                            Code Postal: <br/>
-                            {
-                                !loader? 
-                                <span>{state.userProjectInformation.zipCode}</span> : 
-                                <Skeleton varaint="rectangular" width={100} height={30} />
-                            }
-                        </h3>
-                        <h3 className={styles.rightContainer_h3}>
-                            Surface habitable: <br/>
-                            {
-                                !loader? 
-                                <span>{state.userProjectInformation.size}m2</span> : 
-                                <Skeleton varaint="rectangular" width={100} height={30} />
-                            }
-                        </h3>
-                        <div className={styles.rightContainer_projectContainer}>
-                            <h3 className={styles.rightContainer_h3}>
-                                Type de préstation souhaité:
-                            </h3>
-                            <ul className={styles.rightContainer_ul}>
+                <section className={styles.section}>
+                    <article className={styles.article}>
+                        {
+                        !loader?
+                        <h1 className={styles.article_title}>
+                            {"Bienvenue dans votre espace personnel "+userName+"."}
+                        </h1>:
+                        <Skeleton varaint="rectangular" width={350} height={250} />
+                        }
+                        <div className={styles.article_informationUserProject}>
+                            <h3 className={styles.article_h3}>
+                                Code Postal: <br/>
                                 {
-                                    !loader?
-                                    prestation.map(presta=>
-                                        <li className={styles.rightContainer_li}>{presta}</li>
-                                    ):<Skeleton varaint="rectangular" width={100} height={150} />
+                                    !loader? 
+                                    <span>{state.userProjectInformation.zipCode}</span> : 
+                                    <Skeleton varaint="rectangular" width={100} height={30} />
                                 }
-                            </ul>
+                            </h3>
+                            <h3 className={styles.article_h3}>
+                                Surface habitable: <br/>
+                                {
+                                    !loader? 
+                                    <span>{state.userProjectInformation.size}m2</span> : 
+                                    <Skeleton varaint="rectangular" width={100} height={30} />
+                                }
+                            </h3>
+                            <div className={styles.article_projectContainer}>
+                                <h3 className={styles.article_h3}>
+                                    Type de préstation souhaité:
+                                </h3>
+                                <ul className={styles.article_ul}>
+                                    {
+                                        !loader?
+                                        prestation.map(presta=>
+                                            <li className={styles.article_li}>{presta}</li>
+                                        ):<Skeleton varaint="rectangular" width={100} height={150} />
+                                    }
+                                </ul>
+                            </div>
+                            <h3 className={styles.article_h3}>
+                                Revenus fiscal de référence: <br/>
+                                {
+                                    !loader? 
+                                    <span>{state.userProjectInformation.revenus}</span> : 
+                                    <Skeleton varaint="rectangular" width={100} height={30} />
+                                }
+                            </h3>
                         </div>
-                        <h3 className={styles.rightContainer_h3}>
-                            Revenus fiscal de référence: <br/>
-                            {
-                                !loader? 
-                                <span>{state.userProjectInformation.revenus}</span> : 
-                                <Skeleton varaint="rectangular" width={100} height={30} />
-                            }
-                        </h3>
+                    </article>
+                    <div className={styles.projectContainer}>
+                        <h2 className={styles.projectContainer_h2}>
+                        Nous vous confirmons votre rendez-vous téléphonique avec notre conseiller au <span className={styles.projectContainer_span}>064563234</span>.
+                        </h2>
                     </div>
                 </section>
-                <section className={styles.leftContainer}></section>
             </main>
         </LayoutClassicPage>
     );
