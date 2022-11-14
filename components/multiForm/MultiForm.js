@@ -16,7 +16,7 @@ import Router from 'next/router';
 import ContainerHeight from './components/ContainerHeight';
 import ContainerNine from './components/ContainerNine';
 import { authenticateUser, getUser, signUp, updateUser } from '../../api/Auth';
-import { addDocs, setDoc } from '../../api/Doc';
+import { addDocs, setUserDoc } from '../../api/Doc';
 
 
 const MultiForm = () => {
@@ -172,8 +172,9 @@ const MultiForm = () => {
         
     useEffect(()=>{
         if(propsect.uid !== ""){
-            addDocs(propsect).then(()=>{
-                Router.push('/merci')
+            console.log(propsect);
+            setUserDoc(propsect).then(()=>{
+                    Router.push('/merci')
             }).catch(err=>{
                 console.log(err);
                 setLoader(false)
