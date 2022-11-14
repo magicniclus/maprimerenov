@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import store from "../redux/store"
 import { authenticateUser } from '../api/Auth';
-import { currentUser, switchConnect } from '../redux/action';
+import { switchConnect } from '../redux/action';
 
 
 function MyApp({ Component, pageProps }) {
@@ -14,6 +14,14 @@ function MyApp({ Component, pageProps }) {
             gtmId:"GTM-PHVP55Z"
         }
         TagManager.initialize(tagManagerArgs)
+    }, [])
+
+    useEffect(()=>{
+        authenticateUser().then(user=>{
+            if(user) store.dispatch(switchConnect(true))
+        }).catch(err=>{
+            store.dispatch(switchConnect(false))
+        })
     }, [])
 
     return (
