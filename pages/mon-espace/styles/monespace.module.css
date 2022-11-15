@@ -1,5 +1,6 @@
 .main{
     height: calc(100vh - 70px);
+    min-height: 900px;
     color: black;
     background-color: #EDF8FF;
     display: flex;
