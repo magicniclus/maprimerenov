@@ -18,3 +18,10 @@ export const showUserProjectInformation = user =>{
         payload: user
     }
 }
+
+export const showPage = boolean =>{
+    return{
+        type: "showPage",
+        payload: boolean
+    }
+}
