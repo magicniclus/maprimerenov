@@ -69,7 +69,7 @@ const index = () => {
     }
 
     return (
-        <LayoutClassicPage title="MaPrimeRenov-info | Aides MaPrimeRenov" meta="Mon espece personnel.">
+        <LayoutClassicPage title="MaPrimeRenov-info | Aides MaPrimeRenov" meta="Mon espece personnel." monEspace={true}>
             <main className={styles.main}>
                 <section className={styles.section}>
                     <article className={styles.article}>
@@ -128,7 +128,11 @@ const index = () => {
                             <Skeleton varaint="rectangular" width={100} height={30} />
                         }
                         </h3>
-                        <Simulateur />
+                        {
+                            !loader ? <Simulateur />:
+                            <Skeleton varaint="rectangular" width={300} height={500} />
+                        }
+                        
                     </div>
                 </section>
             </main>
