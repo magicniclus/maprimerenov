@@ -1,7 +1,8 @@
 const initState = {
     areConnect: false,
     curentUser: {},
-    userProjectInformation: {} 
+    userProjectInformation: {},
+    userInMonEspace: false
 }
 
 const reducer = ((state= initState, action)=>{
@@ -23,6 +24,12 @@ const reducer = ((state= initState, action)=>{
                 ...state, 
                 userProjectInformation: action.payload
             }
+
+        case "showPage":
+            return{
+                ...state,
+                userInMonEspace: action.payload
+            }    
             
         default: return state    
     }
