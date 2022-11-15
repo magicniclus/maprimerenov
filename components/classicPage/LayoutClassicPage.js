@@ -1,10 +1,22 @@
 import styles from "./styles/layoutClassicPage.module.css";
-import React from 'react';
+import React, { useEffect } from 'react';
 import Nav from "../nav/Nav"
 import Head from 'next/head';
 import Footer from "../footer/Footer";
+import { useDispatch } from "react-redux";
+import { showPage } from "../../redux/action";
 
 const LayoutClassicPage = (props) => {
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        if(props.monEspace !== "unedifined"){
+            dispatch(showPage(props.monEspace))
+        }else{
+            dispatch(showPage(false))
+        }
+    }, [])
+
     return (
         <div className={styles.content}>
             <Head>
