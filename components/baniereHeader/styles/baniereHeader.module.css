@@ -1,6 +1,7 @@
 .topContent {
     height: calc(100vh - 70px);
     max-height: 800px;
+    min-height: 500px;
     color: white;
     margin-left: auto;
     margin-right: auto;
