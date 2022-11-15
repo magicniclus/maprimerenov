@@ -13,6 +13,10 @@ const Nav = () => {
 
     const [connected, setConnected] = useState(false)
 
+    const [userInMonEspace, setUserInMonEspace] = useState(false)
+
+    // let url = window.location.pathname
+
     useEffect(()=>{
         if(state.areConnect){
             setConnected(true)
