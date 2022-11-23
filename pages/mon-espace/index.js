@@ -4,11 +4,12 @@ import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
 import { getUser } from '../../api/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
-import CircularProgress from '@mui/material/CircularProgress';
 import { showUserInformation } from '../../api/Doc';
 import { showUserProjectInformation } from '../../redux/action';
 import { Skeleton } from '@mui/material';
 import Simulateur from '../../components/simulateur/Simulateur';
+import { maPrimeRenovAlgoritme } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovAlgorithme';
+import { maPrimeRenovData } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovData';
 
 const index = () => {
 
@@ -18,7 +19,6 @@ const index = () => {
     const [userName, setUserName] = useState("")
     const [userMail, setUserMail] = useState("")
     const [userId, setUserId] = useState("")
-
 
     const [loader, setLoader] = useState(true)
 
@@ -44,6 +44,7 @@ const index = () => {
     useEffect(()=>{
         showUserInformation(userId).then(user=>{
             dispatch(showUserProjectInformation(user))
+            maPrimeRenovAlgoritme(maPrimeRenovData, "province", "one", "bleu",)
         }).catch(err=>console.log("Aucun utilisateur n'est connecté"))
     }, [userId])
 
