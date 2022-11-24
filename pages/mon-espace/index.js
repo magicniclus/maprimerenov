@@ -139,6 +139,14 @@ const index = () => {
                                     <Skeleton varaint="rectangular" width={100} height={30} />
                                 }
                             </h3>
+                            <h3 className={styles.article_h3}>
+                                Nombre de personne dans votre foyer fiscal: <br/>
+                                {
+                                    !loader? 
+                                    <span>{state.userProjectInformation.nbrFamily}</span> : 
+                                    <Skeleton varaint="rectangular" width={100} height={30} />
+                                }
+                            </h3>
                         </div>
                     </article>
                     <div className={styles.projectContainer}>
