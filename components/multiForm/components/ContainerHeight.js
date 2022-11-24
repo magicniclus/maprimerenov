@@ -4,35 +4,61 @@ import SmallCard from './SmallCard';
 
 const ContainerHeight = (props) => {
     const valid = props.valid
-    const value = props.value
+    const valueMin = props.valueMin
+    const valueMax = props.valueMax
 
-    const [lastClick, setLastClick] = useState("")
-    const [updateValue, setUpdateValue] = useState("")
+    const [updateValueMin, setUpdateValueMin] = useState("")
+    const [updateValueMax, setUpdateValueMax] = useState("")
 
     useEffect(() => {
-        updateValue !== "" ? valid(true) : valid(false)
-        if (updateValue !== "") {
+        updateValueMin !== "" ? valid(true) : valid(false)
+        if (updateValueMin !== "") {
             valid(true)
         }
-        value(updateValue)
-    }, [updateValue])
+        valueMin(updateValueMin)
+        valueMax(updateValueMax)
+    }, [updateValueMin])
 
     const handleClick = async (name) => {
-        if(name === "Inférieur à 31 003€") setUpdateValue({min: 0, max: 31003})
-        if(name === "Entre 31 003€ et 37 739€") setUpdateValue({min: 31003, max: 37739})
-        if(name === "Entre 37 739€ et 56 130€") setUpdateValue({min: 37739, max: 56130})
-        if(name === "Supérieur à 56 130€") setUpdateValue({min: 56130})
+        if(name === "Inférieur à 31 003€"){
+            await setUpdateValueMin(0)
+            await setUpdateValueMax(31003)
+        } 
+        if(name === "Entre 31 003€ et 37 739€"){
+            await setUpdateValueMin(31003)
+            await setUpdateValueMax(37739)
+        } 
+        if(name === "Entre 37 739€ et 56 130€"){
+            await setUpdateValueMin(37739)
+            await setUpdateValueMax(56130)
+        } 
+        if(name === "Supérieur à 56 130€"){
+            await setUpdateValueMin(56130)  
+            await setUpdateValueMax("")
+        } 
 
-        if(name === "Inférieur à 31 003€" && updateValue.min == 0)setUpdateValue("")
-        if(name === "Entre 31 003€ et 37 739€" && updateValue.min === 31003)setUpdateValue("")
-        if(name === "Entre 37 739€ et 56 130€" && updateValue.min === 37739)setUpdateValue("")
-        if(name === "Supérieur à 56 130€" && updateValue.min === 56130)setUpdateValue("")
+        if(name === "Inférieur à 31 003€" && updateValueMin === 0){
+            await setUpdateValueMin("")
+            await setUpdateValueMax("")
+        }
+        if(name === "Entre 31 003€ et 37 739€" && updateValueMin === 31003){
+            await setUpdateValueMin("")
+            await setUpdateValueMax("")
+        }
+        if(name === "Entre 37 739€ et 56 130€" && updateValueMin === 37739){
+            await setUpdateValueMin("")
+            await setUpdateValueMax("")
+        }
+        if(name === "Supérieur à 56 130€" && updateValueMin === 56130){
+            await setUpdateValueMin("")
+            await setUpdateValueMax("")
+        }
     }
 
     const handleValid = (name) => {
-        if(updateValue === "") return false
-        if (name.min === updateValue.min) return true
-        else return false
+        if(updateValueMin === "") return false
+        if (name.min === updateValueMin) return true
+        return false
     }
 
     return (
