@@ -21,6 +21,7 @@ const index = () => {
     const [userId, setUserId] = useState("")
 
     const [loader, setLoader] = useState(true)
+    const [loaderRevenus, setLoaderRevenus] = useState(true)
 
     const [prestation, setPrestation] = useState([])
 
@@ -28,8 +29,10 @@ const index = () => {
         if(!state.areConnect){
             Router.push("/connection")
             setLoader(true)
+            setLoaderRevenus(true)
         }else{
             setLoader(false)
+            setLoaderRevenus(false)
         }
     }, [state.areConnect])
 
@@ -44,7 +47,7 @@ const index = () => {
     useEffect(()=>{
         showUserInformation(userId).then(user=>{
             dispatch(showUserProjectInformation(user))
-            maPrimeRenovAlgoritme(maPrimeRenovData, "province", "one", "bleu",)
+            maPrimeRenovAlgoritme(maPrimeRenovData, "province", "one", "bleu")
         }).catch(err=>console.log("Aucun utilisateur n'est connecté"))
     }, [userId])
 
@@ -52,6 +55,11 @@ const index = () => {
         if(state.userProjectInformation.zipCode) setLoader(false)
         else setLoader(true)
     }, [state.userProjectInformation.zipCode])
+
+    useEffect(()=>{
+        if(state.userProjectInformation.revenus !== undefined) setLoaderRevenus(false)
+        else setLoaderRevenus(true)
+    }, [state.userProjectInformation.revenus])
 
     useEffect(()=>{
         if(!loader){
@@ -66,7 +74,18 @@ const index = () => {
         if(state.userProjectInformation.pompeAChaleurClim) await setPrestation(prestation => [...prestation, "Pompe a chaleur / Climatisation"])
         if(state.userProjectInformation.chauffage) await setPrestation(prestation => [...prestation, "Chauffage"])
         if(state.userProjectInformation.solaireChauffeEau) await setPrestation(prestation => [...prestation, "Systhème solaire / Chauffe Eau"])
+    }
 
+    const updateRevenus = ()=>{
+        if(state.userProjectInformation.revenus !== undefined && state.userProjectInformation.revenus.max !== undefined){
+            return (
+                <span>Entre {state.userProjectInformation.revenus.min}€ et {state.userProjectInformation.revenus.max}€</span>
+            )
+        }else if(state.userProjectInformation.revenus !== undefined){
+            return (
+                <span>Plus de {state.userProjectInformation.revenus.min}€ </span>
+            )
+        }
     }
 
     return (
@@ -106,7 +125,7 @@ const index = () => {
                                     {
                                         !loader?
                                         prestation.map(presta=>
-                                            <li className={styles.article_li}>{presta}</li>
+                                            <li key={presta} className={styles.article_li}>{presta}</li>
                                         ):<Skeleton varaint="rectangular" width={100} height={150} />
                                     }
                                 </ul>
@@ -114,8 +133,9 @@ const index = () => {
                             <h3 className={styles.article_h3}>
                                 Revenus fiscal de référence: <br/>
                                 {
-                                    !loader? 
-                                    <span>{state.userProjectInformation.revenus}</span> : 
+                                    !loaderRevenus? 
+                                    updateRevenus()
+                                    : 
                                     <Skeleton varaint="rectangular" width={100} height={30} />
                                 }
                             </h3>
