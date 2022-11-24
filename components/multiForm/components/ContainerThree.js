@@ -24,7 +24,7 @@ const ContainerThree = (props) => {
                 <span className={styles.span}>En m2</span>
             </label>
             <div className={`${styles.cardContainerThree} ${styles.cardContainer}`}>
-                <input onChange={e=>handleText(e)} className={styles.input} type="number" required placeholder="100" />
+                <input className={`${styles.input} ${styles.inputNumber}`} onChange={e=>handleText(e)} type="number" required placeholder="100" minLength={0} />
             </div>
         </div>
     );
