@@ -79,11 +79,11 @@ const index = () => {
     const updateRevenus = ()=>{
         if(state.userProjectInformation.revenus !== undefined && state.userProjectInformation.revenus.max !== undefined){
             return (
-                <span>Entre {state.userProjectInformation.revenus.min}€ et {state.userProjectInformation.revenus.max}€</span>
+                <span className={styles.article_span}>Entre {state.userProjectInformation.revenus.min}€ et {state.userProjectInformation.revenus.max}€</span>
             )
         }else if(state.userProjectInformation.revenus !== undefined){
             return (
-                <span>Plus de {state.userProjectInformation.revenus.min}€ </span>
+                <span className={styles.article_span}>Plus de {state.userProjectInformation.revenus.min}€ </span>
             )
         }
     }
@@ -105,7 +105,7 @@ const index = () => {
                                 Code Postal: <br/>
                                 {
                                     !loader? 
-                                    <span>{state.userProjectInformation.zipCode}</span> : 
+                                    <span className={styles.article_span}>{state.userProjectInformation.zipCode}</span> : 
                                     <Skeleton varaint="rectangular" width={100} height={30} />
                                 }
                             </h3>
@@ -113,7 +113,7 @@ const index = () => {
                                 Surface habitable: <br/>
                                 {
                                     !loader? 
-                                    <span>{state.userProjectInformation.size}m²</span> : 
+                                    <span className={styles.article_span}>{state.userProjectInformation.size}m²</span> : 
                                     <Skeleton varaint="rectangular" width={100} height={30} />
                                 }
                             </h3>
@@ -143,7 +143,7 @@ const index = () => {
                                 Nombre de personne dans votre foyer fiscal: <br/>
                                 {
                                     !loader? 
-                                    <span>{state.userProjectInformation.nbrFamily}</span> : 
+                                    <span className={styles.span}>{state.userProjectInformation.nbrFamily}</span> : 
                                     <Skeleton varaint="rectangular" width={100} height={30} />
                                 }
                             </h3>
