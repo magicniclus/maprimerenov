@@ -56,7 +56,8 @@ const MultiForm = () => {
         years: "",
         size: "",
         heater: "",
-        revenus: "",
+        revenusMin: "",
+        revenusMax: "",
         nbrFamily: "",
         isolation: false,
         fenetre: false,
@@ -92,19 +93,15 @@ const MultiForm = () => {
         switch (value) {
             case 1:
                 return <ContainerOne valid={(e) => setStepOne(e)} value={e => setProspect({ ...propsect, type: e })} />
-                break;
 
             case 2:
                 return <ContainerTwo valid={(e) => setStepTwo(e)} value={e => setProspect({ ...propsect, years: e })} />
-                break;
 
             case 3:
                 return <ContainerThree valid={(e) => setStepThree(e)} value={e => setProspect({ ...propsect, size: e })} />
-                break;
 
             case 4:
                 return <ContainerFour valid={(e) => setStepFour(e)} value={e => setProspect({ ...propsect, heater: e })} />
-                break;
 
             case 5:
                 return <ContainerFive
@@ -118,14 +115,16 @@ const MultiForm = () => {
                     setChauffage={e => setProspect({ ...propsect, chauffage: e })}
                     setSolaireChauffeEau={e => setProspect({ ...propsect, solaireChauffeEau: e })}
                 />
-                break;
 
             case 6:
                 return <ContainerSix valid={(e) => setStepSix(e)} value={e => setProspect({ ...propsect, status: e })} />
-                break;
 
             case 7:
-                return <ContainerHeight valid={(e) => setStepSeven(e)} value={e => setProspect({ ...propsect, revenus: e })}   />
+                return <ContainerHeight 
+                    valid={(e) => setStepSeven(e)} 
+                    valueMin={e => setProspect({ ...propsect, revenusMin: e })}
+                    valueMax={e => setProspect({ ...propsect, revenusMax: e })}
+                />
 
             case 8:
                 return <ContainerTen valid={e => setStepTen(e)} value={e=> setProspect({...propsect, nbrFamily: e})}/>
@@ -141,14 +140,12 @@ const MultiForm = () => {
                     valueZipCode={e => setProspect({ ...propsect, zipCode: e })}
                     valueContract={e => setProspect({ ...propsect, contract: e })}
                 />
-                break;
 
             case 10:
                 return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} value={e => setProspect({ ...propsect, email: e })} password={e=>setPasseword(e)} passwordValid={e=>setPasswordIsSame(e)} />     
 
             default:
                 return null
-                break;
         }
     }
 
@@ -225,7 +222,7 @@ const MultiForm = () => {
                 break;
 
             case 7:
-                propsect.revenus !== "" ? setDisable(false) : setDisable(true)
+                propsect.revenusMin !== "" ? setDisable(false) : setDisable(true)
                 break;
     
             case 8:
