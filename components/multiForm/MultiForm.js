@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import styles from "./styles/multiForm.module.css";
+import Router from 'next/router';
 import Image from 'next/image';
-import ContainerOne from './components/ContainerOne';
-import ContainerTwo from './components/ContainerTwo';
 import { Button } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
+import ContainerOne from './components/ContainerOne';
+import ContainerTwo from './components/ContainerTwo';
 import ContainerThree from './components/ContainerThree';
 import ContainerFour from './components/ContainerFour';
 import ContainerFive from './components/ContainerFive';
 import ContainerSix from './components/ContainerSix';
 import ContainerSeven from './components/ContainerSeven';
-import { dataBase } from '../../utils/firebase.config';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import Router from 'next/router';
 import ContainerHeight from './components/ContainerHeight';
 import ContainerNine from './components/ContainerNine';
+import ContainerTen from "./components/ContainerTen";
+import { dataBase } from '../../utils/firebase.config';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { authenticateUser, getUser, signUp, updateUser } from '../../api/Auth';
 import { addDocs, setUserDoc } from '../../api/Doc';
 
@@ -25,7 +26,7 @@ const MultiForm = () => {
 
     const [value, setValue] = useState(1)
 
-    const progressValue = (value * 100) / 9
+    const progressValue = (value * 100) / 10
 
     const [stepOne, setStepOne] = useState(false)
     const [stepTwo, setStepTwo] = useState(false)
@@ -36,6 +37,7 @@ const MultiForm = () => {
     const [stepSeven, setStepSeven] = useState(false)
     const [stepHeight, setStepHeight] = useState(false)
     const [stepNine, setStepNine] = useState(false)
+    const [stepTen, setStepTen] = useState(false)
 
     const [password, setPasseword] = useState("")
     const [passwordIsTheSame, setPasswordIsSame] = useState(false)
@@ -55,6 +57,7 @@ const MultiForm = () => {
         size: "",
         heater: "",
         revenus: "",
+        nbrFamily: "",
         isolation: false,
         fenetre: false,
         vmc: false,
@@ -125,6 +128,9 @@ const MultiForm = () => {
                 return <ContainerHeight valid={(e) => setStepSeven(e)} value={e => setProspect({ ...propsect, revenus: e })}   />
 
             case 8:
+                return <ContainerTen valid={e => setStepTen(e)} value={e=> setProspect({...propsect, nbrFamily: e})}/>
+
+            case 9:
                 return <ContainerSeven
                     valid={(e) => setStepHeight(e)}
                     getValid={stepHeight}
@@ -137,7 +143,7 @@ const MultiForm = () => {
                 />
                 break;
 
-            case 9:
+            case 10:
                 return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} value={e => setProspect({ ...propsect, email: e })} password={e=>setPasseword(e)} passwordValid={e=>setPasswordIsSame(e)} />     
 
             default:
@@ -148,8 +154,8 @@ const MultiForm = () => {
 
     const nextValue = async (e) => {
         e.preventDefault()
-        if (value === 1 || value < 9) setValue(value + 1)
-        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepNine) {
+        if (value === 1 || value < 10) setValue(value + 1)
+        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepNine && stepTen) {
             await setLoader(true)
             await signUp({email: propsect.email, password: password}).then(success=>{
                 if(success){
@@ -185,7 +191,7 @@ const MultiForm = () => {
 
     const prevValue = (e) => {
         e.preventDefault()
-        if (value <= 9 && value > 1) setValue(value - 1)
+        if (value <= 10 && value > 1) setValue(value - 1)
     }
 
     useEffect(() => {
@@ -223,11 +229,14 @@ const MultiForm = () => {
                 break;
     
             case 8:
+                propsect.nbrFamily !== "" ? setDisable(false) : setDisable(true)   
+                break; 
+
+            case 9:
                 propsect.name !== "" && propsect.phone !== "" && propsect.zipCode !== "" && propsect.contract !== "" ? setDisable(false) : setDisable(true)
                 break;
-
     
-            case 9:
+            case 10:
                 stepNine ? setDisable(false) : setDisable(true)
                 break;
     
@@ -250,7 +259,7 @@ const MultiForm = () => {
                 <div className={styles.progression} style={value <= 1 ? { display: "none" } : { display: "block" }}>
                     <div className={styles.avancement} style={value === 7 ? { borderRadius: "20px 0px 0 0", width: `${progressValue}%` } : { width: `${progressValue}%` }}>
                         {
-                            value === 9 ? "Dernière étape !" : null
+                            value === 10 ? "Dernière étape !" : null
                         }
                     </div>
                 </div>
@@ -264,7 +273,7 @@ const MultiForm = () => {
                 <div className={styles.buttonContainer}>
                     <Button variant="contained" disabled={disable} style={{ backgroundColor: "#74c011" }} onClick={(e) => nextValue(e)}>
                         {
-                            value < 9 ? "Suivant" : "Envoyer"
+                            value < 10 ? "Suivant" : "Envoyer"
                         }
 
                     </Button>
