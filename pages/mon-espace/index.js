@@ -29,10 +29,8 @@ const index = () => {
         if(!state.areConnect){
             Router.push("/connection")
             setLoader(true)
-            setLoaderRevenus(true)
         }else{
             setLoader(false)
-            setLoaderRevenus(false)
         }
     }, [state.areConnect])
 
@@ -47,26 +45,25 @@ const index = () => {
     useEffect(()=>{
         showUserInformation(userId).then(user=>{
             dispatch(showUserProjectInformation(user))
-            maPrimeRenovAlgoritme(maPrimeRenovData, "province", "one", "bleu")
         }).catch(err=>console.log("Aucun utilisateur n'est connecté"))
     }, [userId])
-
+    
     useEffect(()=>{
         if(state.userProjectInformation.zipCode) setLoader(false)
         else setLoader(true)
     }, [state.userProjectInformation.zipCode])
-
+    
     useEffect(()=>{
         if(state.userProjectInformation.revenus !== undefined) setLoaderRevenus(false)
         else setLoaderRevenus(true)
     }, [state.userProjectInformation.revenus])
-
+    
     useEffect(()=>{
         if(!loader){
             updatePrestation()
         }else setPrestation([])
     }, [loader])
-
+    
     const updatePrestation = async ()=>{
         if(state.userProjectInformation.isolation) await setPrestation(prestation => [...prestation, "isolation"])
         if(state.userProjectInformation.fenetre) await setPrestation(prestation => [...prestation, "Menuiserie"])
@@ -75,6 +72,12 @@ const index = () => {
         if(state.userProjectInformation.chauffage) await setPrestation(prestation => [...prestation, "Chauffage"])
         if(state.userProjectInformation.solaireChauffeEau) await setPrestation(prestation => [...prestation, "Systhème solaire / Chauffe Eau"])
     }
+    
+    // useEffect(()=>{
+    //     if(!loaderRevenus && userId !== undefined){
+    //         maPrimeRenovAlgoritme(maPrimeRenovData, "province", state.userProjectInformation.nbrFamily, state.userProjectInformation.revenus.min, state.userProjectInformation.revenus.max)
+    //     }
+    // }, [loaderRevenus])
 
     const updateRevenus = ()=>{
         if(state.userProjectInformation.revenus !== undefined && state.userProjectInformation.revenus.max !== undefined){
@@ -132,12 +135,12 @@ const index = () => {
                             </div>
                             <h3 className={styles.article_h3}>
                                 Revenus fiscal de référence: <br/>
-                                {
-                                    !loaderRevenus? 
+                                {/* {
+                                    !loader? 
                                     updateRevenus()
                                     : 
                                     <Skeleton varaint="rectangular" width={100} height={30} />
-                                }
+                                } */}
                             </h3>
                             <h3 className={styles.article_h3}>
                                 Nombre de personne dans votre foyer fiscal: <br/>
