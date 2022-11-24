@@ -63,6 +63,9 @@
     margin-top: 0.5rem;
     color: #314662;
 }
+.article_h3 span{
+    font-size: 40px;
+}
 .projectContainer{
     max-width: 50%;
     margin-left: 10%;
