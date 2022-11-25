@@ -61,7 +61,9 @@ const index = () => {
     useEffect(()=>{
         if(!loader){
             updatePrestation()
-            maPrimeRenovAlgoritme(maPrimeRenovData, "province", state.userProjectInformation.nbrFamily, state.userProjectInformation.revenusMin, state.userProjectInformation.revenusMax)
+            maPrimeRenovAlgoritme(maPrimeRenovData, "province", state.userProjectInformation.nbrFamily, state.userProjectInformation.revenusMin, state.userProjectInformation.revenusMax).then(success=>{
+                console.log(success)
+            }).catch((err)=>console.log(err))
         }else setPrestation([])
     }, [loader])
     
