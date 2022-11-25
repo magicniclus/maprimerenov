@@ -1,10 +1,4 @@
-export const maPrimeRenovAlgoritme = (data, lieu, number, revenusMin, revenusMax)=>{
-    console.log(revenusMin);
-    Object.values(data[lieu][updateNumber(number)]).forEach((el, idx )=>{
-        if(el.max === undefined && revenusMax === undefined ){
-            console.log("rose")
-        }
-    })
+export const maPrimeRenovAlgoritme = async (data, lieu, number, revenusMin, revenusMax)=>{
 }
 
 const updateColor = (idx) =>{
