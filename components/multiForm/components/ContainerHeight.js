@@ -5,7 +5,6 @@ import SmallCard from './SmallCard';
 const ContainerHeight = (props) => {
     const valid = props.valid
     const valueMin = props.valueMin
-    const valueMax = props.valueMax
 
     const [updateValueMin, setUpdateValueMin] = useState("")
     const [updateValueMax, setUpdateValueMax] = useState("")
@@ -16,25 +15,25 @@ const ContainerHeight = (props) => {
             valid(true)
         }
         valueMin(updateValueMin)
-        valueMax(updateValueMax)
+        // valueMax(updateValueMax)
     }, [updateValueMin])
 
     const handleClick = async (name) => {
         if(name === "Inférieur à 31 003€"){
-            await setUpdateValueMin(0)
-            await setUpdateValueMax(31003)
+            await setUpdateValueMin([0, 31003])
+            // await setUpdateValueMax(31003)
         } 
         if(name === "Entre 31 003€ et 37 739€"){
-            await setUpdateValueMin(31003)
-            await setUpdateValueMax(37739)
+            await setUpdateValueMin([31003, 37739])
+            // await setUpdateValueMax(37739)
         } 
         if(name === "Entre 37 739€ et 56 130€"){
-            await setUpdateValueMin(37739)
-            await setUpdateValueMax(56130)
+            await setUpdateValueMin([37739, 56130])
+            // await setUpdateValueMax(56130)
         } 
         if(name === "Supérieur à 56 130€"){
-            await setUpdateValueMin(56130)  
-            await setUpdateValueMax("")
+            await setUpdateValueMin([56130])  
+            // await setUpdateValueMax("")
         } 
 
         if(name === "Inférieur à 31 003€" && updateValueMin === 0){
@@ -56,8 +55,8 @@ const ContainerHeight = (props) => {
     }
 
     const handleValid = (name) => {
-        if(updateValueMin === "") return false
-        if (name.min === updateValueMin) return true
+        if(updateValueMin[0] === undefined && updateValueMin === "") return false
+        if (name.min === updateValueMin[0]) return true
         return false
     }
 
