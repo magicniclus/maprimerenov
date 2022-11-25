@@ -1,4 +1,8 @@
 export const maPrimeRenovAlgoritme = async (data, lieu, number, revenusMin, revenusMax)=>{
+    console.log(revenusMin);
+    Object.values(data[lieu][updateNumber(number)]).forEach((element, idx)=> {
+        console.log(element, idx);
+    });
 }
 
 const updateColor = (idx) =>{
@@ -21,21 +25,20 @@ const updateColor = (idx) =>{
 }
 
 const updateNumber = (nbr)=>{
-    // console.log(nbr);
     switch (nbr) {
-        case 1:
+        case "1":
             return "one"
         
-        case 2:
+        case "2":
             return "two"
 
-        case 3:
+        case "3":
             return "three"
 
-        case 4:
+        case "4":
             return "four"
             
-        case 5: 
+        case "5": 
             return "five"    
 
         default:
