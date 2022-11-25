@@ -1,8 +1,13 @@
 export const maPrimeRenovAlgoritme = async (data, lieu, number, revenusMin, revenusMax)=>{
-    console.log(revenusMin);
-    Object.values(data[lieu][updateNumber(number)]).forEach((element, idx)=> {
-        console.log(element, idx);
-    });
+    return new Promise((resolve, reject)=>{
+        Object.values(data[lieu][updateNumber(number)]).forEach((element, idx)=> {
+            if(element.min >= revenusMin && revenusMax <= element.max){
+                resolve(updateColor(idx))
+            }
+        }).catch(err=>{
+            err
+        })
+    })
 }
 
 const updateColor = (idx) =>{
