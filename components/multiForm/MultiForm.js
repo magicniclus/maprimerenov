@@ -122,8 +122,8 @@ const MultiForm = () => {
             case 7:
                 return <ContainerHeight 
                     valid={(e) => setStepSeven(e)} 
-                    valueMin={e => setProspect({ ...propsect, revenusMin: e })}
-                    valueMax={e => setProspect({ ...propsect, revenusMax: e })}
+                    valueMin={e => setProspect({ ...propsect, revenusMin: e[0], revenusMax: e[1] !== undefined ? e[1] : null })}
+                    // valueMax={e => setProspect({ ...propsect, revenusMax: e })}
                 />
 
             case 8:
