@@ -61,6 +61,7 @@ const index = () => {
     useEffect(()=>{
         if(!loader){
             updatePrestation()
+            maPrimeRenovAlgoritme(maPrimeRenovData, "province", state.userProjectInformation.nbrFamily, state.userProjectInformation.revenusMin, state.userProjectInformation.revenusMax)
         }else setPrestation([])
     }, [loader])
     
@@ -72,21 +73,15 @@ const index = () => {
         if(state.userProjectInformation.chauffage) await setPrestation(prestation => [...prestation, "Chauffage"])
         if(state.userProjectInformation.solaireChauffeEau) await setPrestation(prestation => [...prestation, "Systhème solaire / Chauffe Eau"])
     }
-    
-    // useEffect(()=>{
-    //     if(!loaderRevenus && userId !== undefined){
-    //         maPrimeRenovAlgoritme(maPrimeRenovData, "province", state.userProjectInformation.nbrFamily, state.userProjectInformation.revenus.min, state.userProjectInformation.revenus.max)
-    //     }
-    // }, [loaderRevenus])
 
     const updateRevenus = ()=>{
-        if(state.userProjectInformation.revenus !== undefined && state.userProjectInformation.revenus.max !== undefined){
+        if(state.userProjectInformation.revenusMax ){
             return (
-                <span className={styles.article_span}>Entre {state.userProjectInformation.revenus.min}€ et {state.userProjectInformation.revenus.max}€</span>
+                <span className={styles.article_span}>Entre {state.userProjectInformation.revenusMin}€ et {state.userProjectInformation.revenusMax}€</span>
             )
-        }else if(state.userProjectInformation.revenus !== undefined){
+        }else if(state.userProjectInformation.revenusMin !== undefined){
             return (
-                <span className={styles.article_span}>Plus de {state.userProjectInformation.revenus.min}€ </span>
+                <span className={styles.article_span}>Plus de {state.userProjectInformation.revenusMin}€ </span>
             )
         }
     }
@@ -135,12 +130,12 @@ const index = () => {
                             </div>
                             <h3 className={styles.article_h3}>
                                 Revenus fiscal de référence: <br/>
-                                {/* {
+                                {
                                     !loader? 
                                     updateRevenus()
                                     : 
                                     <Skeleton varaint="rectangular" width={100} height={30} />
-                                } */}
+                                }
                             </h3>
                             <h3 className={styles.article_h3}>
                                 Nombre de personne dans votre foyer fiscal: <br/>
