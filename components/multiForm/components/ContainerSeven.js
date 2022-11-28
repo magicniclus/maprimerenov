@@ -11,14 +11,10 @@ const ContainerSeven = (props) => {
 
     const valueName = props.valueName
     const valuePhone = props.valuePhone
-    const valueZipCode = props.valueZipCode
-    // const valueEmail = props.valueEmail
     const valueContract = props.valueContract
 
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
-    const [zipCode, setZipCode] = useState("")
-    // const [email, setEmail] = useState("")
     const [contract, setContract] = useState("")
 
     useEffect(() => {
@@ -26,13 +22,13 @@ const ContainerSeven = (props) => {
     }, [])
 
     useEffect(() => {
-        if (name === "" || phone === "" || zipCode === "" || contract === "") {
+        if (name === "" || phone === "" || contract === "") {
             valid(false)
         }
         else {
             valid(true)
         }
-    }, [name, phone, zipCode, contract])
+    }, [name, phone, contract])
 
     const handleText = ((e, target) => {
         e.preventDefault()
@@ -64,16 +60,6 @@ const ContainerSeven = (props) => {
                             setPhone(e.target.value)
                         }}
                         className={styles.input} type="number" minLength={10} required
-                    />
-                </label>
-                <label className={styles.labelFinal}>
-                    Code postal *
-                    <input
-                        onChange={e => {
-                            handleText(e, valueZipCode)
-                            setZipCode(e.target.value)
-                        }}
-                        className={styles.input} type="zip" required
                     />
                 </label>
                 <label className={styles.labelFinal}>
