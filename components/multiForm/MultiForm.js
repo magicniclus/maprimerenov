@@ -120,14 +120,13 @@ const MultiForm = () => {
                 return <ContainerSix valid={(e) => setStepSix(e)} value={e => setProspect({ ...propsect, status: e })} />
 
             case 7:
+                return <ContainerTen valid={e => setStepTen(e)} value={e=> setProspect({...propsect, nbrFamily: e})}/>
+
+            case 8:
                 return <ContainerHeight 
                     valid={(e) => setStepSeven(e)} 
                     valueMin={e => setProspect({ ...propsect, revenusMin: e[0], revenusMax: e[1] !== undefined ? e[1] : null })}
-                    // valueMax={e => setProspect({ ...propsect, revenusMax: e })}
                 />
-
-            case 8:
-                return <ContainerTen valid={e => setStepTen(e)} value={e=> setProspect({...propsect, nbrFamily: e})}/>
 
             case 9:
                 return <ContainerSeven
@@ -222,11 +221,11 @@ const MultiForm = () => {
                 break;
 
             case 7:
-                propsect.revenusMin !== "" ? setDisable(false) : setDisable(true)
-                break;
-    
-            case 8:
                 propsect.nbrFamily !== "" ? setDisable(false) : setDisable(true)   
+                break;
+                
+            case 8:
+                propsect.revenusMin !== undefined && propsect.revenusMin !== "" ? setDisable(false) : setDisable(true)
                 break; 
 
             case 9:
