@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import styles from "../styles/multiForm.module.css";
+import { useDispatch } from 'react-redux';
+import { updateNumberOfFamily } from '../../../redux/action';
 
 const ContainerTen = (props) => {
+
+    const dispatch = useDispatch()
 
     const valid = props.valid
     const value = props.value
@@ -13,8 +17,14 @@ const ContainerTen = (props) => {
     const handleText = (e)=>{
         e.preventDefault()
         value(e.target.value)
-        if(e.target.value.lenght <= 0) valid(false)
-        else valid(true)
+        if(e.target.value.lenght <= 0){
+            valid(false)
+            dispatch(updateNumberOfFamily(""))
+        } 
+        else {
+            dispatch(updateNumberOfFamily(e.target.value))
+            valid(true)
+        }
     }
 
     return (
