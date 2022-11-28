@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { zipCodeRegex } from '../../../utils/regex';
 import styles from "../styles/multiForm.module.css";
 
 const ContainerEleven = (props) => {
@@ -13,8 +14,8 @@ const ContainerEleven = (props) => {
     const handleText = (e)=>{
         e.preventDefault()
         value(e.target.value)
-        if(e.target.value.lenght <= 0) valid(false)
-        valid(true)
+        if(e.target.value.lenght >= 0 ) valid(true)
+        valid(false)
     }
 
     return (
