@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import {maPrimeRenovData} from "../../../utils/maPrimeRenovAlgorithme/maPrimeRenovData"
 import styles from "../styles/multiForm.module.css";
 import SmallCard from './SmallCard';
 
 const ContainerHeight = (props) => {
+
+    const state = useSelector(state=>state)
+
     const valid = props.valid
     const valueMin = props.valueMin
 
@@ -15,27 +20,22 @@ const ContainerHeight = (props) => {
             valid(true)
         }
         valueMin(updateValueMin)
-        // valueMax(updateValueMax)
     }, [updateValueMin])
 
     const handleClick = async (name) => {
         if(name === "Inférieur à 31 003€"){
             await setUpdateValueMin([0, 31003])
-            // await setUpdateValueMax(31003)
         } 
         if(name === "Entre 31 003€ et 37 739€"){
             await setUpdateValueMin([31003, 37739])
-            // await setUpdateValueMax(37739)
         } 
         if(name === "Entre 37 739€ et 56 130€"){
             await setUpdateValueMin([37739, 56130])
-            // await setUpdateValueMax(56130)
         } 
         if(name === "Supérieur à 56 130€"){
             await setUpdateValueMin([56130])  
-            // await setUpdateValueMax("")
         } 
-
+        
         if(name === "Inférieur à 31 003€" && updateValueMin === 0){
             await setUpdateValueMin("")
             await setUpdateValueMax("")
@@ -54,6 +54,10 @@ const ContainerHeight = (props) => {
         }
     }
 
+    useEffect(()=>{
+        console.log(maPrimeRenovData.province["one"]["bleu"]);
+    }, [])
+
     const handleValid = (name) => {
         if(updateValueMin[0] === undefined && updateValueMin === "") return false
         if (name.min === updateValueMin[0]) return true
@@ -67,7 +71,7 @@ const ContainerHeight = (props) => {
                 <span className={styles.span}>Cela nous permet d'être plus precis pour le calcul de vos aides</span>
             </label>
             <div className={`${styles.cardContainerSice} ${styles.cardContainer}`}>
-                <SmallCard setLastClick={(e) => handleClick("Inférieur à 31 003€")} valid={handleValid({min: 0, max: 31003})} title="Inférieur à 31 003€" />
+                <SmallCard setLastClick={(e) => handleClick("Inférieur à 31 003€")} valid={handleValid({min: 0, max: 31003})} title={"Inférieur à "} />
                 <SmallCard setLastClick={(e) => handleClick("Entre 31 003€ et 37 739€")} valid={handleValid({min: 31003, max: 37739})} title="Entre 31 003€ et 37 739€" />
                 <SmallCard setLastClick={(e) => handleClick("Entre 37 739€ et 56 130€")} valid={handleValid({min: 37739, max: 56130})} title="Entre 37 739€ et 56 130€" />
                 <SmallCard setLastClick={(e) => handleClick("Supérieur à 56 130€")} valid={handleValid({min: 56130})} title="Supérieur à 56 130€" />
