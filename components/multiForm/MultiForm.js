@@ -15,10 +15,11 @@ import ContainerHeight from './components/ContainerHeight';
 import ContainerNine from './components/ContainerNine';
 import ContainerTen from "./components/ContainerTen";
 import { dataBase } from '../../utils/firebase.config';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { authenticateUser, getUser, signUp, updateUser } from '../../api/Auth';
-import { addDocs, setUserDoc } from '../../api/Doc';
+import { collection, serverTimestamp } from 'firebase/firestore';
+import { getUser, signUp, updateUser } from '../../api/Auth';
+import { setUserDoc } from '../../api/Doc';
 import ContainerEleven from './components/ContainerEleven';
+import { zipCodeRegex, phoneRegex } from '../../utils/regex';
 
 
 const MultiForm = () => {
@@ -225,7 +226,7 @@ const MultiForm = () => {
                 break;
 
             case 7: 
-                propsect.zipCode !== "" ? setDisable(false) : setDisable(true)
+                propsect.zipCode !== "" && zipCodeRegex.test(propsect.zipCode) === true ? setDisable(false) : setDisable(true)
                 break;
 
             case 8:
@@ -237,7 +238,7 @@ const MultiForm = () => {
                 break; 
 
             case 10:
-                propsect.name !== "" && propsect.phone !== "" && propsect.contract !== "" ? setDisable(false) : setDisable(true)
+                propsect.name !== "" && propsect.phone !== "" && propsect.contract !== "" && phoneRegex.test(propsect.phone) === true ? setDisable(false) : setDisable(true)
                 break;
     
             case 11:
