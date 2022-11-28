@@ -23,11 +23,12 @@ const ContainerSeven = (props) => {
     }, [])
 
     useEffect(() => {
-        if (name !== "" && phone !== "" && contract !== "" ) {
-            valid(true)
+
+        if (name === "" || phone === "" || contract === "") {
+            valid(false)
         }
         else {
-            valid(false)
+            valid(true)
         }
     }, [name, phone, contract])
 
@@ -60,7 +61,7 @@ const ContainerSeven = (props) => {
                             handleText(e, valuePhone)
                             setPhone(e.target.value)
                         }}
-                        className={styles.input} type="number" min={10} required
+                        className={styles.input} type="number" minLength={10} required
                     />
                 </label>
                 <label className={styles.labelFinal}>
