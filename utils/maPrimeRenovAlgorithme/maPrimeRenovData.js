@@ -85,174 +85,174 @@ export const maPrimeRenovData = {
                 min:69081,
             }
         },
-        "sixe":{
+        "six":{
             bleu:{
                 min:0,
-                max:35894,
+                max:40420,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:40420,
+                max:51812,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:51812,
+                max:77825
             },
             rose:{
-                min:69081,
+                min:77825,
             }
         },
         "seven":{
             bleu:{
                 min:0,
-                max:35894,
+                max:44946,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:44946,
+                max:57609,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:57609,
+                max:86569
             },
             rose:{
-                min:69081,
-            }            
+                min:86569,
+            }
         },
         "eight":{
             bleu:{
                 min:0,
-                max:35894,
+                max:49472,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:49472,
+                max:63406,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:63406,
+                max:95313
             },
             rose:{
-                min:69081,
-            }            
+                min:95313,
+            }         
         },
         "nine":{
             bleu:{
                 min:0,
-                max:35894,
+                max:53998,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:53998,
+                max:69203,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:69203,
+                max:104057
             },
             rose:{
-                min:69081,
-            }            
+                min:104057,
+            }         
         },
         "ten":{
             bleu:{
                 min:0,
-                max:35894,
+                max:58524,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:58524,
+                max:75000,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:75000,
+                max:112901
             },
             rose:{
-                min:69081,
-            }            
+                min:112901,
+            }         
         },
         "eleven":{
             bleu:{
                 min:0,
-                max:35894,
+                max:63050,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:63050,
+                max:80797,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:80797,
+                max:121645
             },
             rose:{
-                min:69081,
-            }            
+                min:121645,
+            }        
         },
         "twelve":{
             bleu:{
                 min:0,
-                max:35894,
+                max:67576,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:67576,
+                max:86594,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:86594,
+                max:130389
             },
             rose:{
-                min:69081,
-            }            
+                min:130389,
+            }      
         },
         "thirteen":{
             bleu:{
                 min:0,
-                max:35894,
+                max:72102,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:72102,
+                max:92391,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:92391,
+                max:139133
             },
             rose:{
-                min:69081,
-            }            
+                min:139133,
+            }              
         },
         "fourteen":{
             bleu:{
                 min:0,
-                max:35894,
+                max:76628,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:76628,
+                max:98188,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:98188,
+                max:147877
             },
             rose:{
-                min:69081,
-            }            
+                min:147877,
+            }         
         },
         "fiveteen":{
             bleu:{
                 min:0,
-                max:35894,
+                max:81154,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:81154,
+                max:103985,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:103985,
+                max:156621
             },
             rose:{
-                min:69081,
+                min:156621,
             }            
         }
     },
@@ -345,172 +345,172 @@ export const maPrimeRenovData = {
         "sixe":{
             bleu:{
                 min:0,
-                max:35894,
+                max:55989,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:55989,
+                max:68159,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:68159,
+                max:101951
             },
             rose:{
-                min:69081,
+                min:101951,
             }
         },
         "seven":{
             bleu:{
                 min:0,
-                max:35894,
+                max:62242,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:62242,
+                max:75772,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:75772,
+                max:113406
             },
             rose:{
-                min:69081,
-            }            
+                min:113406,
+            }      
         },
         "eight":{
             bleu:{
                 min:0,
-                max:35894,
+                max:68698,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:68698,
+                max:83385,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:83385,
+                max:124861
             },
             rose:{
-                min:69081,
+                min:124861,
             }            
         },
         "nine":{
             bleu:{
                 min:0,
-                max:35894,
+                max:74951,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:74951,
+                max:90998,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:90998,
+                max:136316
             },
             rose:{
-                min:69081,
-            }            
+                min:136316,
+            }                 
         },
         "ten":{
             bleu:{
                 min:0,
-                max:35894,
+                max:81204,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:81204,
+                max:98611,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:98611,
+                max:147771
             },
             rose:{
-                min:69081,
-            }            
+                min:147771,
+            }              
         },
         "eleven":{
             bleu:{
                 min:0,
-                max:35894,
+                max:87457,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:87457,
+                max:106224,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:106224,
+                max:159226
             },
             rose:{
-                min:69081,
-            }            
+                min:159226,
+            }           
         },
         "twelve":{
             bleu:{
                 min:0,
-                max:35894,
+                max:93719,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:93719,
+                max:113837,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:113837,
+                max:170681
             },
             rose:{
-                min:69081,
-            }            
+                min:170681,
+            }           
         },
         "thirteen":{
             bleu:{
                 min:0,
-                max:35894,
+                max:99972,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:99972,
+                max:121450,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:121450,
+                max:182136
             },
             rose:{
-                min:69081,
-            }            
+                min:182136,
+            }           
         },
         "fourteen":{
             bleu:{
                 min:0,
-                max:35894,
+                max:106225,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:106225,
+                max:129063,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:129063,
+                max:193581
             },
             rose:{
-                min:69081,
-            }            
+                min:193581,
+            }              
         },
         "fiveteen":{
             bleu:{
                 min:0,
-                max:35894,
+                max:112478,
             },
             jaune:{
-                min:35894,
-                max:46015,
+                min:112478,
+                max:136676,
             },
             violet:{
-                min:46015,
-                max:69081
+                min:136676,
+                max:205036
             },
             rose:{
-                min:69081,
-            }            
-        }
+                min:205036,
+            }  
+        }      
     }
 }
