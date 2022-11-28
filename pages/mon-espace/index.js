@@ -45,6 +45,7 @@ const index = () => {
     useEffect(()=>{
         showUserInformation(userId).then(user=>{
             dispatch(showUserProjectInformation(user))
+            console.log(currentUser.uid);
         }).catch(err=>console.log("Aucun utilisateur n'est connecté"))
     }, [userId])
     
@@ -61,9 +62,9 @@ const index = () => {
     useEffect(()=>{
         if(!loader){
             updatePrestation()
-            maPrimeRenovAlgoritme(maPrimeRenovData, "province", state.userProjectInformation.nbrFamily, state.userProjectInformation.revenusMin, state.userProjectInformation.revenusMax).then(success=>{
-                console.log(success)
-            }).catch((err)=>console.log(err))
+            // maPrimeRenovAlgoritme(maPrimeRenovData, "province", state.userProjectInformation.nbrFamily, state.userProjectInformation.revenusMin, state.userProjectInformation.revenusMax).then(success=>{
+            //     console.log(success)
+            // }).catch((err)=>console.log(err))
         }else setPrestation([])
     }, [loader])
     
