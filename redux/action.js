@@ -25,3 +25,10 @@ export const showPage = boolean =>{
         payload: boolean
     }
 }
+
+export const updateNumberOfFamily = number=>{
+    return{
+        type: "updateNumberOfFamily",
+        payload: number
+    }
+}
