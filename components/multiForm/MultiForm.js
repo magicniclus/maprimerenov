@@ -18,6 +18,7 @@ import { dataBase } from '../../utils/firebase.config';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { authenticateUser, getUser, signUp, updateUser } from '../../api/Auth';
 import { addDocs, setUserDoc } from '../../api/Doc';
+import ContainerEleven from './components/ContainerEleven';
 
 
 const MultiForm = () => {
@@ -38,6 +39,7 @@ const MultiForm = () => {
     const [stepHeight, setStepHeight] = useState(false)
     const [stepNine, setStepNine] = useState(false)
     const [stepTen, setStepTen] = useState(false)
+    const [stepEleven, setStepEleven] = useState(false)
 
     const [password, setPasseword] = useState("")
     const [passwordIsTheSame, setPasswordIsSame] = useState(false)
@@ -84,7 +86,7 @@ const MultiForm = () => {
             setProspect({ ...propsect, isolation: false, fenetre: false, vmc: false, pompeAChaleurClim: false, chauffage: false, solaireChauffeEau: false })
         }
         if (section === "personnalInformation") {
-            setProspect({ ...propsect, name: "", phone: "", zipCode: "", email: "", contract: "" })
+            setProspect({ ...propsect, name: "", phone: "", email: "", contract: "" })
         }
 
     }
@@ -119,16 +121,19 @@ const MultiForm = () => {
             case 6:
                 return <ContainerSix valid={(e) => setStepSix(e)} value={e => setProspect({ ...propsect, status: e })} />
 
-            case 7:
-                return <ContainerTen valid={e => setStepTen(e)} value={e=> setProspect({...propsect, nbrFamily: e})}/>
+            case 7: 
+                return <ContainerEleven valid={e=>setStepEleven(e)} value={e=>setProspect({...propsect, zipCode: e})} />
 
             case 8:
+                return <ContainerTen valid={e => setStepTen(e)} value={e=> setProspect({...propsect, nbrFamily: e})}/>
+
+            case 9:
                 return <ContainerHeight 
                     valid={(e) => setStepSeven(e)} 
                     valueMin={e => setProspect({ ...propsect, revenusMin: e[0], revenusMax: e[1] !== undefined ? e[1] : null })}
                 />
 
-            case 9:
+            case 10:
                 return <ContainerSeven
                     valid={(e) => setStepHeight(e)}
                     getValid={stepHeight}
@@ -136,11 +141,10 @@ const MultiForm = () => {
                     value={propsect}
                     valueName={e => setProspect({ ...propsect, name: e })}
                     valuePhone={e => setProspect({ ...propsect, phone: e })}
-                    valueZipCode={e => setProspect({ ...propsect, zipCode: e })}
                     valueContract={e => setProspect({ ...propsect, contract: e })}
                 />
 
-            case 10:
+            case 11:
                 return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} value={e => setProspect({ ...propsect, email: e })} password={e=>setPasseword(e)} passwordValid={e=>setPasswordIsSame(e)} />     
 
             default:
@@ -150,8 +154,8 @@ const MultiForm = () => {
 
     const nextValue = async (e) => {
         e.preventDefault()
-        if (value === 1 || value < 10) setValue(value + 1)
-        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepNine && stepTen) {
+        if (value === 1 || value < 11) setValue(value + 1)
+        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepNine && stepTen && stepEleven) {
             await setLoader(true)
             await signUp({email: propsect.email, password: password}).then(success=>{
                 if(success){
@@ -187,7 +191,7 @@ const MultiForm = () => {
 
     const prevValue = (e) => {
         e.preventDefault()
-        if (value <= 10 && value > 1) setValue(value - 1)
+        if (value <= 11 && value > 1) setValue(value - 1)
     }
 
     useEffect(() => {
@@ -220,19 +224,23 @@ const MultiForm = () => {
                 propsect.status !== "" ? setDisable(false) : setDisable(true)
                 break;
 
-            case 7:
+            case 7: 
+                propsect.zipCode !== "" ? setDisable(false) : setDisable(true)
+                break;
+
+            case 8:
                 propsect.nbrFamily !== "" ? setDisable(false) : setDisable(true)   
                 break;
                 
-            case 8:
+            case 9:
                 propsect.revenusMin !== undefined && propsect.revenusMin !== "" ? setDisable(false) : setDisable(true)
                 break; 
 
-            case 9:
-                propsect.name !== "" && propsect.phone !== "" && propsect.zipCode !== "" && propsect.contract !== "" ? setDisable(false) : setDisable(true)
+            case 10:
+                propsect.name !== "" && propsect.phone !== "" && propsect.contract !== "" ? setDisable(false) : setDisable(true)
                 break;
     
-            case 10:
+            case 11:
                 stepNine ? setDisable(false) : setDisable(true)
                 break;
     
@@ -253,9 +261,9 @@ const MultiForm = () => {
 
             <div className={styles.topContainer}>
                 <div className={styles.progression} style={value <= 1 ? { display: "none" } : { display: "block" }}>
-                    <div className={styles.avancement} style={value === 7 ? { borderRadius: "20px 0px 0 0", width: `${progressValue}%` } : { width: `${progressValue}%` }}>
+                    <div className={styles.avancement} style={value === 8 ? { borderRadius: "20px 0px 0 0", width: `${progressValue}%` } : { width: `${progressValue}%` }}>
                         {
-                            value === 10 ? "Dernière étape !" : null
+                            value === 11 ? "Dernière étape !" : null
                         }
                     </div>
                 </div>
@@ -269,7 +277,7 @@ const MultiForm = () => {
                 <div className={styles.buttonContainer}>
                     <Button variant="contained" disabled={disable} style={{ backgroundColor: "#74c011" }} onClick={(e) => nextValue(e)}>
                         {
-                            value < 10 ? "Suivant" : "Envoyer"
+                            value < 11 ? "Suivant" : "Envoyer"
                         }
 
                     </Button>
