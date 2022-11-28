@@ -23,7 +23,6 @@ import { zipCodeRegex, phoneRegex } from '../../utils/regex';
 
 
 const MultiForm = () => {
-    const databaseRef = collection(dataBase, 'primeRenovProspect');
     const [loader, setLoader] = useState(false);
 
     const [value, setValue] = useState(1)
