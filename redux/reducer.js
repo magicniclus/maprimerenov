@@ -1,5 +1,6 @@
 const initState = {
     areConnect: false,
+    updateNumberOfFamily: null,
     curentUser: {},
     userProjectInformation: {},
     userInMonEspace: false
@@ -29,6 +30,12 @@ const reducer = ((state= initState, action)=>{
             return{
                 ...state,
                 userInMonEspace: action.payload
+            }    
+
+        case "updateNumberOfFamily": 
+            return{
+                ...state,
+                updateNumberOfFamily: action.payload
             }    
             
         default: return state    
