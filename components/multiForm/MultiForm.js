@@ -58,8 +58,7 @@ const MultiForm = () => {
         years: "",
         size: "",
         heater: "",
-        revenusMin: "",
-        revenusMax: "",
+        revenusColor: "",
         nbrFamily: "",
         isolation: false,
         fenetre: false,
@@ -130,7 +129,7 @@ const MultiForm = () => {
             case 9:
                 return <ContainerHeight 
                     valid={(e) => setStepSeven(e)} 
-                    valueMin={e => setProspect({ ...propsect, revenusMin: e[0], revenusMax: e[1] !== undefined ? e[1] : null })}
+                    value={e => setProspect({ ...propsect, revenusColor: e })}
                 />
 
             case 10:
@@ -233,7 +232,7 @@ const MultiForm = () => {
                 break;
                 
             case 9:
-                propsect.revenusMin !== undefined && propsect.revenusMin !== "" ? setDisable(false) : setDisable(true)
+                propsect.revenusColor !== "" ? setDisable(false) : setDisable(true)
                 break; 
 
             case 10:
