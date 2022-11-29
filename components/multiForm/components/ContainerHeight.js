@@ -15,7 +15,7 @@ const ContainerHeight = (props) => {
 
     const [vignetteLoader, setVignetteLoader]=useState(true)
 
-    const [updateValue, setUpdateValue] = useState("")
+    const [updateValue, setUpdateValue] = useState(null)
 
     useEffect(() => {
         updateValue !== "" ? valid(true) : valid(false)
@@ -27,27 +27,27 @@ const ContainerHeight = (props) => {
 
     const handleClick = async (name) => {
         if(name === "blue"){
-            await setUpdateValue("blue")
+            await setUpdateValue(["blue", maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["bleu"]["min"], maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["bleu"]["max"]])
         } 
         if(name === "yellow"){
-            await setUpdateValue("yellow")
+            await setUpdateValue(["yellow", maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["jaune"]["min"], maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["jaune"]["max"]])
         } 
         if(name === "purple"){
-            await setUpdateValue("purple")
+            await setUpdateValue(["purple", maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["violet"]["min"], maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["violet"]["max"]])
         } 
         if(name === "pink"){
-            await setUpdateValue("pink")  
+            await setUpdateValue(["pink",maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["rose"]["min"],maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["rose"]["max"]])  
         } 
-        
         if(name === updateValue){
-            await setUpdateValue("")
+            await setUpdateValue(null)
         }
     }
 
     
     const handleValid = (name) => {
-        if(updateValue === undefined && updateValue === "") return false
-        if (name === updateValue) return true
+        if(updateValue === null) return null
+        if(updateValue[0] === undefined && updateValue[0] === "") return false
+        if (name === updateValue[0]) return true
         return false
     }
 
