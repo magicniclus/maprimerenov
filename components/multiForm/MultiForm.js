@@ -48,6 +48,7 @@ const MultiForm = () => {
     const [stepEleven, setStepEleven] = useState(false)
 
     const [localisation, setLocalisation]= useState("false")
+    const [valueLocalisation, setValueLocalisation] = useState(null)
 
     const [password, setPasseword] = useState("")
     const [passwordIsTheSame, setPasswordIsSame] = useState(false)
@@ -67,6 +68,8 @@ const MultiForm = () => {
         size: "",
         heater: "",
         revenusColor: "",
+        revenusMin: "",
+        revenusMax: "",
         nbrFamily: "",
         isolation: false,
         fenetre: false,
@@ -74,6 +77,7 @@ const MultiForm = () => {
         pompeAChaleurClim: false,
         chauffage: false,
         solaireChauffeEau: false,
+        localisation: "",
         date: new Date(),
         createAt: serverTimestamp(),
         attribution: "",
@@ -137,7 +141,9 @@ const MultiForm = () => {
             case 9:
                 return <ContainerHeight 
                     valid={(e) => setStepSeven(e)} 
-                    value={e => setProspect({ ...propsect, revenusColor: e })}
+                    value={e =>{
+                        e !== null ? setProspect({ ...propsect, revenusColor: e[0], revenusMin: e[1], revenusMax: e[2] !== undefined ? e[2] : null }): null} 
+                    } 
                 />
 
             case 10:
@@ -204,8 +210,16 @@ const MultiForm = () => {
     useEffect(()=>{
         if(localisation && checkZipCode(propsect.zipCode)){
             dispatch(getZipCode("ileDeFrance"))
-        }else dispatch(getZipCode("province"))
+            setValueLocalisation("ileDeFrance")
+        }else{
+            dispatch(getZipCode("province"))
+            setValueLocalisation("province")
+        } 
     }, [propsect.zipCode])
+
+    useEffect(()=>{
+        setProspect({...propsect, localisation: valueLocalisation})
+    }, [valueLocalisation])
 
     useEffect(() => {
         switch (value) {
@@ -249,7 +263,7 @@ const MultiForm = () => {
                 break;
                 
             case 9:
-                propsect.revenusColor !== "" ? setDisable(false) : setDisable(true)
+                propsect.revenusColor !== "" && propsect.revenusColor !== null ? setDisable(false) : setDisable(true)
                 break; 
 
             case 10:
