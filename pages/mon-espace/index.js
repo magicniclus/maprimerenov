@@ -5,12 +5,11 @@ import { getUser } from '../../api/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
 import { showUserInformation } from '../../api/Doc';
-import { getZipCode, showUserProjectInformation } from '../../redux/action';
+import { showUserProjectInformation } from '../../redux/action';
 import { Skeleton } from '@mui/material';
 import Simulateur from '../../components/simulateur/Simulateur';
-import { maPrimeRenovAlgoritme, updateNumber } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovAlgorithme';
+import { maPrimeRenovAlgoritme } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovAlgorithme';
 import { maPrimeRenovData } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovData';
-import { checkZipCode } from '../../utils/checkZipCode';
 
 const index = () => {
 
@@ -56,9 +55,9 @@ const index = () => {
     }, [state.userProjectInformation.zipCode])
     
     useEffect(()=>{
-        if(state.userProjectInformation.revenusColor !== undefined) setLoaderRevenus(false)
+        if(state.userProjectInformation.revenus !== undefined) setLoaderRevenus(false)
         else setLoaderRevenus(true)
-    }, [state.userProjectInformation.revenusColor])
+    }, [state.userProjectInformation.revenus])
     
     useEffect(()=>{
         if(!loader){
@@ -79,13 +78,15 @@ const index = () => {
     }
 
     const updateRevenus = ()=>{
-        return(
-            <span>
-                {
-                    
-                }
-            </span>
-        )
+        if(state.userProjectInformation.revenusMax ){
+            return (
+                <span className={styles.article_span}>Entre {state.userProjectInformation.revenusMin}€ et {state.userProjectInformation.revenusMax}€</span>
+            )
+        }else if(state.userProjectInformation.revenusMin !== undefined){
+            return (
+                <span className={styles.article_span}>Plus de {state.userProjectInformation.revenusMin}€ </span>
+            )
+        }
     }
 
     return (
