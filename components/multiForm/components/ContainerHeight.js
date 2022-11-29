@@ -9,60 +9,47 @@ const ContainerHeight = (props) => {
     const state = useSelector(state=>state)
 
     const valid = props.valid
-    const valueMin = props.valueMin
+    const value = props.value
 
-    const [updateValueMin, setUpdateValueMin] = useState("")
-    const [updateValueMax, setUpdateValueMax] = useState("")
+    const [updateValue, setUpdateValue] = useState("")
 
     useEffect(() => {
-        updateValueMin !== "" ? valid(true) : valid(false)
-        if (updateValueMin !== "") {
+        updateValue !== "" ? valid(true) : valid(false)
+        if (updateValue !== "") {
             valid(true)
         }
-        valueMin(updateValueMin)
-    }, [updateValueMin])
+        value(updateValue)
+    }, [updateValue])
 
     const handleClick = async (name) => {
-        if(name === "Inférieur à 31 003€"){
-            await setUpdateValueMin([0, 31003])
+        if(name === "blue"){
+            await setUpdateValue("blue")
         } 
-        if(name === "Entre 31 003€ et 37 739€"){
-            await setUpdateValueMin([31003, 37739])
+        if(name === "yellow"){
+            await setUpdateValue("yellow")
         } 
-        if(name === "Entre 37 739€ et 56 130€"){
-            await setUpdateValueMin([37739, 56130])
+        if(name === "purple"){
+            await setUpdateValue("purple")
         } 
-        if(name === "Supérieur à 56 130€"){
-            await setUpdateValueMin([56130])  
+        if(name === "pink"){
+            await setUpdateValue("pink")  
         } 
         
-        if(name === "Inférieur à 31 003€" && updateValueMin === 0){
-            await setUpdateValueMin("")
-            await setUpdateValueMax("")
+        if(name === updateValue){
+            await setUpdateValue("")
         }
-        if(name === "Entre 31 003€ et 37 739€" && updateValueMin === 31003){
-            await setUpdateValueMin("")
-            await setUpdateValueMax("")
-        }
-        if(name === "Entre 37 739€ et 56 130€" && updateValueMin === 37739){
-            await setUpdateValueMin("")
-            await setUpdateValueMax("")
-        }
-        if(name === "Supérieur à 56 130€" && updateValueMin === 56130){
-            await setUpdateValueMin("")
-            await setUpdateValueMax("")
-        }
+    }
+
+    
+    const handleValid = (name) => {
+        if(updateValue === undefined && updateValue === "") return false
+        if (name === updateValue) return true
+        return false
     }
 
     useEffect(()=>{
         console.log(maPrimeRenovData.province["one"]["bleu"]);
     }, [])
-
-    const handleValid = (name) => {
-        if(updateValueMin[0] === undefined && updateValueMin === "") return false
-        if (name.min === updateValueMin[0]) return true
-        return false
-    }
 
     return (
         <div className={`${styles.containerHeight} ${styles.container}`}>
@@ -71,10 +58,10 @@ const ContainerHeight = (props) => {
                 <span className={styles.span}>Cela nous permet d'être plus precis pour le calcul de vos aides</span>
             </label>
             <div className={`${styles.cardContainerSice} ${styles.cardContainer}`}>
-                <SmallCard setLastClick={(e) => handleClick("Inférieur à 31 003€")} valid={handleValid({min: 0, max: 31003})} title={"Inférieur à "} />
-                <SmallCard setLastClick={(e) => handleClick("Entre 31 003€ et 37 739€")} valid={handleValid({min: 31003, max: 37739})} title="Entre 31 003€ et 37 739€" />
-                <SmallCard setLastClick={(e) => handleClick("Entre 37 739€ et 56 130€")} valid={handleValid({min: 37739, max: 56130})} title="Entre 37 739€ et 56 130€" />
-                <SmallCard setLastClick={(e) => handleClick("Supérieur à 56 130€")} valid={handleValid({min: 56130})} title="Supérieur à 56 130€" />
+                <SmallCard setLastClick={(e) => handleClick("blue")} valid={handleValid("blue")} title={"Inférieur à "} />
+                <SmallCard setLastClick={(e) => handleClick("yellow")} valid={handleValid("yellow")} title="Entre 31 003€ et 37 739€" />
+                <SmallCard setLastClick={(e) => handleClick("purple")} valid={handleValid("purple")} title="Entre 37 739€ et 56 130€" />
+                <SmallCard setLastClick={(e) => handleClick("pink")} valid={handleValid("pink")} title="Supérieur à 56 130€" />
             </div>
         </div>
     );
