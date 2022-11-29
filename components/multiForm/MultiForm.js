@@ -20,9 +20,15 @@ import { getUser, signUp, updateUser } from '../../api/Auth';
 import { setUserDoc } from '../../api/Doc';
 import ContainerEleven from './components/ContainerEleven';
 import { zipCodeRegex, phoneRegex } from '../../utils/regex';
+import { useDispatch } from 'react-redux';
+import { getZipCode } from '../../redux/action';
+import { checkZipCode } from '../../utils/checkZipCode';
 
 
 const MultiForm = () => {
+
+    const dispatch = useDispatch()
+
     const [loader, setLoader] = useState(false);
 
     const [value, setValue] = useState(1)
@@ -40,6 +46,8 @@ const MultiForm = () => {
     const [stepNine, setStepNine] = useState(false)
     const [stepTen, setStepTen] = useState(false)
     const [stepEleven, setStepEleven] = useState(false)
+
+    const [localisation, setLocalisation]= useState("false")
 
     const [password, setPasseword] = useState("")
     const [passwordIsTheSame, setPasswordIsSame] = useState(false)
@@ -193,6 +201,12 @@ const MultiForm = () => {
         if (value <= 11 && value > 1) setValue(value - 1)
     }
 
+    useEffect(()=>{
+        if(localisation && checkZipCode(propsect.zipCode)){
+            dispatch(getZipCode("ileDeFrance"))
+        }else dispatch(getZipCode("province"))
+    }, [propsect.zipCode])
+
     useEffect(() => {
         switch (value) {
             case 1:
@@ -224,7 +238,10 @@ const MultiForm = () => {
                 break;
 
             case 7: 
-                propsect.zipCode !== "" && zipCodeRegex.test(propsect.zipCode) === true ? setDisable(false) : setDisable(true)
+                if(propsect.zipCode !== "" && zipCodeRegex.test(propsect.zipCode) === true){
+                    setLocalisation(true)
+                    setDisable(false)
+                }else setDisable(true)
                 break;
 
             case 8:
