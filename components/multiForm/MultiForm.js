@@ -14,8 +14,7 @@ import ContainerSeven from './components/ContainerSeven';
 import ContainerHeight from './components/ContainerHeight';
 import ContainerNine from './components/ContainerNine';
 import ContainerTen from "./components/ContainerTen";
-import { dataBase } from '../../utils/firebase.config';
-import { collection, serverTimestamp } from 'firebase/firestore';
+import {  serverTimestamp } from 'firebase/firestore';
 import { getUser, signUp, updateUser } from '../../api/Auth';
 import { setUserDoc } from '../../api/Doc';
 import ContainerEleven from './components/ContainerEleven';
@@ -33,7 +32,7 @@ const MultiForm = () => {
 
     const [value, setValue] = useState(1)
 
-    const progressValue = (value * 100) / 10
+    const progressValue = (value * 100) / 11
 
     const [stepOne, setStepOne] = useState(false)
     const [stepTwo, setStepTwo] = useState(false)
