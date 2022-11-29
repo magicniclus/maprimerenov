@@ -55,9 +55,9 @@ const index = () => {
     }, [state.userProjectInformation.zipCode])
     
     useEffect(()=>{
-        if(state.userProjectInformation.revenus !== undefined) setLoaderRevenus(false)
+        if(state.userProjectInformation.revenusColor !== undefined) setLoaderRevenus(false)
         else setLoaderRevenus(true)
-    }, [state.userProjectInformation.revenus])
+    }, [state.userProjectInformation.revenusColor])
     
     useEffect(()=>{
         if(!loader){
@@ -78,13 +78,13 @@ const index = () => {
     }
 
     const updateRevenus = ()=>{
-        if(state.userProjectInformation.revenusMax ){
+        if(state.userProjectInformation.revenusColor ){
             return (
-                <span className={styles.article_span}>Entre {state.userProjectInformation.revenusMin}€ et {state.userProjectInformation.revenusMax}€</span>
+                <span className={styles.article_span}>Entre {state.userProjectInformation.revenusColor}€ et {state.userProjectInformation.revenusColor}€</span>
             )
-        }else if(state.userProjectInformation.revenusMin !== undefined){
+        }else if(state.userProjectInformation.revenusColor !== undefined){
             return (
-                <span className={styles.article_span}>Plus de {state.userProjectInformation.revenusMin}€ </span>
+                <span className={styles.article_span}>Plus de {state.userProjectInformation.revenusColor}€ </span>
             )
         }
     }
