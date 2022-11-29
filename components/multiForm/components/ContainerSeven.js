@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { phoneRegex } from '../../../utils/regex';
 import styles from "../styles/multiForm.module.css";
 
 const ContainerSeven = (props) => {
@@ -61,7 +60,7 @@ const ContainerSeven = (props) => {
                             handleText(e, valuePhone)
                             setPhone(e.target.value)
                         }}
-                        className={styles.input} type="number" minLength={10} required
+                        className={`${styles.input} ${styles.inputNumber}`} type="number" minLength={10} required
                     />
                 </label>
                 <label className={styles.labelFinal}>
