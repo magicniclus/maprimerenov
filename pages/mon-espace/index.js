@@ -5,11 +5,12 @@ import { getUser } from '../../api/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
 import { showUserInformation } from '../../api/Doc';
-import { showUserProjectInformation } from '../../redux/action';
+import { getZipCode, showUserProjectInformation } from '../../redux/action';
 import { Skeleton } from '@mui/material';
 import Simulateur from '../../components/simulateur/Simulateur';
-import { maPrimeRenovAlgoritme } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovAlgorithme';
+import { maPrimeRenovAlgoritme, updateNumber } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovAlgorithme';
 import { maPrimeRenovData } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovData';
+import { checkZipCode } from '../../utils/checkZipCode';
 
 const index = () => {
 
@@ -78,15 +79,13 @@ const index = () => {
     }
 
     const updateRevenus = ()=>{
-        if(state.userProjectInformation.revenusColor ){
-            return (
-                <span className={styles.article_span}>Entre {state.userProjectInformation.revenusColor}€ et {state.userProjectInformation.revenusColor}€</span>
-            )
-        }else if(state.userProjectInformation.revenusColor !== undefined){
-            return (
-                <span className={styles.article_span}>Plus de {state.userProjectInformation.revenusColor}€ </span>
-            )
-        }
+        return(
+            <span>
+                {
+                    
+                }
+            </span>
+        )
     }
 
     return (
