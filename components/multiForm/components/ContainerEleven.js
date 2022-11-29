@@ -24,7 +24,7 @@ const ContainerEleven = (props) => {
                 <span className={styles.span}>La prime peut varier en fonction du secteur dans lequel vous vous trouvez</span>
             </label>
             <div className={`${styles.cardContainerEleven} ${styles.cardContainer}`}>
-                <input className={`${styles.input} ${styles.inputZipCode}`} onChange={e=>handleText(e)} type="zip" required placeholder="3300"  />
+                <input className={`${styles.input} ${styles.inputZipCode}`} onChange={e=>handleText(e)} type="zip" required placeholder="33000"  />
             </div>
         </div>
     );
