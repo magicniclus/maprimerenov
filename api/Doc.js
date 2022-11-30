@@ -13,12 +13,10 @@ export const setUserDoc = async (object)=>{
 
 export const showUserInformation =async (uid)=>{
     const q = query(collection(dataBase, "users"), where("uid", "==", uid));
-    // const q = query(collection(db, "cities"), where("capital", "==", true));
     const querySnapshot = await getDocs(q);
     let user;
-    return new Promise(async (resolve, reject)=>{
+    return new Promise(async (resolve)=>{
         querySnapshot.forEach( (doc) => {
-        // doc.data() is never undefined for query doc snapshots
             user = doc.data()
         })
         if(user === undefined) await user
