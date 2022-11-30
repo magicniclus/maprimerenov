@@ -2,13 +2,33 @@
     padding: 2rem 0;
     height: 100%;
 }
-.simulateur_h3{
+.simulateur_span{
+    font-size: 16px;
+    font-weight: 200;
+    color: #314662;
+}
+.simulateur_result_h2{
+    font-size: 32px;
+    font-weight: 400;
+    color: #78C615;
+    margin: 1rem 0;
+}
+.simulateur_h3, .simulateur_result_h3{
     font-size: 24px;
     font-weight: 400;
     color: #314662;
 }
-.simulateur_h4{
+.simulateur_h3{
+    margin-bottom: 1rem;
+}
+.simulateur_h4, .simulateur_result_h4{
     font-weight: 400;
     color: #314662;
-    margin-top: 2rem;
+}
+.simulateur_result_h4{
+    max-width: 40%;
+    font-weight: 300;
+}
+.simulateur_result_h3{
+    margin-top: 3rem;
 }
