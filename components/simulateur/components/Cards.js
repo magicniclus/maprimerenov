@@ -60,12 +60,12 @@ const Cards = (props) => {
         return (
             <div className={styles.card}>
                 <h3 className={styles.card_h3}>{prestation.charAt(0).toUpperCase() + prestation.slice(1)}</h3>
-                <p className={styles.card_p}>Prime moyenne obtenue: {getPrestation.moyenne}€</p>
-                <p className={styles.card_p}>La prime maximal possible: {getPrestation.max}€</p>
+                <p className={styles.card_p}>Prime moyenne obtenue: <span className={styles.card_p_span}>{getPrestation.moyenne}€</span></p>
+                <p className={styles.card_p}>Prime maximal possible: <span className={styles.card_p_span}>{getPrestation.max}€</span></p>
                 {
                     getPrestation.moyenne !== 0 ? 
                     <div className={styles.card_logo}>
-                        Aides Possibles: <span className={styles.card_logo_span}></span>
+                        <p className={styles.card_p}>Aides Possibles: </p><span className={styles.card_logo_span}></span>
                     </div>
                     :
                     null
