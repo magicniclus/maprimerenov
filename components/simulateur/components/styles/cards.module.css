@@ -18,6 +18,9 @@
 .card_p{
     color: #314662;
 }
+.card_p_span{
+    font-weight: bold;
+}
 .card_logo{
     position: absolute;
     bottom: -12%;
