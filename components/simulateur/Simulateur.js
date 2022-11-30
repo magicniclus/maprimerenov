@@ -17,6 +17,7 @@ const Simulateur = (props) => {
     return (
         <div className={styles.simulateur}>
             <h3 className={styles.simulateur_h3}>Calcul de vos aides:</h3>
+            <span className={styles.span}>Cette estimation est basée sur les données que vous nous avez fournies, elle peut varier en fonction du choix des prestations.</span>
             <div className={styles.simulateur_cardContainer}>
                 {
                     loader ? 
