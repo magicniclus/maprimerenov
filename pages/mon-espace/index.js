@@ -8,8 +8,6 @@ import { showUserInformation } from '../../api/Doc';
 import { showUserProjectInformation } from '../../redux/action';
 import { Skeleton } from '@mui/material';
 import Simulateur from '../../components/simulateur/Simulateur';
-import { maPrimeRenovAlgoritme } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovAlgorithme';
-import { maPrimeRenovData } from '../../utils/maPrimeRenovAlgorithme/maPrimeRenovData';
 
 const index = () => {
 
@@ -24,6 +22,8 @@ const index = () => {
     const [loaderRevenus, setLoaderRevenus] = useState(true)
 
     const [prestation, setPrestation] = useState([])
+
+    const [loaderPrestation, setLoaderPrestation] = useState(true)
 
     useEffect(()=>{
         if(!state.areConnect){
@@ -45,7 +45,6 @@ const index = () => {
     useEffect(()=>{
         showUserInformation(userId).then(user=>{
             dispatch(showUserProjectInformation(user))
-            console.log(currentUser.uid);
         }).catch(err=>console.log("Aucun utilisateur n'est connecté"))
     }, [userId])
     
@@ -62,11 +61,12 @@ const index = () => {
     useEffect(()=>{
         if(!loader){
             updatePrestation()
-            // maPrimeRenovAlgoritme(maPrimeRenovData, "province", state.userProjectInformation.nbrFamily, state.userProjectInformation.revenusMin, state.userProjectInformation.revenusMax).then(success=>{
-            //     console.log(success)
-            // }).catch((err)=>console.log(err))
         }else setPrestation([])
     }, [loader])
+
+    useEffect(()=>{
+        prestation !== [] ? setLoaderPrestation(false):setLoaderPrestation(true)
+    }, [prestation])
     
     const updatePrestation = async ()=>{
         if(state.userProjectInformation.isolation) await setPrestation(prestation => [...prestation, "isolation"])
@@ -159,7 +159,7 @@ const index = () => {
                         }
                         </h3>
                         {
-                            !loader ? <Simulateur />:
+                            !loader && !loaderPrestation ? <Simulateur prestations={prestation} revenusColor={state.userProjectInformation.revenusColor} />:
                             <Skeleton varaint="rectangular" width={300} height={500} />
                         }
                         
