@@ -22,7 +22,7 @@
     z-index: 5;
 }
 .section{
-    min-height: 95%;
+    min-height: 750px;
     width: 80%;
     background-color: white;
     margin-right: 1rem;
