@@ -14,6 +14,7 @@ const Cards = (props) => {
     const state = useSelector(state=>state)
     const revenusColor = state.userProjectInformation.revenusColor;
     const size = state.userProjectInformation.size
+    const areConnect = state.areConnect
     const [getPrestation, setGetPrestation]=useState({})
 
     const updateCardFromPrestation = ()=>{
@@ -48,23 +49,23 @@ const Cards = (props) => {
     }
 
     useEffect(()=>{
-        if(revenusColor !== null, prestation !== ""){
+        if(revenusColor !== null, prestation !== "", areConnect){
             updateCardFromPrestation()
             setLoader(false)
             console.log(prestation);
-        }
-    }, [revenusColor, prestation])
+        }else null
+    }, [revenusColor, prestation, areConnect])
 
     const card = ()=>{
         return (
-            <div className={styles.cards}>
-                <h3 className={styles.cards_title}>{prestation.charAt(0).toUpperCase() + prestation.slice(1)}</h3>
-                <p>Prime moyenne obtenue: {getPrestation.moyenne}€</p>
-                <p>La prime maximal possible: {getPrestation.max}€</p>
+            <div className={styles.card}>
+                <h3 className={styles.card_h3}>{prestation.charAt(0).toUpperCase() + prestation.slice(1)}</h3>
+                <p className={styles.card_p}>Prime moyenne obtenue: {getPrestation.moyenne}€</p>
+                <p className={styles.card_p}>La prime maximal possible: {getPrestation.max}€</p>
                 {
                     getPrestation.moyenne !== 0 ? 
-                    <div>
-                        Aides Possibles: <span>MaPrimeRenov</span>
+                    <div className={styles.card_logo}>
+                        Aides Possibles: <span className={styles.card_logo_span}></span>
                     </div>
                     :
                     null
