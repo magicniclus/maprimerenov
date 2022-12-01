@@ -8,14 +8,31 @@ import { currentUser, showUserProjectInformation, switchConnect } from '../../re
 
 const Nav = () => {
     const state = useSelector(state => state)
-
     const dispatch = useDispatch(useDispatch())
-
     const [connected, setConnected] = useState(false)
-
     const [userInMonEspace, setUserInMonEspace] = useState(false)
+    const [location, setLocation] = useState(null)
+    const [loading, setLoading] = useState(true)
+    
+    useEffect(()=>{
+        if (typeof window !== "undefined") {
+            setLocation(window.location.pathname)
+        }
+    }, [])
 
-    // let url = window.location.pathname
+    useEffect(()=>{
+        switch (location) {
+            case "/mon-espace":
+                if(connected){
+                    console.log("mon-espace")
+                    setUserInMonEspace(true)
+                }
+                break;
+            default:
+                setUserInMonEspace(false)
+                break;
+        }
+    },[location])
 
     useEffect(()=>{
         if(state.areConnect){
@@ -36,6 +53,22 @@ const Nav = () => {
         dispatch(showUserProjectInformation({}))
     }
 
+    const updateNavWithPages = ()=>{
+        if(connected && userInMonEspace){
+            return(
+                <h1>Bonjour Nicolas</h1>
+            )
+        }else if (connected && !userInMonEspace){
+            return(
+               <Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.deconnection} onClick={handleClick}>Se Deconnecter</Button>
+            )
+        }else {
+            return (
+                <Link href="/entreprise"><Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
+            )
+        }
+    }
+
     return (
         <div className={styles.nav} id="nav">
             <div className={styles.content}>
@@ -44,9 +77,7 @@ const Nav = () => {
                 </div>
                 <div className={styles.rightContainer}>
                     {
-                        connected ? 
-                        <Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.deconnection} onClick={handleClick}>Se Deconnecter</Button>:
-                        <Link href="/entreprise"><Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
+                        updateNavWithPages()
                     }
                     <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
                 </div>
