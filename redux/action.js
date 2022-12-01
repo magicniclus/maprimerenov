@@ -33,11 +33,16 @@ export const updateNumberOfFamily = number=>{
     }
 }
 
-
-
 export const getZipCode = number=>{
     return{
         type: "getZipCode",
+        payload: number
+    }
+}
+
+export const updateCounter = number=>{
+    return{
+        type:"updateCounter",
         payload: number
     }
 }
