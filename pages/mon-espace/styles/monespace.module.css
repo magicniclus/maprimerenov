@@ -81,7 +81,7 @@
 }
 .projectContainer_span{
     color: #78C615;
-    font-size: 20px;
+    font-size: 24px;
 }
 .projectContainer_h3::after{
     content: "";
