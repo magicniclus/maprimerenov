@@ -54,8 +54,6 @@ const Cards = (props) => {
         if(revenusColor !== null, prestation !== "", areConnect){
             updateCardFromPrestation()
             setLoader(false)
-            console.log(state.counter + getPrestation.moyenne);
-            // dispatch(updateCounter(getPrestation.moyenne + state.counter))
         }else null
     }, [revenusColor, prestation, areConnect])
 
