@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from "./styles/cards.module.css";
 import { Skeleton } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { maPrimeRenovWorksData } from '../../../utils/maPrimeRenovAlgorithme/maPRimeRenovWorksData';
+import { updateCounter } from '../../../redux/action';
 
 const Cards = (props) => {
 
+    const dispatch= useDispatch()
     
     const [loader, setLoader]=useState(true)
     const [awaitMessage, setAwaitMessage]=useState("Veuillez patienter...")
@@ -52,9 +54,13 @@ const Cards = (props) => {
         if(revenusColor !== null, prestation !== "", areConnect){
             updateCardFromPrestation()
             setLoader(false)
-            console.log(prestation);
+            console.log(state.counter + getPrestation.moyenne);
+            // dispatch(updateCounter(getPrestation.moyenne + state.counter))
         }else null
     }, [revenusColor, prestation, areConnect])
+
+    useEffect(()=>{
+    }, [])
 
     const card = ()=>{
         return (
