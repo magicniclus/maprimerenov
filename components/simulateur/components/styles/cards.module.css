@@ -21,6 +21,10 @@
 .card_p_span{
     font-weight: bold;
 }
+.card_p_secondSpan{
+    font-weight: lighter;
+    font-size: 14px;
+}
 .card_logo{
     position: absolute;
     bottom: -12%;
