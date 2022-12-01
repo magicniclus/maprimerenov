@@ -20,44 +20,48 @@ const Simulateur = (props) => {
     }, [prestations, revenusColor])
 
     useEffect(()=>{
+        setLoaderResult(true)
         updatePrestation()
     }, [prestations])
     
-    const updatePrestation = ()=>{
-        setLoaderResult(true)
-            prestations.forEach(async presta => {
-                setTimeout(()=>{
-                    switch (presta) {
-                        case "isolation":
-                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["isolation"][`${revenusColor}`]["moyenne"] * size)
-                            break;
-        
-                        case "Systhème solaire / Chauffe Eau":
-                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["solaireChauffeEau"][`${revenusColor}`]["moyenne"])
-                            break;
-        
-                        case "Menuiserie":
-                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["fenetre"][`${revenusColor}`]["moyenne"])
-                            break;
-                            
-                        case "Vmc":
-                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["vmc"][`${revenusColor}`]["moyenne"])
-                            break;            
-                        
-                        case "Pompe a chaleur / Climatisation":
-                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["pompeAChaleurClim"][`${revenusColor}`]["moyenne"])
-                            break;            
-                            
-                        case "Chauffage":
-                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["chauffage"][`${revenusColor}`]["moyenne"])
-                            break;
-                        default:
-                            break;
-                    }
-                }, 500)
+    const updatePrestation = async ()=>{
+        setSimulateurResult(0)
+        prestations.forEach(async presta => {
+            switch (presta) {
+                case "isolation":
+                    console.log(maPrimeRenovWorksData["isolation"][`${revenusColor}`]["moyenne"] * size);
+                    setSimulateurResult(result => result + (maPrimeRenovWorksData["isolation"][`${revenusColor}`]["moyenne"] * size))
+                    break;
+
+                case "Systhème solaire / Chauffe Eau":
+                    console.log(maPrimeRenovWorksData["solaireChauffeEau"][`${revenusColor}`]["moyenne"]);
+                    setSimulateurResult(result => result + maPrimeRenovWorksData["solaireChauffeEau"][`${revenusColor}`]["moyenne"])
+                    break;
+
+                case "Menuiserie":
+                    console.log(maPrimeRenovWorksData["fenetre"][`${revenusColor}`]["moyenne"]);
+                    setSimulateurResult(result => result + maPrimeRenovWorksData["fenetre"][`${revenusColor}`]["moyenne"])
+                    break;
+                    
+                case "Vmc":
+                    console.log(maPrimeRenovWorksData["vmc"][`${revenusColor}`]["moyenne"]);
+                    setSimulateurResult(result => result + maPrimeRenovWorksData["vmc"][`${revenusColor}`]["moyenne"])
+                    break;            
+                
+                case "Pompe a chaleur / Climatisation":
+                    console.log(maPrimeRenovWorksData["pompeAChaleurClim"][`${revenusColor}`]["moyenne"]);
+                    setSimulateurResult(result => result + maPrimeRenovWorksData["pompeAChaleurClim"][`${revenusColor}`]["moyenne"])
+                    break;            
+                    
+                case "Chauffage":
+                    console.log(maPrimeRenovWorksData["chauffage"][`${revenusColor}`]["moyenne"]);
+                    setSimulateurResult(result => result + maPrimeRenovWorksData["chauffage"][`${revenusColor}`]["moyenne"])
+                    break;
+                default:
+                    break;
+            }
         })
-         setLoaderResult(false)
-        console.log(loaderResult);
+        setLoaderResult(false)
     }
 
     return (
@@ -68,8 +72,8 @@ const Simulateur = (props) => {
                 {
                     loader ? 
                     <h4 className={styles.simulateur_h4}>{awaitMessage}</h4>:
-                    prestations.map(presta=>
-                        <Cards prestation={presta}/>
+                    prestations.map((presta, idx)=>
+                        <Cards key={idx} prestation={presta}/>
                     )
                 }
             </div>
@@ -77,7 +81,7 @@ const Simulateur = (props) => {
                 <h3 className={styles.simulateur_result_h3}>Montant moyen des aides accordés par MaPrimeRenov' pour les prestations demandées:</h3>
                 <h2 className={styles.simulateur_result_h2}>
                     {
-                    setLoaderResult ? 
+                    !loaderResult ? 
                     simulateurResult + "€":
                     "Calcul en cours..."
                     }
