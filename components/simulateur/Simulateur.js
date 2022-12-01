@@ -29,32 +29,26 @@ const Simulateur = (props) => {
         prestations.forEach(async presta => {
             switch (presta) {
                 case "isolation":
-                    console.log(maPrimeRenovWorksData["isolation"][`${revenusColor}`]["moyenne"] * size);
                     setSimulateurResult(result => result + (maPrimeRenovWorksData["isolation"][`${revenusColor}`]["moyenne"] * size))
                     break;
 
                 case "Systhème solaire / Chauffe Eau":
-                    console.log(maPrimeRenovWorksData["solaireChauffeEau"][`${revenusColor}`]["moyenne"]);
                     setSimulateurResult(result => result + maPrimeRenovWorksData["solaireChauffeEau"][`${revenusColor}`]["moyenne"])
                     break;
 
                 case "Menuiserie":
-                    console.log(maPrimeRenovWorksData["fenetre"][`${revenusColor}`]["moyenne"]);
                     setSimulateurResult(result => result + maPrimeRenovWorksData["fenetre"][`${revenusColor}`]["moyenne"])
                     break;
                     
                 case "Vmc":
-                    console.log(maPrimeRenovWorksData["vmc"][`${revenusColor}`]["moyenne"]);
                     setSimulateurResult(result => result + maPrimeRenovWorksData["vmc"][`${revenusColor}`]["moyenne"])
                     break;            
                 
                 case "Pompe a chaleur / Climatisation":
-                    console.log(maPrimeRenovWorksData["pompeAChaleurClim"][`${revenusColor}`]["moyenne"]);
                     setSimulateurResult(result => result + maPrimeRenovWorksData["pompeAChaleurClim"][`${revenusColor}`]["moyenne"])
                     break;            
                     
                 case "Chauffage":
-                    console.log(maPrimeRenovWorksData["chauffage"][`${revenusColor}`]["moyenne"]);
                     setSimulateurResult(result => result + maPrimeRenovWorksData["chauffage"][`${revenusColor}`]["moyenne"])
                     break;
                 default:
