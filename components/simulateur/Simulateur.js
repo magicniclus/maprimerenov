@@ -78,7 +78,7 @@ const Simulateur = (props) => {
                 }
             </div>
             <div className={styles.simulateur_result}>
-                <h3 className={styles.simulateur_result_h3}>Montant moyen des aides accordés par MaPrimeRenov' pour les prestations demandées:</h3>
+                <h3 className={styles.simulateur_result_h3}>Montant moyen des aides accordé par MaPrimeRenov' pour les prestations demandées:</h3>
                 <h2 className={styles.simulateur_result_h2}>
                     {
                     !loaderResult ? 
@@ -87,7 +87,7 @@ const Simulateur = (props) => {
                     }
                 </h2>
                 <h4 className={styles.simulateur_result_h4}>Les montants de vos aides indiqués ci-dessus ne constituent nullement une proposition commerciale, 
-                et demande à être validé par un de nos conseillers ainsi que par l’organisment 
+                et demandent à être validé par un de nos conseillers ainsi que par l’organisme 
                 qui le propose. 
                 </h4>
             </div>
