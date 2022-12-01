@@ -4,7 +4,8 @@ const initState = {
     getZipCode: null,
     curentUser: {},
     userProjectInformation: {},
-    userInMonEspace: false
+    userInMonEspace: false,
+    counter: 0
 }
 
 const reducer = ((state= initState, action)=>{
@@ -44,6 +45,12 @@ const reducer = ((state= initState, action)=>{
                 ...state,
                 getZipCode: action.payload
             }   
+
+        case "updateCounter":
+            return{
+                ...state,
+                counter: action.payload
+            }    
             
         default: return state    
     }
