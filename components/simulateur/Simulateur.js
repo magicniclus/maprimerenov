@@ -20,40 +20,45 @@ const Simulateur = (props) => {
     }, [prestations, revenusColor])
 
     useEffect(()=>{
-        setSimulateurResult(0)
-        setLoaderResult(true)
-        prestations.forEach(presta => {
-            switch (presta) {
-                case "isolation":
-                    setSimulateurResult(simulateurResult + maPrimeRenovWorksData["isolation"][`${revenusColor}`]["moyenne"] * size)
-                    break;
-
-                case "Systhème solaire / Chauffe Eau":
-                    setSimulateurResult(simulateurResult + maPrimeRenovWorksData["solaireChauffeEau"][`${revenusColor}`]["moyenne"])
-                    break;
-
-                case "Menuiserie":
-                    setSimulateurResult(simulateurResult + maPrimeRenovWorksData["fenetre"][`${revenusColor}`]["moyenne"])
-                    break;
-                    
-                case "Vmc":
-                    setSimulateurResult(simulateurResult + maPrimeRenovWorksData["vmc"][`${revenusColor}`]["moyenne"])
-                    break;            
-                
-                case "Pompe a chaleur / Climatisation":
-                    setSimulateurResult(simulateurResult + maPrimeRenovWorksData["pompeAChaleurClim"][`${revenusColor}`]["moyenne"])
-                    break;            
-                    
-                case "Chauffage":
-                    setSimulateurResult(simulateurResult + maPrimeRenovWorksData["chauffage"][`${revenusColor}`]["moyenne"])
-                    break;
-            
-                default:
-                    break;
-            }
-        });
-        setLoaderResult(false)
+        updatePrestation()
     }, [prestations])
+    
+    const updatePrestation = ()=>{
+        setLoaderResult(true)
+            prestations.forEach(async presta => {
+                setTimeout(()=>{
+                    switch (presta) {
+                        case "isolation":
+                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["isolation"][`${revenusColor}`]["moyenne"] * size)
+                            break;
+        
+                        case "Systhème solaire / Chauffe Eau":
+                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["solaireChauffeEau"][`${revenusColor}`]["moyenne"])
+                            break;
+        
+                        case "Menuiserie":
+                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["fenetre"][`${revenusColor}`]["moyenne"])
+                            break;
+                            
+                        case "Vmc":
+                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["vmc"][`${revenusColor}`]["moyenne"])
+                            break;            
+                        
+                        case "Pompe a chaleur / Climatisation":
+                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["pompeAChaleurClim"][`${revenusColor}`]["moyenne"])
+                            break;            
+                            
+                        case "Chauffage":
+                            setSimulateurResult(simulateurResult + maPrimeRenovWorksData["chauffage"][`${revenusColor}`]["moyenne"])
+                            break;
+                        default:
+                            break;
+                    }
+                }, 500)
+        })
+         setLoaderResult(false)
+        console.log(loaderResult);
+    }
 
     return (
         <div className={styles.simulateur}>
