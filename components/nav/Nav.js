@@ -5,14 +5,16 @@ import { Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { authenticateUser, signOut } from '../../api/Auth';
 import { currentUser, showUserProjectInformation, switchConnect } from '../../redux/action';
+import ConnectedButton from './components/connectedButton/ConnectedButton';
 
-const Nav = () => {
+const Nav = (props) => {
     const state = useSelector(state => state)
     const dispatch = useDispatch(useDispatch())
     const [connected, setConnected] = useState(false)
     const [userInMonEspace, setUserInMonEspace] = useState(false)
     const [location, setLocation] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [openMenu, setOpenMenu]=useState(false)
     
     useEffect(()=>{
         if (typeof window !== "undefined") {
@@ -56,16 +58,22 @@ const Nav = () => {
     const updateNavWithPages = ()=>{
         if(connected && userInMonEspace){
             return(
-                <h1>Bonjour Nicolas</h1>
-            )
+                    <ConnectedButton click={setOpenMenu} />
+                )
         }else if (connected && !userInMonEspace){
             return(
-               <Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.deconnection} onClick={handleClick}>Se Deconnecter</Button>
+                <>
+                    <Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.deconnection} onClick={handleClick}>Se Deconnecter</Button>
+                    <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
+                </>
             )
         }else {
             return (
-                <Link href="/entreprise"><Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
-            )
+                <>
+                    <Link href="/entreprise"><Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
+                    <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
+                </>
+        )   
         }
     }
 
@@ -79,7 +87,6 @@ const Nav = () => {
                     {
                         updateNavWithPages()
                     }
-                    <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
                 </div>
             </div>
         </div>
