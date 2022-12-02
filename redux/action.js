@@ -46,3 +46,10 @@ export const updateCounter = number=>{
         payload: number
     }
 }
+
+export const toggleMenu = bool=>{
+    return{
+        type:"toggleMenu",
+        payload: bool
+    }
+}
