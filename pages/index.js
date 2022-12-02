@@ -1,9 +1,4 @@
-import React, { useEffect } from 'react';
-import Formulaire from '../components/formulaire/Formulaire';
-import HeaderForm from '../components/headerForm/HeaderForm';
-import TextContainer from '../components/textContainer/TextContainer';
-import VideoContainer from '../components/videoContainer/VideoContainer';
-import Vignette from '../components/vignette/Vignette';
+import React from 'react';
 import LayoutClassicPage from '../components/classicPage/LayoutClassicPage';
 import styles from '../styles/Home.module.css';
 import { Button } from '@mui/material';
@@ -11,9 +6,8 @@ import Router from 'next/router';
 import Tape from '../components/tape/Tape';
 import TransitionBaniere from '../components/transitionBanière/TransitionBaniere';
 import TextBaniere from '../components/textBaniere/TextBaniere';
-import Image from 'next/image';
-import { style } from '@mui/system';
 import BaniereHeader from '../components/baniereHeader/BaniereHeader';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
 
