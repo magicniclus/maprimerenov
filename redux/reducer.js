@@ -1,5 +1,6 @@
 const initState = {
     areConnect: false,
+    menuIsOpen: false,
     numberOfFamily: null,
     getZipCode: null,
     curentUser: {},
@@ -50,6 +51,12 @@ const reducer = ((state= initState, action)=>{
             return{
                 ...state,
                 counter: action.payload
+            }
+            
+        case "toggleMenu": 
+            return{
+                ...state,
+                menuIsOpen: action.payload
             }    
             
         default: return state    
