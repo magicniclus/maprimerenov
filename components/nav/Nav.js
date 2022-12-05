@@ -69,7 +69,7 @@ const Nav = (props) => {
         }else {
             return (
                 <>
-                    <Link href="/entreprise"><Button sx={{ fontWeight: 'bold', maxWidth: "250px" }} variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
+                    <Link href="/entreprise"><Button sx={{ fontWeight: 'bold', maxWidth: "200px" }} variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
                     <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
                 </>
         )   
