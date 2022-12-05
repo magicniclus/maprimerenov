@@ -23,7 +23,7 @@ const ConnectedButton = (props) => {
     }
 
     return (
-        <div className={styles.connectedButton} onClick={openToggleMenu}>
+        <div className={styles.connectedButton} onClick={openToggleMenu} >
                 <p className={styles.p}>Menu</p>
                 <div className={styles.imageContainer}>
                     <Image priority src="/arrowarrow.png" alt="arrow" width="55px" height="16px" objectFit="contain" />
