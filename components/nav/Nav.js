@@ -63,7 +63,6 @@ const Nav = (props) => {
         }else if (connected && !userInMonEspace){
             return(
                 <>
-                    <Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.deconnection} onClick={handleClick}>Se Deconnecter</Button>
                     <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
                 </>
             )
