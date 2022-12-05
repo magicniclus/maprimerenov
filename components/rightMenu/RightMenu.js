@@ -15,7 +15,6 @@ const RightMenu = () => {
     const [loader, setLoader]= useState(true)
 
     const updateToggleMenu = (e)=>{
-        e.preventDefault()
         dispatch(toggleMenu(false))
     }
 
@@ -43,8 +42,7 @@ const RightMenu = () => {
 
     return (
         <div className={styles.rightMenu}>
-            {/* <div className={styles.content} onMouseLeave={(e)=>dispatch(toggleMenu(false))}> */}
-            <div className={styles.content}>
+            <div className={styles.content} onMouseLeave={(e)=>dispatch(toggleMenu(false))}>
                 <div className={styles.imgaeContainer}>
                     <Image src="/closeButton.png" style={{cursor: "pointer"}} onClick={updateToggleMenu} priority width={20} height={20} objectFit="content" />
                 </div>
@@ -61,9 +59,9 @@ const RightMenu = () => {
                     </p>
                 </div>
                 <div className={styles.linkContainer}>
-                    <Link href={"/mon-espace"}><Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.espace}>Mon Profil</Button></Link>
-                    <Link href={"/mon-espace"}><Button sx={{ fontWeight: 'bold' }} variant="text" className={styles.espace}>Mon Projet</Button></Link>
-                    <Link href={"/mon-espace"}><Button sx={{ fontWeight: 'bold' }} variant="contained" color="success" className={styles.espace}>Une Question ?</Button></Link>
+                    <Link href={"/"}><Button onClick={updateToggleMenu} sx={{ fontWeight: 'bold' }} variant="text" className={styles.espace}>Accueil</Button></Link>
+                    <Link href={"/mon-espace"}><Button  onClick={updateToggleMenu} sx={{ fontWeight: 'bold' }} variant="text" className={styles.espace}>Mon Projet</Button></Link>
+                    <Link href={"/contact"}><Button onClick={updateToggleMenu} sx={{ fontWeight: 'bold' }} variant="contained" color="success" className={styles.espace}>Une Question ?</Button></Link>
                 </div>
                 <div className={styles.news}>
                     <h4 className={styles.h4}>
