@@ -1,6 +1,6 @@
 // import { dataBase } from '../../utils/firebase.config';
-import {  createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
-import { currentUser, switchConnect } from "../redux/action";
+import {  createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail} from "firebase/auth";
+import {  switchConnect } from "../redux/action";
 import store from "../redux/store";
 import { auth  } from "../utils/firebase.config";
 
@@ -102,4 +102,20 @@ export const updateUser = (object)=>{
           });
     })
       
+}
+
+export const resetPassword = (email)=>{
+    const user = auth;
+    return new Promise((resolve, reject)=>{
+        sendPasswordResetEmail(user, email)
+        .then(() => {
+            resolve(email)
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            reject(errorMessage + errorCode)
+            // ..
+        });
+    })
 }
