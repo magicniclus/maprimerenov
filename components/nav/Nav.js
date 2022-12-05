@@ -82,7 +82,7 @@ const Nav = (props) => {
                 <div style={{ cursor: "pointer" }} className={styles.leftContainer}>
                     <Link href={"/"}><h3 className={styles.title}>MaPrimeRenov-info.org</h3></Link>
                 </div>
-                <div className={styles.rightContainer}>
+                <div className={connected ? `${styles.rightContainer} ${styles.uncenter}` : styles.rightContainer}>
                     {
                         updateNavWithPages()
                     }
