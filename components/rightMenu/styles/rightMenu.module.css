@@ -6,4 +6,126 @@
     right: 0;
     background-color: RGBA(217, 217, 217, 0.46);
     z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    color: #314662;
+    overflow-y: scroll;
+}
+.content{
+    min-height: 1000px;
+    width: 55%;
+    max-width: 700px;
+    background-color: white;
+    position: relative;
+    transform: translateX(100%);
+    animation-name: openMenu;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+.imgaeContainer{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 2rem;
+    right: 7%;
+    transition: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+.imgaeContainer:hover{
+    transform: scale(1.02);
+}
+.info, .linkContainer, .news{
+    padding-left: 4rem;
+}
+.h3{
+    font-size: 32px;
+    max-width: 400px;
+}
+.info .p{
+    margin-top: 2rem;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.info .p:after{
+    content: "";
+    width: 50%;
+    height: 7px;
+    border-radius: 3px;
+    background-color: #78C615;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.linkContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    /* background-color: aqua; */
+    padding-bottom: 2rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 20%;
+}
+.news{
+    height: 45%;
+    background-color: #CEE4F2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 3rem 4rem;
+}
+.news .p{
+    max-width: 300px;
+}
+.bottom{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 2rem;
+    margin-bottom: 1.2rem;
+}
+.bottom .p{
+    margin-right: 1rem;
+}
+.h4{
+    font-size: 24px;
+    font-weight: bold;
+}
+@keyframes openMenu {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@media screen and (max-width: 764px) {
+    .content {
+    }
+    .info,
+    .linkContainer,
+    .news {
+        padding-left: 2rem;
+    }
+}
+@media screen and (max-width: 650px) {
+    .content{
+        width: 100%;
+        max-width: none;
+    }
+}
+@media screen and (max-width: 431px) {
+    .info,
+    .linkContainer,
+    .news {
+        padding-left: 10px;
+    }
 }
