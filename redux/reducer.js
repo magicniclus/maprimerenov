@@ -1,6 +1,6 @@
 const initState = {
     areConnect: false,
-    menuIsOpen: true,
+    menuIsOpen: false,
     numberOfFamily: null,
     getZipCode: null,
     curentUser: {},
