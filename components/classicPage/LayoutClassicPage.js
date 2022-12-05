@@ -6,6 +6,7 @@ import Footer from "../footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { showPage } from "../../redux/action";
 import RightMenu from "../rightMenu/RightMenu";
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const LayoutClassicPage = (props) => {
     const dispatch = useDispatch()
@@ -13,6 +14,8 @@ const LayoutClassicPage = (props) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
+    
+    
     useEffect(()=>{
         if(props.monEspace !== "unedifined"){
             dispatch(showPage(props.monEspace))
@@ -20,9 +23,19 @@ const LayoutClassicPage = (props) => {
             dispatch(showPage(false))
         }
     }, [])
-
+    
     useEffect(()=>{
-        if(state.menuIsOpen)setIsOpen(true)
+        if(state.menuIsOpen && document !== undefined){
+            // const body = document.querySelector("body")
+            // body.style.overflowY = "hidden"
+            disableBodyScroll(document)
+            setIsOpen(true)
+        }else {
+            // const body = document.querySelector("body")
+            // body.style.overflowY = "scroll"
+            enableBodyScroll(document)
+            setIsOpen(false)
+        }
     }, [state.menuIsOpen])
 
     return (
