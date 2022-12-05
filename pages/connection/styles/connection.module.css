@@ -111,18 +111,37 @@
 @media screen and (max-width: 1024px) {
     .formulaire{
         height: 350px;
-        width: 90vw;
+        width: 60vw;
+        max-width: none;
+    }
+    .entreprise{
+        width: 60vw;
+        margin-top: 5rem;
+    }
+    .container{
+        flex-direction: column;
     }
     .title{
         font-size: 40px;
     }
     .input{
         font-size: 18px;
-        max-width: 35%;
+        max-width: 80%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .main {
+            min-height: calc(100vh - 183px);
     }
 }
 @media screen and (max-width: 425px) {
+    .formulaire, .entreprise{
+        width: 95%;
+    }
+    .title{
+        font-size: 32px;
+    }
     .input{
-        min-width: 80%;
+        min-width: 95%;
     }
 }
