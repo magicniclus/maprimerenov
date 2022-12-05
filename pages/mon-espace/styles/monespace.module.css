@@ -6,7 +6,6 @@
     background-color: #EDF8FF;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-end;
 }
 .loader{
@@ -90,4 +89,33 @@
     border-radius: 3px;
     background-color: #78C615;
     margin-top: 2rem;
+}
+@media screen and (max-width: 1200px) {
+    .main{
+        padding: 1rem;
+        min-height:fit-content;
+    }
+    .section{
+        width: 100%;
+        margin: 0;
+        padding: 1rem;
+    }
+    .article{
+        position: relative;
+        max-width: none;
+        width: 100%;
+        left: auto;
+        top: auto;
+    }
+    .projectContainer{
+        max-width: none;
+        margin-left: auto;
+        width: 100%;
+        margin-top: 5rem;
+    }
+}
+@media screen and (max-width: 562px){
+.article {
+        padding: 20px;
+    }
 }
