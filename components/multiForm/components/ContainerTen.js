@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styles from "../styles/multiForm.module.css";
 import { useDispatch } from 'react-redux';
 import { updateNumberOfFamily } from '../../../redux/action';
+import { style } from '@mui/system';
 
 const ContainerTen = (props) => {
 
@@ -33,6 +34,7 @@ const ContainerTen = (props) => {
             Combien de personnes composent votre foyer, vous compris ? :*
                 <span className={styles.span}>Le montant des aides varie en fonction de la taille de votre ménage.</span>
                 <select
+                    style={{width: "64%"}}
                     onChange={e => {
                         handleText(e)
                     }
