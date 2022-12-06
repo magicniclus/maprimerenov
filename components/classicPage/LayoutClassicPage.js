@@ -1,4 +1,3 @@
-import styles from "./styles/layoutClassicPage.module.css";
 import React, { useEffect, useState } from 'react';
 import Nav from "../nav/Nav"
 import Head from 'next/head';
