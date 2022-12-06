@@ -4,7 +4,6 @@ import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
 import Router from 'next/router';
 import { signOut } from '../../api/Auth';
 import { useDispatch } from 'react-redux';
-import { showUserProjectInformation } from '../../redux/action';
 const merci = () => {
     const dispatch = useDispatch()
     useEffect(()=>{
