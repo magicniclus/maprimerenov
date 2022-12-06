@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import MultiForm from "../../components/multiForm/MultiForm";
-import HeaderForm from '../../components/headerForm/HeaderForm';
 import TextContainer from '../../components/textContainer/TextContainer';
 import VideoContainer from '../../components/videoContainer/VideoContainer';
 import styles from './styles/Simulateur.module.css';
