@@ -299,18 +299,18 @@ const MultiForm = () => {
                 <h2 className={styles.title}>Tester mon éligibilité</h2>
                 <Image src='/frenchFlag.png' alt='drapeau francais' width="100px" height="5" objectFit='cover' className={styles.flag} />
             </div>
-            <form className={styles.formulaire}>
+            <form className={styles.formulaire} id={styles.formulaire}>
                 {
                     handleContainer()
                 }
                 <div className={styles.buttonContainer}>
-                    <Button variant="contained" disabled={disable} style={{ backgroundColor: "#74c011" }} onClick={(e) => nextValue(e)}>
-                        {
-                            value < 11 ? "Suivant" : "Envoyer"
-                        }
+                        <Button variant="contained" disabled={disable} style={{ backgroundColor: "#74c011" }} onClick={(e) => nextValue(e)}>
+                            {
+                                value < 11 ? "Suivant" : "Envoyer"
+                            }
 
-                    </Button>
-                    <Button variant="outlined" disabled={value <= 1 ? true : false} onClick={(e) => prevValue(e)}>
+                        </Button>
+                    <Button href="#form" variant="outlined" disabled={value <= 1 ? true : false} onClick={(e) => prevValue(e)}>
                         Retour
                     </Button>
                 </div>
