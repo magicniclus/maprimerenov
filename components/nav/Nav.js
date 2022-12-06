@@ -26,7 +26,6 @@ const Nav = (props) => {
         switch (location) {
             case "/mon-espace":
                 if(connected){
-                    console.log("mon-espace")
                     setUserInMonEspace(true)
                 }
                 break;
