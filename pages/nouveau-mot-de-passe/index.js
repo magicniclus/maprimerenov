@@ -13,20 +13,26 @@ const NouveauMotDePasse = () => {
     const [emailIsTheSame, setEmailIsSame] = useState(false)
     const [loader, setLoader] = useState(false);
     const [email, setEmail] = useState("")
+    const [message, setMessage] = useState("")
 
     const handleSubmit = (e)=>{
         e.preventDefault()
+        setMessage("")
         setLoader(true)
         if(emailRegex.test(email)){
             setEmailIsSame(true)
             resetPassword(email).then(success=>{
                 if(success){
                     setLoader(false)
-                    console.log("Mot de passe envoyé");
+                    setMessage("Pour valider votre nouveau mot de passe un email vous a été envoyé, s'il ne s'affiche pas vérifiez dans vos spams.")
+                    setTimeout(()=>{
+                        Router.push("/connexion")
+                    }, 10000)
                 }
             }).catch(err=>{
                 console.log(err)
                 setLoader(false)
+                setMessage("Une erreur est survenue, veuillez essayer avec un email valid ou revenez plus tard.")
             })
         } 
     }
@@ -48,6 +54,12 @@ const NouveauMotDePasse = () => {
                         <Button variant="contained" type='submit' style={{maxWidth: "200px"}} >
                             Envoyer
                         </Button>
+                        {
+                            message !== "" ? 
+                            <h4 className={styles.message}>
+                                {message}
+                            </h4>: null
+                        }
                 </form>
             </main>
         </LayoutClassicPage>
