@@ -68,22 +68,22 @@ const ContainerHeight = (props) => {
             <div className={`${styles.cardContainerSice} ${styles.cardContainer}`}>
                 {
                     !vignetteLoader ? 
-                    <SmallCard setLastClick={(e) => handleClick("blue")} valid={handleValid("blue")} title={"Inférieur à " + maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["bleu"]["max"]+"€"} />:
+                    <SmallCard image="logoBlue.png" setLastClick={(e) => handleClick("blue")} valid={handleValid("blue")} title={"Inférieur à " + maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["bleu"]["max"]+"€"} />:
                     <Skeleton variant="rectangular" style={{ width: "132px", minHeight: "113px" }} />
                 }
                 {
                     !vignetteLoader ? 
-                    <SmallCard setLastClick={(e) => handleClick("yellow")} valid={handleValid("yellow")} title={"Entre "+ maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["jaune"]["min"] +"€ et " + maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["jaune"]["max"] + "€"} />:
+                    <SmallCard image="logoYellow.png" setLastClick={(e) => handleClick("yellow")} valid={handleValid("yellow")} title={"Entre "+ maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["jaune"]["min"] +"€ et " + maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["jaune"]["max"] + "€"} />:
                     <Skeleton variant="rectangular" style={{ width: "132px", minHeight: "113px" }} />
                 }
                 {
                     !vignetteLoader ? 
-                    <SmallCard setLastClick={(e) => handleClick("purple")} valid={handleValid("purple")} title={"Entre "+ maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["violet"]["min"] +"€ et " + maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["violet"]["max"] + "€"} />:
+                    <SmallCard image="logoPurple.png" setLastClick={(e) => handleClick("purple")} valid={handleValid("purple")} title={"Entre "+ maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["violet"]["min"] +"€ et " + maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["violet"]["max"] + "€"} />:
                     <Skeleton variant="rectangular" style={{ width: "132px", minHeight: "113px" }} />
                 }
                 {
                     !vignetteLoader ? 
-                    <SmallCard setLastClick={(e) => handleClick("pink")} valid={handleValid("pink")} title={"Supérieur à " + maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["rose"]["min"]+"€"} />:
+                    <SmallCard image="logoPink.png" setLastClick={(e) => handleClick("pink")} valid={handleValid("pink")} title={"Supérieur à " + maPrimeRenovData[state.getZipCode][updateNumber(state.numberOfFamily)]["rose"]["min"]+"€"} />:
                     <Skeleton variant="rectangular" style={{ width: "132px", minHeight: "113px" }} />
                 }
             </div>
