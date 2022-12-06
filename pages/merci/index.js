@@ -11,7 +11,7 @@ const merci = () => {
         signOut()
         setTimeout(()=>{
             Router.push("/connexion")
-        }, 7000)
+        }, 4000)
     }, [])
     return (
         <LayoutClassicPage title="Remerciement" meta="Remerciement poour la validation du formulaire de MaPrimeRenov.">
