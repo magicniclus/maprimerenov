@@ -27,7 +27,7 @@ const index = () => {
 
     useEffect(()=>{
         if(!state.areConnect){
-            Router.push("/connection")
+            Router.push("/connexion")
             setLoader(true)
         }else{
             setLoader(false)
