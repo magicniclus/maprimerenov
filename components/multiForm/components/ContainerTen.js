@@ -34,7 +34,7 @@ const ContainerTen = (props) => {
             Combien de personnes composent votre foyer, vous compris ? :*
                 <span className={styles.span}>Le montant des aides varie en fonction de la taille de votre ménage.</span>
                 <select
-                    style={{width: "64%"}}
+                    style={{maxWidth: "64%"}}
                     onChange={e => {
                         handleText(e)
                     }
