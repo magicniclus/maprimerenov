@@ -8,7 +8,7 @@ import { switchConnect } from '../../redux/action';
 import CircularProgress from '@mui/material/CircularProgress';
 import Router from 'next/router';
 import Link from 'next/link';
-import { faPersonWalkingDashedLineArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 const Index = () => {
     const [valid, setValid] = useState(false)
@@ -19,6 +19,8 @@ const Index = () => {
         email: "",
         password: ""
     })
+
+    const [image, setImage] = useState(false)
 
     const [loader, setLoader] = useState(true)
 
@@ -72,7 +74,12 @@ const Index = () => {
                     <form className={styles.formulaire} onSubmit={handleColorInput}>
                         <h1 className={styles.title}>Se connecter</h1>
                         <input  className={styles.input} type="email" placeholder='Email' onChange={(e)=> setFormValue({...formValue, email: e.target.value})} />
-                        <input  className={styles.input} placeholder='Mot de passe' onChange={(e)=> setFormValue({...formValue, password: e.target.value})} />
+                        <div className={styles.passwordContainer}>
+                            <input  className={styles.inputPassword} type={!image ? "password" : "text"} placeholder='Mot de passe' onChange={(e)=> setFormValue({...formValue, password: e.target.value})} />
+                            <div className={styles.imageContainer}>
+                                <Image src={image ? "/eye.png" : "/eyeClose.png"} width={20} height={20} priority objectFit="contain" onClick={e=>setImage(!image)} />
+                            </div>
+                        </div>
                         <p style={{ display: "flex", color: "red", marginTop:"1rem" }} className={styles.errorMessage}>{feedback}</p>
                         <Button variant="contained" style={{minWidth: "200px", marginTop: "2rem"}} type="submit" color="success">Se Connecter</Button>
                         <Link href={"/nouveau-mot-de-passe"}><Button variant="text" style={{color:"#c2c2c2"}} sx={{ fontSize: 10 }}>Mot de passe oublié</Button></Link>
