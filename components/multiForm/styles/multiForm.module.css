@@ -281,7 +281,7 @@
 }
 .bigCardTitle{
     margin-top: 1rem;
-    font-size: 16px;
+    font-size: 12px;
     min-height: 2rem;
     text-align: center;
 }
@@ -308,6 +308,7 @@
     align-items: center;
     position: relative;
     max-height: 132px;
+    overflow: hidden;
 }
 .smallCardCheck{
     position: absolute;
@@ -324,7 +325,7 @@
     align-items: center;
 }
 .smallCardTitle{
-    font-size: 16px;
+    font-size: 12px;
     min-height: 2rem;
     text-align: center;
     margin-top: 1rem;
@@ -357,6 +358,7 @@
 @media screen and (max-width: 768px) {
     .multiFormContainer{
         min-width: 90vw;
+        margin-top: 2rem;
     }
     .bigCard{
         width: 100%;
