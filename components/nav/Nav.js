@@ -63,14 +63,14 @@ const Nav = (props) => {
         }else if (connected && !userInMonEspace){
             return(
                 <>
-                    <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
+                    <Link href={"/connexion"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
                 </>
             )
         }else {
             return (
                 <>
                     <Link href="/entreprise"><Button sx={{ fontWeight: 'bold', maxWidth: "200px" }} variant="text" className={styles.pro}>Vous êtes un professionel ?</Button></Link>
-                    <Link href={"/connection"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
+                    <Link href={"/connexion"}><Button sx={{ fontWeight: 'bold' }} variant="outlined" className={styles.espace}>Mon espace</Button></Link>
                 </>
         )   
         }
