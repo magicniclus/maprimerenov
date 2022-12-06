@@ -8,6 +8,7 @@ import { switchConnect } from '../../redux/action';
 import CircularProgress from '@mui/material/CircularProgress';
 import Router from 'next/router';
 import Link from 'next/link';
+import { faPersonWalkingDashedLineArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const Index = () => {
     const [valid, setValid] = useState(false)
