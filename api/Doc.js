@@ -17,6 +17,7 @@ export const showUserInformation =async (uid)=>{
     let user;
     return new Promise(async (resolve)=>{
         querySnapshot.forEach( (doc) => {
+            console.log(doc.data());
             user = doc.data()
         })
         if(user === undefined) await user
