@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from "./styles/merci.module.css";
 import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
+import Router from 'next/router';
 const merci = () => {
-    
+    useEffect(()=>{
+        setTimeout(()=>{
+            Router.push("/connexion")
+        }, 7000)
+    }, [])
     return (
         <LayoutClassicPage title="Remerciement" meta="Remerciement poour la validation du formulaire de MaPrimeRenov.">
             <main className={styles.main}>
                 <h1 className={styles.title}>Merci</h1>
-                <h2 className={styles.susTitle}>Vous allez recevoir un email de confirmation pour acceder à votre espace.</h2>
-                <p className={styles.p}>Si il n'apparait pas verifiez vos spams</p>
+                <h2 className={styles.susTitle}>Vous pouvez désormer acceder à votre espace et voir votre simulation.</h2>
             </main>
         </LayoutClassicPage>
     );
