@@ -15,11 +15,15 @@
 .title{
     padding-bottom: 0.5rem;
     font-size: 32px;
+    text-align: center;
 }
 .midContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .vignetteContainer{
     display: flex;
