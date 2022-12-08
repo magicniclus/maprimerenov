@@ -7,7 +7,6 @@ import Tape from '../components/tape/Tape';
 import TransitionBaniere from '../components/transitionBanière/TransitionBaniere';
 import TextBaniere from '../components/textBaniere/TextBaniere';
 import BaniereHeader from '../components/baniereHeader/BaniereHeader';
-import { useSelector } from 'react-redux';
 
 export default function Home() {
 
