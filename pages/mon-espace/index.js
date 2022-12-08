@@ -45,7 +45,7 @@ const Index = () => {
     useEffect(()=>{
         showUserInformation(userId).then(user=>{
             dispatch(showUserProjectInformation(user))
-        }).catch(err=>console.log("Aucun utilisateur n'est connecté"))
+        }).catch(err=>console.log("Aucun utilisateur connecté"))
     }, [userId])
     
     useEffect(()=>{
