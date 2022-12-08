@@ -3,9 +3,7 @@ import styles from "./styles/merci.module.css";
 import LayoutClassicPage from '../../components/classicPage/LayoutClassicPage';
 import Router from 'next/router';
 import { signOut } from '../../api/Auth';
-import { useDispatch } from 'react-redux';
-const merci = () => {
-    const dispatch = useDispatch()
+const Index = () => {
     useEffect(()=>{
         signOut()
         setTimeout(()=>{
@@ -22,4 +20,4 @@ const merci = () => {
     );
 };
 
-export default merci;
+export default Index;

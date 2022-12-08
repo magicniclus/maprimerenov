@@ -9,7 +9,7 @@ import { showUserProjectInformation } from '../../redux/action';
 import { Skeleton } from '@mui/material';
 import Simulateur from '../../components/simulateur/Simulateur';
 
-const index = () => {
+const Index = () => {
 
     const dispatch = useDispatch()
     const state = useSelector(state=>state)
@@ -170,4 +170,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Index;

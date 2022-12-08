@@ -72,7 +72,7 @@ const Simulateur = (props) => {
                 }
             </div>
             <div className={styles.simulateur_result}>
-                <h3 className={styles.simulateur_result_h3}>Montant moyen des aides accordé par MaPrimeRenov' pour les prestations demandées:</h3>
+                <h3 className={styles.simulateur_result_h3}>Montant moyen des aides accordé par MaPrimeRenov&apos; pour les prestations demandées:</h3>
                 <h2 className={styles.simulateur_result_h2}>
                     {
                     !loaderResult ? 

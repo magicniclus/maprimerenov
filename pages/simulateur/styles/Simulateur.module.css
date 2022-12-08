@@ -7,6 +7,14 @@
     display: flex;
     justify-content: space-between;
 }
+.topContainer{
+    width: 100%;
+    padding: 3rem 2rem;
+    background-color: #056CF2;
+}
+.h1{
+    margin-bottom: 1rem;
+}
 @media screen and (max-width: 768px) {
     .midContent{
         flex-direction: column !important 

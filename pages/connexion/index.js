@@ -85,7 +85,7 @@ const Index = () => {
                         <Link href={"/nouveau-mot-de-passe"}><Button variant="text" style={{color:"#c2c2c2"}} sx={{ fontSize: 10 }}>Mot de passe oublié</Button></Link>
                     </form>
                     <section className={styles.entreprise}>
-                        <h2 className={styles.entreprise_p}>Vous n'avez pas encore de projet avec nous ? </h2>
+                        <h2 className={styles.entreprise_p}>Vous n&apos;avez pas encore de projet avec nous ? </h2>
                         <Link href={"/simulateur"}><Button variant="contained" style={{maxWidth: "200px"}} >
                             Creer mon compte
                         </Button></Link>
