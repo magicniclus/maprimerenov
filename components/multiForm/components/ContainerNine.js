@@ -83,7 +83,7 @@ const ContainerNine = (props) => {
                     <input onChange={e=>handlePasseWordOne(e)} className={styles.input} type="password" style={passwordIsTheSame ? {border: "1px solid green"} : null} required placeholder='Mot de passe' />
                     <input onChange={e=>handlePasseWordTwo(e)} className={styles.input} type="password" style={passwordIsTheSame ? {border: "1px solid green"} : null} required placeholder='Confirmation du mot de passe' />
                 </label>
-                <span className={styles.lastSpan} style={{color: "#314662"}}>Le resultat de cette simulation ne constitut pas une proposition commerciale et l'ensemble des resultats obtenus devront être validés par un expert.</span>
+                <span className={styles.lastSpan} style={{color: "#314662"}}>Le resultat de cette simulation ne constitut pas une proposition commerciale et l&apos;ensemble des resultats obtenus devront être validés par un expert.</span>
             </div>
         </div>
     );

@@ -63,7 +63,7 @@ const ContainerHeight = (props) => {
         <div className={`${styles.containerHeight} ${styles.container}`}>
             <label className={styles.label}>
                 Les revenus totals de votre foyer fiscal *
-                <span className={styles.span}>Cela nous permet d'être plus precis pour le calcul de vos aides</span>
+                <span className={styles.span}>Cela nous permet d&apos;être plus precis pour le calcul de vos aides</span>
             </label>
             <div className={`${styles.cardContainerSice} ${styles.cardContainer}`}>
                 {
