@@ -62,7 +62,7 @@ const ContainerNine = (props) => {
         <div className={`${styles.containerThree} ${styles.container}`}>
             <label className={styles.labelCreatAcount}>
                 <h3 className={styles.nameH3}>
-                    Bonjour <strong>{name}</strong>,<br/> Creez votre compte
+                    Bonjour <strong>{name}</strong>,<br/> Créez votre compte pour accéder à votre espace
                 </h3>
                 <span className={styles.span}>Vous y trouverez le resultat de votre simulation</span>
             </label>
