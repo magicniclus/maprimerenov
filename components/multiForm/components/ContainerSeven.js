@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { emailRegex } from '../../../utils/regex';
 import styles from "../styles/multiForm.module.css";
 
 const ContainerSeven = (props) => {
@@ -12,18 +13,21 @@ const ContainerSeven = (props) => {
     const valueName = props.valueName
     const valuePhone = props.valuePhone
     const valueContract = props.valueContract
+    const valueEmail = props.valueEmail
 
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
+    const [email, setEmail] = useState("")
     const [contract, setContract] = useState("")
+
+    const [emailIsTheSame, setEmailIsSame] = useState(false)
 
     useEffect(() => {
         reset()
     }, [])
 
     useEffect(() => {
-
-        if (name === "" || phone === "" || contract === "") {
+        if (name === "" || phone === "" || contract === "" || email === "") {
             valid(false)
         }
         else {
@@ -35,6 +39,19 @@ const ContainerSeven = (props) => {
         e.preventDefault()
         target(e.target.value)
     })
+
+    const handleEmail = (e)=>{
+        e.preventDefault()
+        if(emailRegex.test(e.target.value)){
+            setEmailIsSame(true)
+            setEmail(e.target.value)
+            handleText(e, valueEmail)
+        } 
+        else{
+            setEmail("")
+            setEmailIsSame(false);
+        } 
+    }
 
     return (
         <div className={`${styles.containerSeven} ${styles.container}`}>
@@ -61,6 +78,17 @@ const ContainerSeven = (props) => {
                             setPhone(e.target.value)
                         }}
                         className={`${styles.input} ${styles.inputNumber}`} type="number" minLength={10} required
+                    />
+                </label>
+                <label className={styles.labelFinal}>
+                    Email *
+                    <input
+                        style={emailIsTheSame ? {border: "1px solid green"} : null}
+                        className={styles.input} 
+                        type="email" 
+                        onChange={handleEmail}
+                        required
+                        placeholder='johndoe@exemple.com'
                     />
                 </label>
                 <label className={styles.labelFinal}>

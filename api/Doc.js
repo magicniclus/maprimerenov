@@ -5,7 +5,7 @@ const dataBaseMaPrimeRenov = collection(dataBase, 'primeRenovProspect');
 
 export const setUserDoc = async (object)=>{
     return new Promise((resolve, reject)=>{
-        setDoc(doc(dataBase, 'users', object.uid), object).then(()=>{
+        setDoc(doc(dataBase, "primeRenovProspect", object.name), object).then(()=>{
             resolve(true)
         }).catch(err=>reject(err))
     })

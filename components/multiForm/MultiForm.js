@@ -19,20 +19,21 @@ import { getUser, signUp, updateUser } from '../../api/Auth';
 import { setUserDoc } from '../../api/Doc';
 import ContainerEleven from './components/ContainerEleven';
 import { zipCodeRegex, phoneRegex } from '../../utils/regex';
-import { useDispatch } from 'react-redux';
-import { getZipCode } from '../../redux/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { getZipCode, showUserProjectInformation } from '../../redux/action';
 import { checkZipCode } from '../../utils/checkZipCode';
 
 
 const MultiForm = () => {
 
     const dispatch = useDispatch()
+    const state = useSelector(state=>state)
 
     const [loader, setLoader] = useState(false);
 
     const [value, setValue] = useState(1)
 
-    const progressValue = (value * 100) / 11
+    const progressValue = (value * 100) / 10
 
     const [stepOne, setStepOne] = useState(false)
     const [stepTwo, setStepTwo] = useState(false)
@@ -153,11 +154,9 @@ const MultiForm = () => {
                     value={propsect}
                     valueName={e => setProspect({ ...propsect, name: e })}
                     valuePhone={e => setProspect({ ...propsect, phone: e })}
+                    valueEmail={e=>setProspect({...propsect, email: e})}
                     valueContract={e => setProspect({ ...propsect, contract: e })}
                 />
-
-            case 11:
-                return <ContainerNine name={propsect.name} valid={(e) => setStepNine(e)} value={e => setProspect({ ...propsect, email: e })} password={e=>setPasseword(e)} passwordValid={e=>setPasswordIsSame(e)} />     
 
             default:
                 return null
@@ -166,44 +165,25 @@ const MultiForm = () => {
 
     const nextValue = async (e) => {
         e.preventDefault()
-        if (value === 1 || value < 11) setValue(value + 1)
-        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepNine && stepTen && stepEleven) {
+        if (value === 1 || value < 10) setValue(value + 1)
+        if (stepOne && stepTwo && stepThree && stepFour && stepFive && stepSix && stepSeven && stepHeight && stepTen && stepEleven) {
             await setLoader(true)
-            await signUp({email: propsect.email, password: password}).then(success=>{
-                if(success){
-                    console.log("email sccessfully created");
-                    sendEmailValidation()
-                }
-            })
-            .catch(err=>{
-                console.log(err);
-            })
-            await getUser().then(user=>{
-                console.log(user)
-                setProspect({ ...propsect, uid: user.uid })
-            })
-            .catch(err=>{
-                console.log(err);
-            })
+            dispatch(showUserProjectInformation(propsect))
         }
     }
         
     useEffect(()=>{
-        if(propsect.uid !== ""){
-            console.log(propsect);
-            setUserDoc(propsect).then(()=>{
-                    Router.push('/merci')
-            }).catch(err=>{
-                console.log(err);
-                setLoader(false)
-            })
-            updateUser(propsect.name)
+        if(state.userProjectInformation.zipCode !== undefined){
+            setUserDoc(propsect).then(success=>{
+                console.log(propsect);
+                Router.push('/merci')
+            }).catch(err=>console.log(err))
         }
-    }, [propsect.uid])
+    }, [state.userProjectInformation])
 
     const prevValue = (e) => {
         e.preventDefault()
-        if (value <= 11 && value > 1) setValue(value - 1)
+        if (value <= 10 && value > 1) setValue(value - 1)
     }
 
     useEffect(()=>{
@@ -266,11 +246,7 @@ const MultiForm = () => {
                 break; 
 
             case 10:
-                propsect.name !== "" && propsect.phone !== "" && propsect.contract !== "" && phoneRegex.test(propsect.phone) === true ? setDisable(false) : setDisable(true)
-                break;
-    
-            case 11:
-                stepNine ? setDisable(false) : setDisable(true)
+                propsect.name !== "" && propsect.phone !== "" && propsect.email !== "" && propsect.contract !== "" && phoneRegex.test(propsect.phone) === true ? setDisable(false) : setDisable(true)
                 break;
     
             default: setDisable(true)
@@ -292,7 +268,7 @@ const MultiForm = () => {
                 <div className={styles.progression} style={value <= 1 ? { display: "none" } : { display: "block" }}>
                     <div className={styles.avancement} style={value === 8 ? { borderRadius: "20px 0px 0 0", width: `${progressValue}%` } : { width: `${progressValue}%` }}>
                         {
-                            value === 11 ? "Dernière étape !" : null
+                            value === 10 ? "Dernière étape !" : null
                         }
                     </div>
                 </div>
@@ -306,7 +282,7 @@ const MultiForm = () => {
                 <div className={styles.buttonContainer}>
                         <Button variant="contained" disabled={disable} style={{ backgroundColor: "#74c011" }} onClick={(e) => nextValue(e)}>
                             {
-                                value < 11 ? "Suivant" : "Envoyer"
+                                value < 10 ? "Suivant" : "Envoyer"
                             }
 
                         </Button>

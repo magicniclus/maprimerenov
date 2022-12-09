@@ -25,7 +25,7 @@ const ContainerNine = (props) => {
         } 
         else{
             value("")
-            setEmailIsSame(false);
+            setEmailIsSame(false)
         } 
     }
 

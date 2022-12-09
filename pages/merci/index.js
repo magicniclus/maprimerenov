@@ -6,15 +6,15 @@ import { signOut } from '../../api/Auth';
 const Index = () => {
     useEffect(()=>{
         signOut()
-        setTimeout(()=>{
-            Router.push("/connexion")
-        }, 4000)
+        // setTimeout(()=>{
+        //     Router.push("/connexion")
+        // }, 4000)
     }, [])
     return (
         <LayoutClassicPage title="Remerciement" meta="Remerciement poour la validation du formulaire de MaPrimeRenov.">
             <main className={styles.main}>
                 <h1 className={styles.title}>Merci</h1>
-                <h2 className={styles.susTitle}>Vous pouvez désormer acceder à votre espace et voir votre simulation.</h2>
+                <h2 className={styles.susTitle}>Vous êtes éligible aux aides MaPrimeRenov&apos;, nous vous contacterons dans les 48h.</h2>
             </main>
         </LayoutClassicPage>
     );
