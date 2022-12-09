@@ -5,7 +5,7 @@ import Router from 'next/router';
 import { signOut } from '../../api/Auth';
 const Index = () => {
     useEffect(()=>{
-        signOut()
+        // signOut()
         // setTimeout(()=>{
         //     Router.push("/connexion")
         // }, 4000)
