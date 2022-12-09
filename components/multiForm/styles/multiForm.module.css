@@ -344,12 +344,13 @@
 }
 @media screen and (max-width: 653px) {
     .multiFormContainer{
-        height: 1100px;
-        max-height: none;
-        margin-top: 0;
+            /* min-height: 1100px; */
+            max-height: none;
+            height: 100%;
     }
     .formulaire{
-        margin-top: 2rem;
+        margin-top: auto;
+        margin-bottom: auto;
     }
     .buttonContainer{
         margin-top: 2rem;
