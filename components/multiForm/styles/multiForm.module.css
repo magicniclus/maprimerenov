@@ -15,7 +15,7 @@
     -webkit-box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.2); 
     box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.2);
     position: relative;
-    overflow: hidden;
+    overflow: auto;
 }
 .loader{
     position: absolute;
@@ -218,6 +218,14 @@
     margin-top: 1rem; 
     padding-right: 1rem;
     width: 100%;
+}
+.rgpdCheckbox{
+    margin-top: 1rem;
+}
+.rgpdCheckboxLabel{
+    font-size: 12px;
+    color: #314662;
+    margin-top: 2rem;
 }
 @media screen and (max-width: 450px) {
     .input, .select {
