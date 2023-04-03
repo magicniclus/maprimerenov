@@ -1,6 +1,6 @@
 .container{
     width: 100%;
-    background-color: #CEE4F2;
+    /* background-color: #CEE4F2; */
     height: 680px;
     display: flex;
     flex-wrap: wrap;
