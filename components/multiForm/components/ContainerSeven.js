@@ -140,7 +140,7 @@ const ContainerSeven = (props) => {
                 onChange={handleRGPD}
               />
               J'accepte les{" "}
-              <a href="/politique-de-confidentialite" target="_blank">
+              <a href="/politique" target="_blank">
                 conditions de traitement des données personnelles
               </a>{" "}
               conformément au RGPD.
