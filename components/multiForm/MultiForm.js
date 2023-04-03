@@ -89,6 +89,7 @@ const MultiForm = (props) => {
     signPrestation: "",
     entreprise: "",
     uid: "",
+    RGPD: false,
   });
 
   const reset = (section) => {
@@ -219,6 +220,12 @@ const MultiForm = (props) => {
             valuePhone={(e) => setProspect({ ...propsect, phone: e })}
             valueEmail={(e) => setProspect({ ...propsect, email: e })}
             valueContract={(e) => setProspect({ ...propsect, contract: e })}
+            valueRGPD={(e) =>
+              setProspect({
+                ...propsect,
+                RGPD: e,
+              })
+            }
           />
         );
 
@@ -341,6 +348,7 @@ const MultiForm = (props) => {
         propsect.phone !== "" &&
         propsect.email !== "" &&
         propsect.contract !== "" &&
+        propsect.RGPD !== false &&
         phoneRegex.test(propsect.phone) === true
           ? setDisable(false)
           : setDisable(true);
