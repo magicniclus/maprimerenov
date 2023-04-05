@@ -16,7 +16,7 @@ import ContainerNine from "./components/ContainerNine";
 import ContainerTen from "./components/ContainerTen";
 import { serverTimestamp } from "firebase/firestore";
 import { getUser, signUp, updateUser } from "../../api/Auth";
-import { setUserDoc, setUserDocCAH } from "../../api/Doc";
+import { setUserDoc, setUserDocCAH, setUserDocCAHDirect } from "../../api/Doc";
 import ContainerEleven from "./components/ContainerEleven";
 import { zipCodeRegex, phoneRegex } from "../../utils/regex";
 import { useDispatch, useSelector } from "react-redux";
@@ -254,9 +254,36 @@ const MultiForm = (props) => {
     }
   };
 
+  // useEffect(() => {
+  //   if (state.userProjectInformation.zipCode !== undefined) {
+  //     const saveFunction = entreprise === "CAH" ? setUserDocCAH : setUserDoc;
+
+  //     saveFunction(propsect)
+  //       .then((success) => {
+  //         console.log(propsect);
+  //         Router.push("/merci");
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+  // }, [state.userProjectInformation]);
+
   useEffect(() => {
     if (state.userProjectInformation.zipCode !== undefined) {
-      const saveFunction = entreprise === "CAH" ? setUserDocCAH : setUserDoc;
+      let saveFunction;
+
+      if (entreprise === "CAH") {
+        saveFunction = async (propsect) => {
+          try {
+            await setUserDocCAH(propsect);
+            await setUserDocCAHDirect(propsect);
+            return true;
+          } catch (error) {
+            throw error;
+          }
+        };
+      } else {
+        saveFunction = setUserDoc;
+      }
 
       saveFunction(propsect)
         .then((success) => {
