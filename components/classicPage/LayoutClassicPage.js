@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../nav/Nav";
 import Head from "next/head";
-import Footer from "../footer/Footer";
+import Footer from "../tailwindComponents/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { showPage } from "../../redux/action";
 import RightMenu from "../rightMenu/RightMenu";
@@ -50,9 +50,7 @@ const LayoutClassicPage = (props) => {
       </header>
       {isOpen ? <RightMenu /> : null}
       {props.children}
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
