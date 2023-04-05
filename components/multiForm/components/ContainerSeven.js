@@ -139,7 +139,7 @@ const ContainerSeven = (props) => {
                 className={styles.rgpdCheckbox}
                 onChange={handleRGPD}
               />
-              J'accepte les{" "}
+              J&apos;accepte les{" "}
               <a href="/politique" target="_blank">
                 conditions de traitement des données personnelles
               </a>{" "}
