@@ -37,7 +37,7 @@ export const setUserDocCAH = async (object) => {
 //Add user in CAH database in CAH database
 export const setUserDocCAHDirect = async (object) => {
   return new Promise((resolve, reject) => {
-    setDoc(doc(dataBase2, "propsect", object.name), object)
+    setDoc(doc(dataBase2, "prospect", object.name), object)
       .then(() => {
         resolve(true);
       })
