@@ -253,20 +253,6 @@ const MultiForm = (props) => {
       dispatch(showUserProjectInformation(propsect));
     }
   };
-
-  // useEffect(() => {
-  //   if (state.userProjectInformation.zipCode !== undefined) {
-  //     const saveFunction = entreprise === "CAH" ? setUserDocCAH : setUserDoc;
-
-  //     saveFunction(propsect)
-  //       .then((success) => {
-  //         console.log(propsect);
-  //         Router.push("/merci");
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // }, [state.userProjectInformation]);
-
   useEffect(() => {
     if (state.userProjectInformation.zipCode !== undefined) {
       let saveFunction;
