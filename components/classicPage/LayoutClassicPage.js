@@ -23,13 +23,9 @@ const LayoutClassicPage = (props) => {
 
   useEffect(() => {
     if (state.menuIsOpen && document !== undefined) {
-      // const body = document.querySelector("body")
-      // body.style.overflowY = "hidden"
       disableBodyScroll(document);
       setIsOpen(true);
     } else {
-      // const body = document.querySelector("body")
-      // body.style.overflowY = "scroll"
       enableBodyScroll(document);
       setIsOpen(false);
     }
